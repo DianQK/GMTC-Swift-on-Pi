@@ -1,0 +1,7 @@
+platform :ios, '13.0'
+
+target 'Client' do
+  use_frameworks!
+  pod 'SwiftNIO', '~> 2.0.0'
+  pod 'SwiftNIOTransportServices', '~> 1.0.0'
+end
