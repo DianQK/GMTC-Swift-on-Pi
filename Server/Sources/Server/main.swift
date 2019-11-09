@@ -61,9 +61,9 @@ final class ChatHandler: ChannelInboundHandler {
         
         print("new channel")
         
-//        var buffer = channel.allocator.buffer(capacity: 64)
-//        buffer.writeString("(ChatServer) - Welcome to: \(context.localAddress!)\n")
-//        context.writeAndFlush(self.wrapOutboundOut(buffer), promise: nil)
+        var buffer = channel.allocator.buffer(capacity: 64)
+        buffer.writeString("(ChatServer) - Welcome to: \(context.localAddress!)\n")
+        context.writeAndFlush(self.wrapOutboundOut(buffer), promise: nil)
     }
     
     public func channelInactive(context: ChannelHandlerContext) {

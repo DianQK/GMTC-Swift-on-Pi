@@ -35,8 +35,8 @@ private final class ChatHandler: ChannelInboundHandler {
         let channel = context.channel
         var sendBuffer = channel.allocator.buffer(capacity: 64)
         count += 1
-        sendBuffer.writeString("(ChatClient) - Welcome to: \(context.localAddress!) \(count)\n")
-        context.writeAndFlush(self.wrapOutboundOut(sendBuffer), promise: nil)
+//        sendBuffer.writeString("(ChatClient) - Welcome to: \(context.localAddress!) \(count)\n")
+//        context.writeAndFlush(self.wrapOutboundOut(sendBuffer), promise: nil)
     }
 
     public func errorCaught(context: ChannelHandlerContext, error: Error) {
