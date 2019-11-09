@@ -77,11 +77,16 @@ final class ChatHandler: ChannelInboundHandler {
     }
 
     public func channelRead(context: ChannelHandlerContext, data: NIOAny) {
-            let channel = context.channel
+        let channel = context.channel
+        let byteBuffer = self.unwrapInboundIn(data)
+//        print(byteBuffer.getsta)
+        let rawValue = byteBuffer.getString(at: byteBuffer.readerIndex, length: byteBuffer.readableBytes)
 //            var sendBuffer = channel.allocator.buffer(capacity: 64)
 //            sendBuffer.writeString("OK: \(context.localAddress!)\n")
 //            context.writeAndFlush(self.wrapOutboundOut(sendBuffer), promise: nil)
-        rgbled.switchToNextState()
+        if let rawValue = rawValue, let state = RGBLED.State(rawValue: rawValue) {
+            rgbled.state = state
+        }
     }
 
     public func errorCaught(context: ChannelHandlerContext, error: Error) {

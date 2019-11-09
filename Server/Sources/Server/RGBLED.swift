@@ -18,7 +18,7 @@ class RGBLED {
     let greenGPIO: GPIO
     let blueGPIO: GPIO
     
-    enum State {
+    enum State: String {
         case red
         case green
         case blue
@@ -39,12 +39,15 @@ class RGBLED {
     }
     
     func setupGPIO() {
+        #if os(Linux)
         self.redGPIO.direction = .OUT
         self.greenGPIO.direction = .OUT
         self.blueGPIO.direction = .OUT
+        #endif
         self.changeState(self.state)
     }
     
+    #if os(Linux)
     private func changeState (_ state: State) {
         switch state {
         case .red:
@@ -65,6 +68,11 @@ class RGBLED {
             self.blueGPIO.value = 0
         }
     }
+    #else
+    private func changeState (_ state: State) {
+        print("change state to \(state.rawValue)")
+    }
+    #endif
     
     func switchToNextState() {
         switch state {

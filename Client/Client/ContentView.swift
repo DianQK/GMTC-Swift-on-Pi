@@ -10,17 +10,33 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var isOn: Bool = false
+//    @State var isOn: Bool = false
     
     var body: some View {
         VStack {
             HStack {
-                Text("灯光").font(.title)
+                Button(action: {
+                    chatHandler.send(string: "red")
+                }) {
+                    Text("红").font(.title)
+                }
                 Spacer()
                 Button(action: {
-                    self.isOn.toggle()
+                    chatHandler.send(string: "green")
                 }) {
-                    Text(isOn ? "关闭" : "打开").font(.title)
+                    Text("绿").font(.title)
+                }
+                Spacer()
+                Button(action: {
+                    chatHandler.send(string: "blue")
+                }) {
+                    Text("蓝").font(.title)
+                }
+                Spacer()
+                Button(action: {
+                    chatHandler.send(string: "none")
+                }) {
+                    Text("关").font(.title)
                 }
             }
             HStack {

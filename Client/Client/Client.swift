@@ -10,7 +10,7 @@ import Foundation
 import NIO
 import NIOFoundationCompat
 
-private final class ChatHandler: ChannelInboundHandler {
+class ChatHandler: ChannelInboundHandler {
     public typealias InboundIn = ByteBuffer
     public typealias OutboundOut = ByteBuffer
 
@@ -21,6 +21,8 @@ private final class ChatHandler: ChannelInboundHandler {
         fputc(Int32(byte), stdout)
         #endif
     }
+    
+    var piChannel: Channel?
 
     public func channelRead(context: ChannelHandlerContext, data: NIOAny) {
         var buffer = self.unwrapInboundIn(data)
@@ -34,9 +36,19 @@ private final class ChatHandler: ChannelInboundHandler {
 //        JSONDecoder().decode(<#T##type: Decodable.Protocol##Decodable.Protocol#>, from: <#T##ByteBuffer#>)
         let channel = context.channel
         var sendBuffer = channel.allocator.buffer(capacity: 64)
-        count += 1
+        self.piChannel = channel
+//        channel.writeAndFlush(<#T##data: NIOAny##NIOAny#>)
 //        sendBuffer.writeString("(ChatClient) - Welcome to: \(context.localAddress!) \(count)\n")
 //        context.writeAndFlush(self.wrapOutboundOut(sendBuffer), promise: nil)
+    }
+    
+    func send(string: String) {
+        guard let piChannel = self.piChannel else {
+            return
+        }
+        var sendBuffer = piChannel.allocator.buffer(capacity: string.utf8.count)
+        sendBuffer.writeString(string)
+        piChannel.writeAndFlush(self.wrapOutboundOut(sendBuffer), promise: nil)
     }
 
     public func errorCaught(context: ChannelHandlerContext, error: Error) {
@@ -48,7 +60,7 @@ private final class ChatHandler: ChannelInboundHandler {
     }
 }
 
-var count = 1
+let chatHandler = ChatHandler()
 
 func startClient() throws {
     let group = MultiThreadedEventLoopGroup(numberOfThreads: 1)
@@ -56,13 +68,13 @@ func startClient() throws {
         // Enable SO_REUSEADDR.
         .channelOption(ChannelOptions.socket(SocketOptionLevel(SOL_SOCKET), SO_REUSEADDR), value: 1)
         .channelInitializer { channel in
-            channel.pipeline.addHandler(ChatHandler())
+            channel.pipeline.addHandler(chatHandler)
         }
 //    defer {
 //        try! group.syncShutdownGracefully()
 //    }
 
-    let defaultHost = "localhost"
+    let defaultHost = "pi.ssh.homekit.press"
     let defaultPort = 9999
 
     _ = bootstrap.connect(host: defaultHost, port: defaultPort)
