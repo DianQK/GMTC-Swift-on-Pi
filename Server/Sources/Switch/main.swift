@@ -6,8 +6,6 @@ import Darwin
 import Foundation
 import SwiftyGPIO
 
-print("hello world")
-
 let switchButtonPin: GPIOName = .P24
 
 let redPin: GPIOName = .P5
@@ -86,7 +84,17 @@ class RGB {
 
 let rgb = RGB(redGPIO: gpios[redPin]!, greenGPIO: gpios[greenPin]!, blueGPIO: gpios[bluePin]!)
 
-while true {
+//while true {
+//    rgb.switchToNextState()
+//    sleep(1)
+//}
+
+let switchButtonGPIO = gpios[switchButtonPin]!
+
+switchButtonGPIO.direction = .IN
+switchButtonGPIO.onChange { (gpio) in
+    print(gpio)
     rgb.switchToNextState()
-    sleep(1)
 }
+
+RunLoop.main.run()
