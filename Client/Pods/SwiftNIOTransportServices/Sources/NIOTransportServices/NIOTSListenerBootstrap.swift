@@ -19,10 +19,10 @@ import NIO
 import Dispatch
 import Network
 
-@available(OSX 10.14, iOS 12.0, tvOS 12.0, *)
+@available(OSX 10.14, iOS 12.0, tvOS 12.0, watchOS 6.0, *)
 public final class NIOTSListenerBootstrap {
     private let group: EventLoopGroup
-    private let childGroup: NIOTSEventLoopGroup
+    private let childGroup: EventLoopGroup
     private var serverChannelInit: ((Channel) -> EventLoopFuture<Void>)?
     private var childChannelInit: ((Channel) -> EventLoopFuture<Void>)?
     private var serverChannelOptions = ChannelOptionsStorage()
@@ -31,13 +31,55 @@ public final class NIOTSListenerBootstrap {
     private var childQoS: DispatchQoS?
     private var tcpOptions: NWProtocolTCP.Options = .init()
     private var tlsOptions: NWProtocolTLS.Options?
+    private var bindTimeout: TimeAmount?
 
     /// Create a `NIOTSListenerBootstrap` for the `EventLoopGroup` `group`.
     ///
+    /// This initializer only exists to be more in-line with the NIO core bootstraps, in that they
+    /// may be constructed with an `EventLoopGroup` and by extenstion an `EventLoop`. As such an
+    /// existing `NIOTSEventLoop` may be used to initialize this bootstrap. Where possible the
+    /// initializers accepting `NIOTSEventLoopGroup` should be used instead to avoid the wrong
+    /// type being used.
+    ///
+    /// Note that the "real" solution is described in https://github.com/apple/swift-nio/issues/674.
+    ///
     /// - parameters:
     ///     - group: The `EventLoopGroup` to use for the `ServerSocketChannel`.
-    public convenience init(group: NIOTSEventLoopGroup) {
+    public convenience init(group: EventLoopGroup) {
         self.init(group: group, childGroup: group)
+
+        self.serverChannelOptions.append(key: ChannelOptions.socket(IPPROTO_TCP, TCP_NODELAY), value: 1)
+        self.childChannelOptions.append(key: ChannelOptions.socket(IPPROTO_TCP, TCP_NODELAY), value: 1)
+    }
+
+    /// Create a `NIOTSListenerBootstrap` for the `NIOTSEventLoopGroup` `group`.
+    ///
+    /// - parameters:
+    ///     - group: The `NIOTSEventLoopGroup` to use for the `ServerSocketChannel`.
+    public convenience init(group: NIOTSEventLoopGroup) {
+        self.init(group: group as EventLoopGroup)
+    }
+
+    /// Create a `NIOTSListenerBootstrap`.
+    ///
+    /// This initializer only exists to be more in-line with the NIO core bootstraps, in that they
+    /// may be constructed with an `EventLoopGroup` and by extenstion an `EventLoop`. As such an
+    /// existing `NIOTSEventLoop` may be used to initialize this bootstrap. Where possible the
+    /// initializers accepting `NIOTSEventLoopGroup` should be used instead to avoid the wrong
+    /// type being used.
+    ///
+    /// Note that the "real" solution is described in https://github.com/apple/swift-nio/issues/674.
+    ///
+    /// - parameters:
+    ///     - group: The `EventLoopGroup` to use for the `bind` of the `NIOTSListenerChannel`
+    ///         and to accept new `NIOTSConnectionChannel`s with.
+    ///     - childGroup: The `EventLoopGroup` to run the accepted `NIOTSConnectionChannel`s on.
+    public init(group: EventLoopGroup, childGroup: EventLoopGroup) {
+        self.group = group
+        self.childGroup = childGroup
+
+        self.serverChannelOptions.append(key: ChannelOptions.socket(IPPROTO_TCP, TCP_NODELAY), value: 1)
+        self.childChannelOptions.append(key: ChannelOptions.socket(IPPROTO_TCP, TCP_NODELAY), value: 1)
     }
 
     /// Create a `NIOTSListenerBootstrap`.
@@ -46,9 +88,8 @@ public final class NIOTSListenerBootstrap {
     ///     - group: The `NIOTSEventLoopGroup` to use for the `bind` of the `NIOTSListenerChannel`
     ///         and to accept new `NIOTSConnectionChannel`s with.
     ///     - childGroup: The `NIOTSEventLoopGroup` to run the accepted `NIOTSConnectionChannel`s on.
-    public init(group: NIOTSEventLoopGroup, childGroup: NIOTSEventLoopGroup) {
-        self.group = group
-        self.childGroup = childGroup
+    public convenience init(group: NIOTSEventLoopGroup, childGroup: NIOTSEventLoopGroup) {
+        self.init(group: group as EventLoopGroup, childGroup: childGroup as EventLoopGroup)
     }
 
     /// Initialize the `NIOTSListenerChannel` with `initializer`. The most common task in initializer is to add
@@ -100,6 +141,14 @@ public final class NIOTSListenerBootstrap {
         return self
     }
 
+    /// Specifies a timeout to apply to a bind attempt.
+    //
+    /// - parameters:
+    ///     - timeout: The timeout that will apply to the bind attempt.
+    public func bindTimeout(_ timeout: TimeAmount) -> Self {
+        self.bindTimeout = timeout
+        return self
+    }
 
     /// Specifies a QoS to use for the server channel, instead of the default QoS for the
     /// event loop.
@@ -146,18 +195,16 @@ public final class NIOTSListenerBootstrap {
     ///     - host: The host to bind on.
     ///     - port: The port to bind on.
     public func bind(host: String, port: Int) -> EventLoopFuture<Channel> {
-        return self.bind0 { channel in
-            let p: EventLoopPromise<Void> = channel.eventLoop.makePromise()
+        return self.bind0 { (channel, promise) in
             do {
                 // NWListener does not actually resolve hostname-based NWEndpoints
                 // for use with requiredLocalEndpoint, so we fall back to
                 // SocketAddress for this.
                 let address = try SocketAddress.makeAddressResolvingHost(host, port: port)
-                channel.bind(to: address, promise: p)
+                channel.bind(to: address, promise: promise)
             } catch {
-                p.fail(error)
+                promise.fail(error)
             }
-            return p.futureResult
         }
     }
 
@@ -166,8 +213,8 @@ public final class NIOTSListenerBootstrap {
     /// - parameters:
     ///     - address: The `SocketAddress` to bind on.
     public func bind(to address: SocketAddress) -> EventLoopFuture<Channel> {
-        return self.bind0 { channel in
-            channel.bind(to: address)
+        return self.bind0 { (channel, promise) in
+            channel.bind(to: address, promise: promise)
         }
     }
 
@@ -176,15 +223,13 @@ public final class NIOTSListenerBootstrap {
     /// - parameters:
     ///     - unixDomainSocketPath: The _Unix domain socket_ path to bind to. `unixDomainSocketPath` must not exist, it will be created by the system.
     public func bind(unixDomainSocketPath: String) -> EventLoopFuture<Channel> {
-        return self.bind0 { channel in
-            let p: EventLoopPromise<Void> = channel.eventLoop.makePromise()
+        return self.bind0 { (channel, promise) in
             do {
                 let address = try SocketAddress(unixDomainSocketPath: unixDomainSocketPath)
-                channel.bind(to: address, promise: p)
+                channel.bind(to: address, promise: promise)
             } catch {
-                p.fail(error)
+                promise.fail(error)
             }
-            return p.futureResult
         }
     }
 
@@ -193,12 +238,12 @@ public final class NIOTSListenerBootstrap {
     /// - parameters:
     ///     - endpoint: The `NWEndpoint` to bind this channel to.
     public func bind(endpoint: NWEndpoint) -> EventLoopFuture<Channel> {
-        return self.bind0 { channel in
-            channel.triggerUserOutboundEvent(NIOTSNetworkEvents.BindToNWEndpoint(endpoint: endpoint))
+        return self.bind0 { (channel, promise) in
+            channel.triggerUserOutboundEvent(NIOTSNetworkEvents.BindToNWEndpoint(endpoint: endpoint), promise: promise)
         }
     }
 
-    private func bind0(_ binder: @escaping (Channel) -> EventLoopFuture<Void>) -> EventLoopFuture<Channel> {
+    private func bind0(_ binder: @escaping (Channel, EventLoopPromise<Void>) -> Void) -> EventLoopFuture<Channel> {
         let eventLoop = self.group.next() as! NIOTSEventLoop
         let serverChannelInit = self.serverChannelInit ?? { _ in eventLoop.makeSucceededFuture(()) }
         let childChannelInit = self.childChannelInit
@@ -218,12 +263,26 @@ public final class NIOTSListenerBootstrap {
             return serverChannelOptions.applyAllChannelOptions(to: serverChannel).flatMap {
                 serverChannelInit(serverChannel)
             }.flatMap {
-                serverChannel.pipeline.addHandler(AcceptHandler(childChannelInitializer: childChannelInit,
-                                                                  childChannelOptions: childChannelOptions))
+                eventLoop.assertInEventLoop()
+                return serverChannel.pipeline.addHandler(AcceptHandler(childChannelInitializer: childChannelInit,
+                                                                       childChannelOptions: childChannelOptions))
             }.flatMap {
                 serverChannel.register()
             }.flatMap {
-                binder(serverChannel)
+                let bindPromise = eventLoop.makePromise(of: Void.self)
+                binder(serverChannel, bindPromise)
+
+                if let bindTimeout = self.bindTimeout {
+                    let cancelTask = eventLoop.scheduleTask(in: bindTimeout) {
+                        bindPromise.fail(NIOTSErrors.BindTimeout(timeout: bindTimeout))
+                        serverChannel.close(promise: nil)
+                    }
+
+                    bindPromise.futureResult.whenComplete { (_: Result<Void, Error>) in
+                        cancelTask.cancel()
+                    }
+                }
+                return bindPromise.futureResult
             }.map {
                 serverChannel as Channel
             }.flatMapError { error in
@@ -237,7 +296,7 @@ public final class NIOTSListenerBootstrap {
 }
 
 
-@available(OSX 10.14, iOS 12.0, tvOS 12.0, *)
+@available(OSX 10.14, iOS 12.0, tvOS 12.0, watchOS 6.0, *)
 private class AcceptHandler: ChannelInboundHandler {
     typealias InboundIn = NIOTSConnectionChannel
     typealias InboundOut = NIOTSConnectionChannel
@@ -290,7 +349,7 @@ private class AcceptHandler: ChannelInboundHandler {
         } else {
             fireThroughPipeline(childLoop.submit {
                 return setupChildChannel()
-                }.flatMap { $0 }.hop(to: ctxEventLoop))
+            }.flatMap { $0 }.hop(to: ctxEventLoop))
         }
     }
 }

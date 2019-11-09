@@ -9,8 +9,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var isOn: Bool = false
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            HStack {
+                Text("灯光").font(.title)
+                Spacer()
+                Button(action: {
+                    self.isOn.toggle()
+                }) {
+                    Text(isOn ? "关闭" : "打开").font(.title)
+                }
+            }
+            HStack {
+                Text("温度").font(.title)
+                Spacer()
+                Text("29").font(.title)
+            }
+            HStack {
+                Text("湿度").font(.title)
+                Spacer()
+                Text("29").font(.title)
+            }
+        }
+        .padding(15)
     }
 }
 

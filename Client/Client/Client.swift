@@ -8,6 +8,7 @@
 
 import Foundation
 import NIO
+import NIOFoundationCompat
 
 private final class ChatHandler: ChannelInboundHandler {
     public typealias InboundIn = ByteBuffer
@@ -26,6 +27,11 @@ private final class ChatHandler: ChannelInboundHandler {
         while let byte: UInt8 = buffer.readInteger() {
             printByte(byte)
         }
+//        buffer.getData(at: 0, length: buffer.readerIndex)
+//        buffer.decod
+//        JSONDecoder().dec
+//        buffer.readJSONDecodable(<#T##type: Decodable.Protocol##Decodable.Protocol#>, decoder: <#T##JSONDecoder#>, length: <#T##Int#>)
+//        JSONDecoder().decode(<#T##type: Decodable.Protocol##Decodable.Protocol#>, from: <#T##ByteBuffer#>)
         let channel = context.channel
         var sendBuffer = channel.allocator.buffer(capacity: 64)
         count += 1

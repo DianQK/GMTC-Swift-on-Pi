@@ -249,12 +249,13 @@ public protocol EventLoop: EventLoopGroup {
 ///
 /// - note: `TimeAmount` should not be used to represent a point in time.
 public struct TimeAmount: Equatable {
+    @available(*, deprecated, message: "This typealias doesn't serve any purpose. Please use Int64 directly.")
     public typealias Value = Int64
 
     /// The nanoseconds representation of the `TimeAmount`.
-    public let nanoseconds: Value
+    public let nanoseconds: Int64
 
-    private init(_ nanoseconds: Value) {
+    private init(_ nanoseconds: Int64) {
         self.nanoseconds = nanoseconds
     }
 
@@ -263,7 +264,7 @@ public struct TimeAmount: Equatable {
     /// - parameters:
     ///     - amount: the amount of nanoseconds this `TimeAmount` represents.
     /// - returns: the `TimeAmount` for the given amount.
-    public static func nanoseconds(_ amount: Value) -> TimeAmount {
+    public static func nanoseconds(_ amount: Int64) -> TimeAmount {
         return TimeAmount(amount)
     }
 
@@ -272,7 +273,7 @@ public struct TimeAmount: Equatable {
     /// - parameters:
     ///     - amount: the amount of microseconds this `TimeAmount` represents.
     /// - returns: the `TimeAmount` for the given amount.
-    public static func microseconds(_ amount: Value) -> TimeAmount {
+    public static func microseconds(_ amount: Int64) -> TimeAmount {
         return TimeAmount(amount * 1000)
     }
 
@@ -281,7 +282,7 @@ public struct TimeAmount: Equatable {
     /// - parameters:
     ///     - amount: the amount of milliseconds this `TimeAmount` represents.
     /// - returns: the `TimeAmount` for the given amount.
-    public static func milliseconds(_ amount: Value) -> TimeAmount {
+    public static func milliseconds(_ amount: Int64) -> TimeAmount {
         return TimeAmount(amount * 1000 * 1000)
     }
 
@@ -290,7 +291,7 @@ public struct TimeAmount: Equatable {
     /// - parameters:
     ///     - amount: the amount of seconds this `TimeAmount` represents.
     /// - returns: the `TimeAmount` for the given amount.
-    public static func seconds(_ amount: Value) -> TimeAmount {
+    public static func seconds(_ amount: Int64) -> TimeAmount {
         return TimeAmount(amount * 1000 * 1000 * 1000)
     }
 
@@ -299,7 +300,7 @@ public struct TimeAmount: Equatable {
     /// - parameters:
     ///     - amount: the amount of minutes this `TimeAmount` represents.
     /// - returns: the `TimeAmount` for the given amount.
-    public static func minutes(_ amount: Value) -> TimeAmount {
+    public static func minutes(_ amount: Int64) -> TimeAmount {
         return TimeAmount(amount * 1000 * 1000 * 1000 * 60)
     }
 
@@ -308,7 +309,7 @@ public struct TimeAmount: Equatable {
     /// - parameters:
     ///     - amount: the amount of hours this `TimeAmount` represents.
     /// - returns: the `TimeAmount` for the given amount.
-    public static func hours(_ amount: Value) -> TimeAmount {
+    public static func hours(_ amount: Int64) -> TimeAmount {
         return TimeAmount(amount * 1000 * 1000 * 1000 * 60 * 60)
     }
 }
@@ -329,11 +330,11 @@ extension TimeAmount {
     }
 
     public static func * <T: BinaryInteger>(lhs: T, rhs: TimeAmount) -> TimeAmount {
-        return TimeAmount(TimeAmount.Value(lhs) * rhs.nanoseconds)
+        return TimeAmount(Int64(lhs) * rhs.nanoseconds)
     }
 
     public static func * <T: BinaryInteger>(lhs: TimeAmount, rhs: T) -> TimeAmount {
-        return TimeAmount(lhs.nanoseconds * TimeAmount.Value(rhs))
+        return TimeAmount(lhs.nanoseconds * Int64(rhs))
     }
 }
 
@@ -355,24 +356,35 @@ extension TimeAmount {
 ///
 /// - note: `NIODeadline` should not be used to represent a time interval
 public struct NIODeadline: Equatable, Hashable {
+    @available(*, deprecated, message: "This typealias doesn't server any purpose, please use UInt64 directly.")
     public typealias Value = UInt64
 
+    // This really should be an UInt63 but we model it as Int64 with >=0 assert
+    private var _uptimeNanoseconds: Int64 {
+        didSet {
+            assert(self._uptimeNanoseconds >= 0)
+        }
+    }
+
     /// The nanoseconds since boot representation of the `NIODeadline`.
-    public let uptimeNanoseconds: Value
+    public var uptimeNanoseconds: UInt64 {
+        return .init(self._uptimeNanoseconds)
+    }
 
     public static let distantPast = NIODeadline(0)
-    public static let distantFuture = NIODeadline(DispatchTime.distantFuture.uptimeNanoseconds)
+    public static let distantFuture = NIODeadline(.init(Int64.max))
 
-    private init(_ nanoseconds: Value) {
-        self.uptimeNanoseconds = nanoseconds
+    private init(_ nanoseconds: Int64) {
+        precondition(nanoseconds >= 0)
+        self._uptimeNanoseconds = nanoseconds
     }
 
     public static func now() -> NIODeadline {
-        return NIODeadline(DispatchTime.now().uptimeNanoseconds)
+        return NIODeadline.uptimeNanoseconds(DispatchTime.now().uptimeNanoseconds)
     }
 
-    public static func uptimeNanoseconds(_ nanoseconds: Value) -> NIODeadline {
-        return NIODeadline(nanoseconds)
+    public static func uptimeNanoseconds(_ nanoseconds: UInt64) -> NIODeadline {
+        return NIODeadline(Int64(min(UInt64(Int64.max), nanoseconds)))
     }
 }
 
@@ -394,27 +406,51 @@ extension NIODeadline: CustomStringConvertible {
 
 extension NIODeadline {
     public static func - (lhs: NIODeadline, rhs: NIODeadline) -> TimeAmount {
-        return .nanoseconds(TimeAmount.Value(lhs.uptimeNanoseconds - rhs.uptimeNanoseconds))
+        // This won't ever crash, NIODeadlines are guanteed to be within 0 ..< 2^63-1 nanoseconds so the result can
+        // definitely be stored in a TimeAmount (which is an Int64).
+        return .nanoseconds(Int64(lhs.uptimeNanoseconds) - Int64(rhs.uptimeNanoseconds))
     }
 
     public static func + (lhs: NIODeadline, rhs: TimeAmount) -> NIODeadline {
-        if rhs.nanoseconds < 0 {
-            return NIODeadline(lhs.uptimeNanoseconds - rhs.nanoseconds.magnitude)
-        } else {
-            return NIODeadline(lhs.uptimeNanoseconds + rhs.nanoseconds.magnitude)
+        let partial: Int64
+        let overflow: Bool
+        (partial, overflow) = Int64(lhs.uptimeNanoseconds).addingReportingOverflow(rhs.nanoseconds)
+        if overflow {
+            assert(rhs.nanoseconds > 0) // this certainly must have overflowed towards +infinity
+            return NIODeadline.distantFuture
         }
+        guard partial >= 0 else {
+            return NIODeadline.uptimeNanoseconds(0)
+        }
+        return NIODeadline(partial)
     }
 
     public static func - (lhs: NIODeadline, rhs: TimeAmount) -> NIODeadline {
         if rhs.nanoseconds < 0 {
-            return NIODeadline(lhs.uptimeNanoseconds + rhs.nanoseconds.magnitude)
+            // The addition won't crash because the worst that could happen is `UInt64(Int64.max) + UInt64(Int64.max)`
+            // which fits into an UInt64 (and will then be capped to Int64.max == distantFuture by `uptimeNanoseconds`).
+            return NIODeadline.uptimeNanoseconds(lhs.uptimeNanoseconds + rhs.nanoseconds.magnitude)
+        } else if rhs.nanoseconds > lhs.uptimeNanoseconds {
+            // Cap it at `0` because otherwise this would be negative.
+            return NIODeadline.init(0)
         } else {
-            return NIODeadline(lhs.uptimeNanoseconds - rhs.nanoseconds.magnitude)
+            // This will be positive but still fix in an Int64.
+            let result = Int64(lhs.uptimeNanoseconds) - rhs.nanoseconds
+            assert(result >= 0)
+            return NIODeadline(result)
         }
     }
 }
 
 extension EventLoop {
+    /// Submit `task` to be run on this `EventLoop`.
+    ///
+    /// The returned `EventLoopFuture` will be completed when `task` has finished running. It will be succeeded with
+    /// `task`'s return value or failed if the execution of `task` threw an error.
+    ///
+    /// - parameters:
+    ///     - task: The synchronous task to run. As everything that runs on the `EventLoop`, it must not block.
+    /// - returns: An `EventLoopFuture` containing the result of `task`'s execution.
     public func submit<T>(_ task: @escaping () throws -> T) -> EventLoopFuture<T> {
         let promise: EventLoopPromise<T> = makePromise(file: #file, line: #line)
 
@@ -427,6 +463,18 @@ extension EventLoop {
         }
 
         return promise.futureResult
+    }
+
+    /// Submit `task` to be run on this `EventLoop`.
+    ///
+    /// The returned `EventLoopFuture` will be completed when `task` has finished running. It will be identical to
+    /// the `EventLoopFuture` returned by `task`.
+    ///
+    /// - parameters:
+    ///     - task: The synchronous task to run. As everything that runs on the `EventLoop`, it must not block.
+    /// - returns: An `EventLoopFuture` identical to the `EventLooopFuture` returned from `task`.
+    public func flatSubmit<T>(_ task: @escaping () -> EventLoopFuture<T>) -> EventLoopFuture<T> {
+        return submit(task).flatMap { $0 }
     }
 
     /// Creates and returns a new `EventLoopPromise` that will be notified using this `EventLoop` as execution `NIOThread`.
@@ -452,10 +500,14 @@ extension EventLoop {
         return EventLoopFuture<Success>(eventLoop: self, value: value, file: file, line: line)
     }
 
+    /// An `EventLoop` forms a singular `EventLoopGroup`, returning itself as the 'next' `EventLoop`.
+    ///
+    /// - returns: Itself, because an `EventLoop` forms a singular `EventLoopGroup`.
     public func next() -> EventLoop {
         return self
     }
 
+    /// Close this `EventLoop`.
     public func close() throws {
         // Do nothing
     }
@@ -525,6 +577,7 @@ extension EventLoop {
         }
     }
 
+    /// Checks the necessary condition of currently running on the called `EventLoop` for making forward progress.
     public func preconditionInEventLoop(file: StaticString = #file, line: UInt = #line) {
         precondition(self.inEventLoop, file: file, line: line)
     }
@@ -539,6 +592,7 @@ enum NIORegistration: Registration {
     case serverSocketChannel(ServerSocketChannel, SelectorEventSet)
     case socketChannel(SocketChannel, SelectorEventSet)
     case datagramChannel(DatagramChannel, SelectorEventSet)
+    case pipeChannel(PipeChannel, PipeChannel.Direction, SelectorEventSet)
 
     /// The `SelectorEventSet` in which this `NIORegistration` is interested in.
     var interested: SelectorEventSet {
@@ -550,6 +604,8 @@ enum NIORegistration: Registration {
                 self = .socketChannel(c, newValue)
             case .datagramChannel(let c, _):
                 self = .datagramChannel(c, newValue)
+            case .pipeChannel(let c, let d, _):
+                self = .pipeChannel(c, d, newValue)
             }
         }
         get {
@@ -559,6 +615,8 @@ enum NIORegistration: Registration {
             case .socketChannel(_, let i):
                 return i
             case .datagramChannel(_, let i):
+                return i
+            case .pipeChannel(_, _, let i):
                 return i
             }
         }
@@ -669,30 +727,34 @@ internal final class SelectableEventLoop: EventLoop {
             throw EventLoopError.shutdown
         }
 
-        try selector.register(selectable: channel.selectable, interested: channel.interestedEvent, makeRegistration: channel.registrationFor(interested:))
+        try channel.register(selector: self.selector, interested: channel.interestedEvent)
     }
 
     /// Deregister the given `SelectableChannel` from this `SelectableEventLoop`.
-    public func deregister<C: SelectableChannel>(channel: C) throws {
+    public func deregister<C: SelectableChannel>(channel: C, mode: CloseMode = .all) throws {
         self.assertInEventLoop()
         guard lifecycleState == .open else {
             // It's possible the EventLoop was closed before we were able to call deregister, so just return in this case as there is no harm.
             return
         }
-        try selector.deregister(selectable: channel.selectable)
+
+        try channel.deregister(selector: self.selector, mode: mode)
     }
 
     /// Register the given `SelectableChannel` with this `SelectableEventLoop`. This should be done whenever `channel.interestedEvents` has changed and it should be taken into account when
     /// waiting for new I/O for the given `SelectableChannel`.
     public func reregister<C: SelectableChannel>(channel: C) throws {
         self.assertInEventLoop()
-        try selector.reregister(selectable: channel.selectable, interested: channel.interestedEvent)
+
+        try channel.reregister(selector: self.selector, interested: channel.interestedEvent)
     }
 
+    /// - see: `EventLoop.inEventLoop`
     public var inEventLoop: Bool {
         return thread.isCurrent
     }
 
+    /// - see: `EventLoop.scheduleTask(deadline:_:)`
     public func scheduleTask<T>(deadline: NIODeadline, _ task: @escaping () throws -> T) -> Scheduled<T> {
         let promise: EventLoopPromise<T> = makePromise()
         let task = ScheduledTask({
@@ -716,10 +778,12 @@ internal final class SelectableEventLoop: EventLoop {
         return scheduled
     }
 
+    /// - see: `EventLoop.scheduleTask(in:_:)`
     public func scheduleTask<T>(in: TimeAmount, _ task: @escaping () throws -> T) -> Scheduled<T> {
         return scheduleTask(deadline: .now() + `in`, task)
     }
 
+    // - see: `EventLoop.execute`
     public func execute(_ task: @escaping () -> Void) {
         schedule0(ScheduledTask(task, { error in
             // do nothing
@@ -744,8 +808,8 @@ internal final class SelectableEventLoop: EventLoop {
     }
 
     /// Handle the given `SelectorEventSet` for the `SelectableChannel`.
-    private func handleEvent<C: SelectableChannel>(_ ev: SelectorEventSet, channel: C) {
-        guard channel.selectable.isOpen else {
+    internal final func handleEvent<C: SelectableChannel>(_ ev: SelectorEventSet, channel: C) {
+        guard channel.isOpen else {
             return
         }
 
@@ -753,10 +817,16 @@ internal final class SelectableEventLoop: EventLoop {
         if ev.contains(.reset) {
             channel.reset()
         } else {
-            if ev.contains(.write) {
+            if ev.contains(.writeEOF) {
+                channel.writeEOF()
+
+                guard channel.isOpen else {
+                    return
+                }
+            } else if ev.contains(.write) {
                 channel.writable()
 
-                guard channel.selectable.isOpen else {
+                guard channel.isOpen else {
                     return
                 }
             }
@@ -815,6 +885,15 @@ internal final class SelectableEventLoop: EventLoop {
                     case .socketChannel(let chan, _):
                         self.handleEvent(ev.io, channel: chan)
                     case .datagramChannel(let chan, _):
+                        self.handleEvent(ev.io, channel: chan)
+                    case .pipeChannel(let chan, let direction, _):
+                        var ev = ev
+                        if ev.io.contains(.reset) {
+                            // .reset needs special treatment here because we're dealing with two separate pipes instead
+                            // of one socket. So we turn .reset input .readEOF/.writeEOF.
+                            ev.io.subtract([.reset])
+                            ev.io.formUnion([direction == .input ? .readEOF : .writeEOF])
+                        }
                         self.handleEvent(ev.io, channel: chan)
                     }
                 }
@@ -897,22 +976,10 @@ internal final class SelectableEventLoop: EventLoop {
 
     @usableFromInline
     func shutdownGracefully(queue: DispatchQueue, _ callback: @escaping (Error?) -> Void) {
-        self.closeGently().map {
-            do {
-                try self.close0()
-                queue.async {
-                    callback(nil)
-                }
-            } catch {
-                queue.async {
-                    callback(error)
-                }
-            }
-        }.whenFailure { error in
-            _ = try? self.close0()
-            queue.async {
-                callback(error)
-            }
+        // This function is never called legally because the only possibly owner of an `SelectableEventLoop` is
+        // `MultiThreadedEventLoopGroup` which calls `closeGently`.
+        queue.async {
+            callback(EventLoopError.unsupportedOperation)
         }
     }
 }
@@ -930,6 +997,9 @@ extension SelectableEventLoop: CustomStringConvertible {
 /// Provides an endless stream of `EventLoop`s to use.
 public protocol EventLoopGroup: class {
     /// Returns the next `EventLoop` to use.
+    ///
+    /// The algorithm that is used to select the next `EventLoop` is specific to each `EventLoopGroup`. A common choice
+    /// is _round robin_.
     func next() -> EventLoop
 
     /// Shuts down the eventloop gracefully. This function is clearly an outlier in that it uses a completion
@@ -950,6 +1020,13 @@ extension EventLoopGroup {
     }
 
     public func syncShutdownGracefully() throws {
+        if let eventLoop = MultiThreadedEventLoopGroup.currentEventLoop {
+            preconditionFailure("""
+            BUG DETECTED: syncShutdownGracefully() must not be called when on an EventLoop.
+            Calling syncShutdownGracefully() on any EventLoop can lead to deadlocks.
+            Current eventLoop: \(eventLoop)
+            """)
+        }
         let errorStorageLock = Lock()
         var errorStorage: Error? = nil
         let continuation = DispatchWorkItem {}
@@ -970,6 +1047,8 @@ extension EventLoopGroup {
     }
 }
 
+private let nextEventLoopGroupID = Atomic(value: 0)
+
 /// Called per `NIOThread` that is created for an EventLoop to do custom initialization of the `NIOThread` before the actual `EventLoop` is run on it.
 typealias ThreadInitializer = (NIOThread) -> Void
 
@@ -988,10 +1067,18 @@ typealias ThreadInitializer = (NIOThread) -> Void
 ///            subclass, a good place to shut it down is the `tearDown` method.
 public final class MultiThreadedEventLoopGroup: EventLoopGroup {
 
+    private enum RunState {
+        case running
+        case closing([(DispatchQueue, (Error?) -> Void)])
+        case closed(Error?)
+    }
+
     private static let threadSpecificEventLoop = ThreadSpecificVariable<SelectableEventLoop>()
 
     private let index = Atomic<Int>(value: 0)
     private let eventLoops: [SelectableEventLoop]
+    private let shutdownLock: Lock = Lock()
+    private var runState: RunState = .running
 
     private static func setupThreadAndEventLoop(name: String, initializer: @escaping ThreadInitializer)  -> SelectableEventLoop {
         let lock = Lock()
@@ -1044,10 +1131,12 @@ public final class MultiThreadedEventLoopGroup: EventLoopGroup {
     /// - arguments:
     ///     - threadInitializers: The `ThreadInitializer`s to use.
     internal init(threadInitializers: [ThreadInitializer]) {
+        let myGroupID = nextEventLoopGroupID.add(1)
         var idx = 0
         self.eventLoops = threadInitializers.map { initializer in
             // Maximum name length on linux is 16 by default.
-            let ev = MultiThreadedEventLoopGroup.setupThreadAndEventLoop(name: "NIO-ELT-#\(idx)", initializer: initializer)
+            let ev = MultiThreadedEventLoopGroup.setupThreadAndEventLoop(name: "NIO-ELT-\(myGroupID)-#\(idx)",
+                                                                         initializer: initializer)
             idx += 1
             return ev
         }
@@ -1067,6 +1156,11 @@ public final class MultiThreadedEventLoopGroup: EventLoopGroup {
         return EventLoopIterator(self.eventLoops)
     }
 
+    /// Returns the next `EventLoop` from this `MultiThreadedEventLoopGroup`.
+    ///
+    /// `MultiThreadedEventLoopGroup` uses _round robin_ across all its `EventLoop`s to select the next one.
+    ///
+    /// - returns: The next `EventLoop` to use.
     public func next() -> EventLoop {
         return eventLoops[abs(index.add(1) % eventLoops.count)]
     }
@@ -1081,6 +1175,9 @@ public final class MultiThreadedEventLoopGroup: EventLoopGroup {
     /// Shut this `MultiThreadedEventLoopGroup` down which causes the `EventLoop`s and their associated threads to be
     /// shut down and release their resources.
     ///
+    /// Even though calling `shutdownGracefully` more than once should be avoided, it is safe to do so and execution
+    /// of the `handler` is guaranteed.
+    ///
     /// - parameters:
     ///    - queue: The `DispatchQueue` to run `handler` on when the shutdown operation completes.
     ///    - handler: The handler which is called after the shutdown operation completes. The parameter will be `nil`
@@ -1091,6 +1188,36 @@ public final class MultiThreadedEventLoopGroup: EventLoopGroup {
         // our shutdown signaling, and then do our cleanup once the DispatchQueue is empty.
         let g = DispatchGroup()
         let q = DispatchQueue(label: "nio.shutdownGracefullyQueue", target: queue)
+        let wasRunning: Bool = self.shutdownLock.withLock {
+            // We need to check the current `runState` and react accordingly.
+            switch self.runState {
+            case .running:
+                // If we are still running, we set the `runState` to `closing`,
+                // so that potential future invocations know, that the shutdown
+                // has already been initiaited.
+                self.runState = .closing([])
+                return true
+            case .closing(var callbacks):
+                // If we are currently closing, we need to register the `handler`
+                // for invocation after the shutdown is completed.
+                callbacks.append((q, handler))
+                self.runState = .closing(callbacks)
+                return false
+            case .closed(let error):
+                // If we are already closed, we can directly dispatch the `handler`
+                q.async {
+                    handler(error)
+                }
+                return false
+            }
+        }
+
+        // If the `runState` was not `running` when `shutdownGracefully` was called,
+        // the shutdown has already been initiated and we have to return here.
+        guard wasRunning else {
+            return
+        }
+
         var error: Error? = nil
 
         for loop in self.eventLoops {
@@ -1112,6 +1239,22 @@ public final class MultiThreadedEventLoopGroup: EventLoopGroup {
             }
 
             handler(error)
+
+            let callbacks: [(DispatchQueue, (Error?) -> Void)] = self.shutdownLock.withLock {
+                guard case .closing(let callbacks) = self.runState else {
+                    fatalError("runState was \(self.runState), expected .closing")
+                }
+
+                self.runState = .closed(error)
+
+                return callbacks
+            }
+
+            for (q, handler) in callbacks {
+                q.async {
+                    handler(error)
+                }
+            }
         }
     }
 }

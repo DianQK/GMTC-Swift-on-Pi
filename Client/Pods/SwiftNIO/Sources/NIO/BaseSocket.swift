@@ -12,6 +12,8 @@
 //
 //===----------------------------------------------------------------------===//
 
+import NIOConcurrencyHelpers
+
 /// A Registration on a `Selector`, which is interested in an `SelectorEventSet`.
 protocol Registration {
     /// The `SelectorEventSet` in which the `Registration` is interested.
@@ -204,7 +206,8 @@ extension sockaddr_storage {
 /// Base class for sockets.
 ///
 /// This should not be created directly but one of its sub-classes should be used, like `ServerSocket` or `Socket`.
-class BaseSocket: Selectable {
+class BaseSocket: Selectable, BaseSocketProtocol {
+    typealias SelectableType = BaseSocket
 
     private var descriptor: CInt
     public var isOpen: Bool {
@@ -256,7 +259,7 @@ class BaseSocket: Selectable {
     ///     - setNonBlocking: Set non-blocking mode on the socket.
     /// - returns: the file descriptor of the socket that was created.
     /// - throws: An `IOError` if creation of the socket failed.
-    static func makeSocket(protocolFamily: Int32, type: CInt, setNonBlocking: Bool = false) throws -> Int32 {
+    static func makeSocket(protocolFamily: Int32, type: CInt, setNonBlocking: Bool = false) throws -> CInt {
         var sockType = type
         #if os(Linux)
         if setNonBlocking {
@@ -269,11 +272,10 @@ class BaseSocket: Selectable {
         #if !os(Linux)
         if setNonBlocking {
             do {
-                let ret = try Posix.fcntl(descriptor: sock, command: F_SETFL, value: O_NONBLOCK)
-                assert(ret == 0, "unexpectedly, fcntl(\(sock), F_SETFL, O_NONBLOCK) returned \(ret)")
+                try BaseSocket.setNonBlocking(fileDescriptor: sock)
             } catch {
                 // best effort close
-                _ = try? Posix.close(descriptor: sock)
+                try? Posix.close(descriptor: sock)
                 throw error
             }
         }
@@ -303,9 +305,10 @@ class BaseSocket: Selectable {
     ///
     /// - parameters:
     ///     - descriptor: The file descriptor to wrap.
-    init(descriptor: CInt) {
+    init(descriptor: CInt) throws {
         precondition(descriptor >= 0, "invalid file descriptor")
         self.descriptor = descriptor
+        try self.ignoreSIGPIPE(descriptor: descriptor)
     }
 
     deinit {
@@ -319,8 +322,7 @@ class BaseSocket: Selectable {
     /// throws: An `IOError` if the operation failed.
     final func setNonBlocking() throws {
         return try withUnsafeFileDescriptor { fd in
-            let ret = try Posix.fcntl(descriptor: fd, command: F_SETFL, value: O_NONBLOCK)
-            assert(ret == 0, "unexpectedly, fcntl(\(fd), F_SETFL, O_NONBLOCK) returned \(ret)")
+            try BaseSocket.setNonBlocking(fileDescriptor: fd)
         }
     }
 
@@ -419,6 +421,6 @@ class BaseSocket: Selectable {
 
 extension BaseSocket: CustomStringConvertible {
     var description: String {
-        return "BaseSocket { fd=\(self.descriptor) } "
+        return "BaseSocket { fd=\(self.descriptor) }"
     }
 }

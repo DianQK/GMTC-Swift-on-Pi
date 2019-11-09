@@ -19,10 +19,10 @@ import NIO
 /// A tag protocol that can be used to cover all errors thrown by `NIOTransportServices`.
 ///
 /// Users are strongly encouraged not to conform their own types to this protocol.
-@available(OSX 10.14, iOS 12.0, tvOS 12.0, *)
+@available(OSX 10.14, iOS 12.0, tvOS 12.0, watchOS 6.0, *)
 public protocol NIOTSError: Error, Equatable { }
 
-@available(OSX 10.14, iOS 12.0, tvOS 12.0, *)
+@available(OSX 10.14, iOS 12.0, tvOS 12.0, watchOS 6.0, *)
 public enum NIOTSErrors {
     /// `InvalidChannelStateTransition` is thrown when a channel has been asked to do something
     /// that is incompatible with its current channel state: e.g. attempting to register an
@@ -36,7 +36,7 @@ public enum NIOTSErrors {
     /// `UnsupportedSocketOption` is thrown when an attempt is made to configure a socket option that
     /// is not supported by Network.framework.
     public struct UnsupportedSocketOption: NIOTSError {
-        public let optionValue: SocketOption
+        public let optionValue: ChannelOptions.Types.SocketOption
 
         public static func ==(lhs: UnsupportedSocketOption, rhs: UnsupportedSocketOption) -> Bool {
             return lhs.optionValue == rhs.optionValue
@@ -57,5 +57,15 @@ public enum NIOTSErrors {
     /// `UnableToResolveEndpoint` is thrown when an attempt is made to resolve a local endpoint, but
     /// insufficient information is available to create it.
     public struct UnableToResolveEndpoint: NIOTSError { }
+
+    /// `BindTimeout` is thrown when a timeout set for a `NWListenerBootstrap.bind` call has been exceeded
+    /// without successfully binding the address.
+    public struct BindTimeout: NIOTSError {
+        public var timeout: TimeAmount
+
+        public init(timeout: TimeAmount) {
+            self.timeout = timeout
+        }
+    }
 }
 #endif

@@ -7,9 +7,9 @@ It's like [Netty](https://netty.io), but written for Swift.
 
 ### Repository organization
 
-The SwiftNIO project is split across multiple repositories
+The SwiftNIO project is split across multiple repositories:
 
-Repository | Swift 5 | Swift 4
+Repository | NIO 2 (Swift 5+) | NIO 1 (Swift 4+)
 --- | --- | ---
 [https://github.com/apple/swift-nio][repo-nio] <br> SwiftNIO core | `from: "2.0.0"` | `from: "1.0.0"`
 [https://github.com/apple/swift-nio-ssl][repo-nio-ssl] <br> TLS (SSL) support | `from: "2.0.0"` | `from: "1.0.0"`
@@ -32,7 +32,7 @@ The latest released SwiftNIO 1 version supports Swift 4.0, 4.1, 4.2, and 5.0.
 
 #### SwiftNIO 2
 
-The latest released SwiftNIO 2 version supports Swift 5.0. If you have a SwiftNIO 1 application or library that you would like to migrate to SwiftNIO 2, please check out the [migration guide](docs/migration-guide-NIO1-to-NIO2.md) we prepared for you.
+The latest released SwiftNIO 2 version supports only Swift 5.0 & 5.1. If you have a SwiftNIO 1 application or library that you would like to migrate to SwiftNIO 2, please check out the [migration guide](docs/migration-guide-NIO1-to-NIO2.md) we prepared for you.
 
 ### Compatibility
 
@@ -149,15 +149,6 @@ Applications that need extremely high performance from their networking stack ma
 
 The core SwiftNIO repository will contain a few extremely important protocol implementations, such as HTTP, directly in tree. However, we believe that most protocol implementations should be decoupled from the release cycle of the underlying networking stack, as the release cadence is likely to be very different (either much faster or much slower). For this reason, we actively encourage the community to develop and maintain their protocol implementations out-of-tree. Indeed, some first-party SwiftNIO protocol implementations, including our TLS and HTTP/2 bindings, are developed out-of-tree!
 
-## Useful Protocol Implementations
-
-The following projects contain useful protocol implementations that do not live in-tree in SwiftNIO:
-
-- bindings to OpenSSL-compatible libraries for TLS: [swift-nio-ssl](https://github.com/apple/swift-nio-ssl)
-- HTTP/2 support for SwiftNIO: [swift-nio-http2](https://github.com/apple/swift-nio-http2)
-- Network.framework support for SwiftNIO on iOS, tvOS and macOS: [swift-nio-transport-services](https://github.com/apple/swift-nio-transport-services)
-- useful code around SwiftNIO: [swift-nio-extras](https://github.com/apple/swift-nio-extras)
-
 ## Documentation
 
  - [API documentation](https://apple.github.io/swift-nio/docs/current/NIO/index.html)
@@ -170,8 +161,11 @@ There are currently several example projects that demonstrate how to use SwiftNI
 - **chat server** https://github.com/apple/swift-nio/tree/master/Sources/NIOChatServer
 - **echo client** https://github.com/apple/swift-nio/tree/master/Sources/NIOEchoClient
 - **echo server** https://github.com/apple/swift-nio/tree/master/Sources/NIOEchoServer
-- **HTTP server** https://github.com/apple/swift-nio/tree/master/Sources/NIOHTTP1Server
+- **UDP echo client** https://github.com/apple/swift-nio/tree/master/Sources/NIOUDPEchoClient
 - **UDP echo server** https://github.com/apple/swift-nio/tree/master/Sources/NIOUDPEchoServer
+- **HTTP client** https://github.com/apple/swift-nio/tree/master/Sources/NIOHTTP1Client
+- **HTTP server** https://github.com/apple/swift-nio/tree/master/Sources/NIOHTTP1Server
+- **WebSocket client** https://github.com/apple/swift-nio/tree/master/Sources/NIOWebSocketClient
 - **WebSocket server** https://github.com/apple/swift-nio/tree/master/Sources/NIOWebSocketServer
 
 ## Getting Started
@@ -180,11 +174,17 @@ SwiftNIO primarily uses [SwiftPM](https://swift.org/package-manager/) as its bui
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/apple/swift-nio.git", from: "1.0.0")
+    .package(url: "https://github.com/apple/swift-nio.git", from: "2.0.0")
 ]
 ```
 
 and then adding the appropriate SwiftNIO module(s) to your target dependencies.
+
+If your project is set up as an Xcode project and you're using Xcode 11+, you can add SwiftNIO as a dependency to your
+Xcode project by clicking File -> Swift Packages -> Add Package Dependency. In the upcoming dialog, please enter
+`https://github.com/apple/swift-nio.git` and click Next twice. Finally, select the targets you are planning to use (for
+example `NIO`, `NIOHTTP1`, and `NIOFoundationCompat`) and click finish. Now will be able to `import NIO` (as well as all
+the other targets you have selected) in your project.
 
 To work on SwiftNIO itself, or to investigate some of the demonstration applications, you can clone the repository directly and use SwiftPM to help build it. For example, you can run the following commands to compile and run the example echo server:
 
@@ -202,16 +202,13 @@ echo "Hello SwiftNIO" | nc localhost 9999
 
 If all goes well, you'll see the message echoed back to you.
 
-To generate an Xcode project to work on SwiftNIO in Xcode:
+To work on SwiftNIO in Xcode 11+, you can just open the `Package.swift`
+file in Xcode and use Xcode's support for SwiftPM Packages.
+
+If you want to develop SwiftNIO with Xcode 10, you have to generate an Xcode project:
 
 ```bash
 swift package generate-xcodeproj
-```
-
-This generates an Xcode project using SwiftPM. You can open the project with:
-
-```bash
-open swift-nio.xcodeproj
 ```
 
 ### An alternative: using `docker-compose`
@@ -243,19 +240,18 @@ For the most part, SwiftNIO development is as straightforward as any other Swift
 
 ### Prerequisites
 
-SwiftNIO's `master` branch is at the moment developing what will become SwiftNIO 2.0.0 which will be Swift 5-only. That means to develop SwiftNIO at the moment, you will need:
+SwiftNIO's `master` branch is the development branch for the next releases of SwiftNIO 2, it's Swift 5-only.
 
 To be able to compile and run SwiftNIO and the integration tests, you need to
 have a few prerequisites installed on your system.
 
 #### macOS
 
-- Xcode 10.2 beta 4 or newer
+- Xcode 10.2 or newer, Xcode 11 recommended.
 
 ### Linux
 
-- a recent Swift 5.0 Development Toolchain from [swift.org/download](https://swift.org/download/#swift-50-development). To get a good idea of a toolchain version that definitely works, have a look at what [our CI uses](https://github.com/apple/swift-nio/blob/master/docker/docker-compose.1804.50.yaml#L10-L11) at the moment. Downloading the version our CI uses should give you pretty good certainty that the version actually works.
-- pkg-config
+- Swift 5.0 or 5.1 (recommended) from [swift.org/download](https://swift.org/download/#releases).
 - netcat (for integration tests only)
 - lsof (for integration tests only)
 - shasum (for integration tests only)
@@ -264,14 +260,14 @@ have a few prerequisites installed on your system.
 
 ```
 # install swift tarball from https://swift.org/downloads
-apt-get install -y git curl libatomic1 libicu60 libxml2 libz-dev pkg-config clang netcat-openbsd lsof perl
+apt-get install -y git curl libatomic1 libxml2 netcat-openbsd lsof perl
 ```
 
 
 ### Fedora 28+
 
 ```
-dnf install swift-lang zlib-devel /usr/bin/nc /usr/bin/lsof /usr/bin/shasum
+dnf install swift-lang /usr/bin/nc /usr/bin/lsof /usr/bin/shasum
 ```
 
 [ch]: https://apple.github.io/swift-nio/docs/current/NIO/Protocols/ChannelHandler.html

@@ -22,7 +22,7 @@ import NIOConcurrencyHelpers
 import Dispatch
 import Network
 
-@available(OSX 10.14, iOS 12.0, tvOS 12.0, *)
+@available(OSX 10.14, iOS 12.0, tvOS 12.0, watchOS 6.0, *)
 internal final class NIOTSListenerChannel {
     /// The `ByteBufferAllocator` for this `Channel`.
     public let allocator = ByteBufferAllocator()
@@ -84,7 +84,7 @@ internal final class NIOTSListenerChannel {
     private var enablePeerToPeer = false
 
     /// The event loop group to use for child channels.
-    private let childLoopGroup: NIOTSEventLoopGroup
+    private let childLoopGroup: EventLoopGroup
 
     /// The QoS to use for child channels.
     private let childChannelQoS: DispatchQoS?
@@ -103,7 +103,7 @@ internal final class NIOTSListenerChannel {
                   qos: DispatchQoS? = nil,
                   tcpOptions: NWProtocolTCP.Options,
                   tlsOptions: NWProtocolTLS.Options?,
-                  childLoopGroup: NIOTSEventLoopGroup,
+                  childLoopGroup: EventLoopGroup,
                   childChannelQoS: DispatchQoS?,
                   childTCPOptions: NWProtocolTCP.Options,
                   childTLSOptions: NWProtocolTLS.Options?) {
@@ -124,7 +124,7 @@ internal final class NIOTSListenerChannel {
 
 
 // MARK:- NIOTSListenerChannel implementation of Channel
-@available(OSX 10.14, iOS 12.0, tvOS 12.0, *)
+@available(OSX 10.14, iOS 12.0, tvOS 12.0, watchOS 6.0, *)
 extension NIOTSListenerChannel: Channel {
     /// The `ChannelPipeline` for this `Channel`.
     public var pipeline: ChannelPipeline {
@@ -178,12 +178,12 @@ extension NIOTSListenerChannel: Channel {
 
         // TODO: Many more channel options, both from NIO and Network.framework.
         switch option {
-        case is AutoReadOption:
+        case is ChannelOptions.Types.AutoReadOption:
             // AutoRead is currently mandatory for TS listeners.
-            if value as! AutoReadOption.Value == false {
+            if value as! ChannelOptions.Types.AutoReadOption.Value == false {
                 throw ChannelError.operationUnsupported
             }
-        case let optionValue as SocketOption:
+        case let optionValue as ChannelOptions.Types.SocketOption:
             // SO_REUSEADDR and SO_REUSEPORT are handled here.
             switch (optionValue.level, optionValue.name) {
             case (SOL_SOCKET, SO_REUSEADDR):
@@ -193,8 +193,8 @@ extension NIOTSListenerChannel: Channel {
             default:
                 try self.tcpOptions.applyChannelOption(option: optionValue, value: value as! SocketOptionValue)
             }
-        case is NIOTSEnablePeerToPeerOption:
-            self.enablePeerToPeer = value as! NIOTSEnablePeerToPeerOption.Value
+        case is NIOTSChannelOptions.Types.NIOTSEnablePeerToPeerOption:
+            self.enablePeerToPeer = value as! NIOTSChannelOptions.Types.NIOTSEnablePeerToPeerOption.Value
         default:
             fatalError("option \(option) not supported")
         }
@@ -218,9 +218,9 @@ extension NIOTSListenerChannel: Channel {
         }
 
         switch option {
-        case is AutoReadOption:
+        case is ChannelOptions.Types.AutoReadOption:
             return autoRead as! Option.Value
-        case let optionValue as SocketOption:
+        case let optionValue as ChannelOptions.Types.SocketOption:
             // SO_REUSEADDR and SO_REUSEPORT are handled here.
             switch (optionValue.level, optionValue.name) {
             case (SOL_SOCKET, SO_REUSEADDR):
@@ -230,7 +230,7 @@ extension NIOTSListenerChannel: Channel {
             default:
                 return try self.tcpOptions.valueFor(socketOption: optionValue) as! Option.Value
             }
-        case is NIOTSEnablePeerToPeerOption:
+        case is NIOTSChannelOptions.Types.NIOTSEnablePeerToPeerOption:
             return self.enablePeerToPeer as! Option.Value
         default:
             fatalError("option \(option) not supported")
@@ -240,7 +240,7 @@ extension NIOTSListenerChannel: Channel {
 
 
 // MARK:- NIOTSListenerChannel implementation of StateManagedChannel.
-@available(OSX 10.14, iOS 12.0, tvOS 12.0, *)
+@available(OSX 10.14, iOS 12.0, tvOS 12.0, watchOS 6.0, *)
 extension NIOTSListenerChannel: StateManagedChannel {
     typealias ActiveSubstate = ListenerActiveSubstate
 
@@ -301,7 +301,10 @@ extension NIOTSListenerChannel: StateManagedChannel {
             parameters.requiredLocalEndpoint = target
         case .service(_, _, _, let interface):
             parameters.requiredInterface = interface
-        @unknown default:
+        default:
+            // We can't use `@unknown default` and explicitly list cases we know about since they
+            // would require availability checks within the switch statement (`.url` was added in
+            // macOS 10.15).
             ()
         }
 
@@ -400,7 +403,7 @@ extension NIOTSListenerChannel: StateManagedChannel {
 
 
 // MARK:- Implementations of the callbacks passed to NWListener.
-@available(OSX 10.14, iOS 12.0, tvOS 12.0, *)
+@available(OSX 10.14, iOS 12.0, tvOS 12.0, watchOS 6.0, *)
 extension NIOTSListenerChannel {
     /// Called by the underlying `NWListener` when its internal state has changed.
     private func stateUpdateHandler(newState: NWListener.State) {
@@ -447,7 +450,7 @@ extension NIOTSListenerChannel {
 
 
 // MARK:- Implementations of state management for the channel.
-@available(OSX 10.14, iOS 12.0, tvOS 12.0, *)
+@available(OSX 10.14, iOS 12.0, tvOS 12.0, watchOS 6.0, *)
 extension NIOTSListenerChannel {
     /// Make the channel active.
     private func bindComplete0() {
