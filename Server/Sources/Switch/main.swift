@@ -92,9 +92,10 @@ let rgb = RGB(redGPIO: gpios[redPin]!, greenGPIO: gpios[greenPin]!, blueGPIO: gp
 let switchButtonGPIO = gpios[switchButtonPin]!
 
 switchButtonGPIO.direction = .IN
-switchButtonGPIO.onChange { (gpio) in
-    print(gpio)
+switchButtonGPIO.onRaising { (gpio) in
     rgb.switchToNextState()
 }
+
+print("start")
 
 RunLoop.main.run()
