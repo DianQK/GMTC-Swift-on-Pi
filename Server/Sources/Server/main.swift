@@ -1,27 +1,45 @@
 import NIO
+import NIOFoundationCompat
 import Dispatch
+#if os(Linux)
+import Glibc
+#else
+import Darwin
+#endif
+import Foundation
+import SwiftyGPIO
 
-private let newLine = "\n".utf8.first!
+let switchButtonPin: GPIOName = .P24
 
-final class LineDelimiterCodec: ByteToMessageDecoder {
-    public typealias InboundIn = ByteBuffer
-    public typealias InboundOut = ByteBuffer
+let redPin: GPIOName = .P5
+let greenPin: GPIOName = .P6
+let bluePin: GPIOName = .P12
 
-    public var cumulationBuffer: ByteBuffer?
+let gpios = SwiftyGPIO.GPIOs(for:.RaspberryPi3)
 
-    public func decode(context: ChannelHandlerContext, buffer: inout ByteBuffer) throws -> DecodingState {
-        let readable = buffer.withUnsafeReadableBytes { $0.firstIndex(of: newLine) }
-        if let r = readable {
-            context.fireChannelRead(self.wrapInboundOut(buffer.readSlice(length: r + 1)!))
-            return .continue
-        }
-        return .needMoreData
-    }
+//private let newLine = "\n".utf8.first!
 
-    public func decodeLast(context: ChannelHandlerContext, buffer: inout ByteBuffer, seenEOF: Bool) throws -> DecodingState {
-        return try self.decode(context: context, buffer: &buffer)
-    }
-}
+//final class LineDelimiterCodec: ByteToMessageDecoder {
+//    public typealias InboundIn = ByteBuffer
+//    public typealias InboundOut = ByteBuffer
+//
+//    public var cumulationBuffer: ByteBuffer?
+//
+//    public func decode(context: ChannelHandlerContext, buffer: inout ByteBuffer) throws -> DecodingState {
+//        let readable = buffer.withUnsafeReadableBytes { $0.firstIndex(of: newLine) }
+//        if let r = readable {
+//            context.fireChannelRead(self.wrapInboundOut(buffer.readSlice(length: r + 1)!))
+//            return .continue
+//        }
+//        return .needMoreData
+//    }
+//
+//    public func decodeLast(context: ChannelHandlerContext, buffer: inout ByteBuffer, seenEOF: Bool) throws -> DecodingState {
+//        return try self.decode(context: context, buffer: &buffer)
+//    }
+//}
+
+let rgbled = RGBLED(redGPIO: gpios[redPin]!, greenGPIO: gpios[greenPin]!, blueGPIO: gpios[bluePin]!)
 
 final class ChatHandler: ChannelInboundHandler {
     public typealias InboundIn = ByteBuffer
@@ -30,28 +48,22 @@ final class ChatHandler: ChannelInboundHandler {
     // All access to channels is guarded by channelsSyncQueue.
     private let channelsSyncQueue = DispatchQueue(label: "channelsQueue")
     private var channels: [ObjectIdentifier: Channel] = [:]
-
-    private func printByte(_ byte: UInt8) {
-        #if os(Android)
-        print(Character(UnicodeScalar(byte)),  terminator:"")
-        #else
-        fputc(Int32(byte), stdout)
-        #endif
-    }
     
     public func channelActive(context: ChannelHandlerContext) {
-        let remoteAddress = context.remoteAddress!
+//        let remoteAddress = context.remoteAddress!
         let channel = context.channel
         self.channelsSyncQueue.async {
             // broadcast the message to all the connected clients except the one that just became active.
-            self.writeToAll(channels: self.channels, allocator: channel.allocator, message: "(ChatServer) - New client connected with address: \(remoteAddress)\n")
+//            self.writeToAll(channels: self.channels, allocator: channel.allocator, message: "(ChatServer) - New client connected with address: \(remoteAddress)\n")
             
             self.channels[ObjectIdentifier(channel)] = channel
         }
         
-        var buffer = channel.allocator.buffer(capacity: 64)
-        buffer.writeString("(ChatServer) - Welcome to: \(context.localAddress!)\n")
-        context.writeAndFlush(self.wrapOutboundOut(buffer), promise: nil)
+        print("new channel")
+        
+//        var buffer = channel.allocator.buffer(capacity: 64)
+//        buffer.writeString("(ChatServer) - Welcome to: \(context.localAddress!)\n")
+//        context.writeAndFlush(self.wrapOutboundOut(buffer), promise: nil)
     }
     
     public func channelInactive(context: ChannelHandlerContext) {
@@ -59,30 +71,17 @@ final class ChatHandler: ChannelInboundHandler {
         self.channelsSyncQueue.async {
             if self.channels.removeValue(forKey: ObjectIdentifier(channel)) != nil {
                 // Broadcast the message to all the connected clients except the one that just was disconnected.
-                self.writeToAll(channels: self.channels, allocator: channel.allocator, message: "(ChatServer) - Client disconnected\n")
+//                self.writeToAll(channels: self.channels, allocator: channel.allocator, message: "(ChatServer) - Client disconnected\n")
             }
         }
     }
 
     public func channelRead(context: ChannelHandlerContext, data: NIOAny) {
-        let id = ObjectIdentifier(context.channel)
-        var buffer = self.unwrapInboundIn(data)
-
-
-
-        // // 64 should be good enough for the ipaddress
-        // var buffer = context.channel.allocator.buffer(capacity: read.readableBytes + 64)
-        // buffer.writeString("(\(context.remoteAddress!)) - ")
-        // buffer.writeBuffer(&read)
-            // broadcast the message to all the connected clients except the one that wrote it.
-            // self.writeToAll(channels: self.channels.filter { id != $0.key }, buffer: buffer)
-            while let byte: UInt8 = buffer.readInteger() {
-                printByte(byte)
-            }
             let channel = context.channel
-            var sendBuffer = channel.allocator.buffer(capacity: 64)
-            sendBuffer.writeString("OK: \(context.localAddress!)\n")
-            context.writeAndFlush(self.wrapOutboundOut(sendBuffer), promise: nil)
+//            var sendBuffer = channel.allocator.buffer(capacity: 64)
+//            sendBuffer.writeString("OK: \(context.localAddress!)\n")
+//            context.writeAndFlush(self.wrapOutboundOut(sendBuffer), promise: nil)
+        rgbled.switchToNextState()
     }
 
     public func errorCaught(context: ChannelHandlerContext, error: Error) {
@@ -117,10 +116,10 @@ let bootstrap = ServerBootstrap(group: group)
     // Set the handlers that are applied to the accepted Channels
     .childChannelInitializer { channel in
         // Add handler that will buffer data until a \n is received
-        channel.pipeline.addHandler(ByteToMessageHandler(LineDelimiterCodec())).flatMap { v in
+//        channel.pipeline.addHandler(ByteToMessageHandler(LineDelimiterCodec())).flatMap { v in
             // It's important we use the same handler for all accepted channels. The ChatHandler is thread-safe!
             channel.pipeline.addHandler(chatHandler)
-        }
+//        }
     }
 
     // Enable SO_REUSEADDR for the accepted Channels

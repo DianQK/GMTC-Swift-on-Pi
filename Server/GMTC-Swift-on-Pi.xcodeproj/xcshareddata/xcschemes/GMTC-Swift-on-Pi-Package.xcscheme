@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "GMTC-Swift-on-Pi::Server"
-               BuildableName = "Server"
-               BlueprintName = "Server"
+               BlueprintIdentifier = "GMTC-Swift-on-Pi::Switch"
+               BuildableName = "Switch"
+               BlueprintName = "Switch"
                ReferencedContainer = "container:GMTC-Swift-on-Pi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "GMTC-Swift-on-Pi::Switch"
-               BuildableName = "Switch"
-               BlueprintName = "Switch"
+               BlueprintIdentifier = "GMTC-Swift-on-Pi::Server"
+               BuildableName = "Server"
+               BlueprintName = "Server"
                ReferencedContainer = "container:GMTC-Swift-on-Pi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

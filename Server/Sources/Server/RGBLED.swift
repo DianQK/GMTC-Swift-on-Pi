@@ -1,3 +1,10 @@
+//
+//  RGBLED.swift
+//  Server
+//
+//  Created by qing on 2019/11/9.
+//
+
 #if os(Linux)
 import Glibc
 #else
@@ -6,15 +13,7 @@ import Darwin
 import Foundation
 import SwiftyGPIO
 
-let switchButtonPin: GPIOName = .P24
-
-let redPin: GPIOName = .P5
-let greenPin: GPIOName = .P6
-let bluePin: GPIOName = .P12
-
-let gpios = SwiftyGPIO.GPIOs(for:.RaspberryPi3)
-
-class RGB {
+class RGBLED {
     let redGPIO: GPIO
     let greenGPIO: GPIO
     let blueGPIO: GPIO
@@ -81,16 +80,3 @@ class RGB {
     }
    
 }
-
-let rgb = RGB(redGPIO: gpios[redPin]!, greenGPIO: gpios[greenPin]!, blueGPIO: gpios[bluePin]!)
-
-let switchButtonGPIO = gpios[switchButtonPin]!
-
-switchButtonGPIO.direction = .IN
-switchButtonGPIO.onRaising { (gpio) in
-    rgb.switchToNextState()
-}
-
-print("start")
-
-RunLoop.main.run()
