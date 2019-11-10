@@ -15,6 +15,7 @@ import Darwin
 #endif
 import Foundation
 import SwiftyGPIO
+import RGBLED
 
 class PiHandler: ChannelInboundHandler {
     public typealias InboundIn = ByteBuffer
@@ -30,7 +31,7 @@ class PiHandler: ChannelInboundHandler {
             self.channels[ObjectIdentifier(channel)] = channel
         }
         var buffer = channel.allocator.buffer(capacity: 64)
-        buffer.writeString("(ChatServer) - Welcome to: \(context.localAddress!)\n")
+        buffer.writeString(rgbLED.state.name)
         context.writeAndFlush(self.wrapOutboundOut(buffer), promise: nil)
     }
     
@@ -38,35 +39,28 @@ class PiHandler: ChannelInboundHandler {
         let channel = context.channel
         self.channelsSyncQueue.async {
             self.channels.removeValue(forKey: ObjectIdentifier(channel))
-//                self.writeToAll(channels: self.channels, allocator: channel.allocator, message: "(ChatServer) - Client disconnected\n")
         }
     }
 
     public func channelRead(context: ChannelHandlerContext, data: NIOAny) {
-        let channel = context.channel
         let byteBuffer = self.unwrapInboundIn(data)
         let rawValue = byteBuffer.getString(at: byteBuffer.readerIndex, length: byteBuffer.readableBytes)
-//            var sendBuffer = channel.allocator.buffer(capacity: 64)
-//            sendBuffer.writeString("OK: \(context.localAddress!)\n")
-//            context.writeAndFlush(self.wrapOutboundOut(sendBuffer), promise: nil)
         if let rawValue = rawValue, let state = RGBLED.State(rawValue: rawValue) {
-            rgbled.state = state
+            rgbLED.state = state
+            self.writeToAll(colorName: rawValue)
         }
     }
 
     public func errorCaught(context: ChannelHandlerContext, error: Error) {
         print("error: ", error)
-
-        // As we are not really interested getting notified on success or failure we just pass nil as promise to
-        // reduce allocations.
         context.close(promise: nil)
     }
     
     public func writeToAll(colorName: String) {
         guard let channel = self.channels.first?.value else { return }
-//        self.channelsSyncQueue.async {
+        self.channelsSyncQueue.async {
             self.writeToAll(channels: self.channels, allocator: channel.allocator, message: colorName)
-//        }
+        }
     }
 
     private func writeToAll(channels: [ObjectIdentifier: Channel], allocator: ByteBufferAllocator, message: String) {
@@ -79,4 +73,3 @@ class PiHandler: ChannelInboundHandler {
         channels.forEach { $0.value.writeAndFlush(buffer, promise: nil) }
     }
 }
-
