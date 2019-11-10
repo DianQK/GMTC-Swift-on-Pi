@@ -26,7 +26,7 @@ enum RGBLEDColor: String, Hashable {
         case .blue:
             return .blue
         case .none:
-            return .secondary
+            return .gray
         }
     }
 }
