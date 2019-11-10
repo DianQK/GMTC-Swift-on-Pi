@@ -12,7 +12,7 @@ let package = Package(
     targets: [
         .target(
             name: "Server",
-            dependencies: ["NIO", "NIOFoundationCompat", "SwiftyGPIO"]),
+            dependencies: ["NIO", "NIOFoundationCompat", "SwiftyGPIO", "RGBLED"]),
         .target(
             name: "LED",
             dependencies: ["SwiftyGPIO"]
