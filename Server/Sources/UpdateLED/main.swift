@@ -12,7 +12,7 @@ let rgbLED = RGBLED(redGPIO: gpios[.P13]!, greenGPIO: gpios[.P19]!, blueGPIO: gp
 
 let button = gpios[.P14]!
 button.direction = .IN
-button.onChange { (gpio) in
+button.onRaising { (gpio) in
     rgbLED.switchToNextState()
 }
 
