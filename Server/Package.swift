@@ -22,8 +22,12 @@ let package = Package(
             dependencies: ["SwiftyGPIO"]
         ),
         .target(
-            name: "UpdateLED",
+            name: "RGBLED",
             dependencies: ["SwiftyGPIO"]
+        ),
+        .target(
+            name: "UpdateLED",
+            dependencies: ["SwiftyGPIO", "RGBLED"]
         )
     ]
 )

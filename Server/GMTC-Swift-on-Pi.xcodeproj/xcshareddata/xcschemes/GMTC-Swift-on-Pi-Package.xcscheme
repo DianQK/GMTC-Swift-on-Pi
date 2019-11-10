@@ -14,20 +14,6 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "GMTC-Swift-on-Pi::LED"
-               BuildableName = "LED"
-               BlueprintName = "LED"
-               ReferencedContainer = "container:GMTC-Swift-on-Pi.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "GMTC-Swift-on-Pi::Server"
                BuildableName = "Server"
                BlueprintName = "Server"
@@ -42,9 +28,37 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "GMTC-Swift-on-Pi::RGBLED"
+               BuildableName = "RGBLED.framework"
+               BlueprintName = "RGBLED"
+               ReferencedContainer = "container:GMTC-Swift-on-Pi.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "GMTC-Swift-on-Pi::UpdateLED"
                BuildableName = "UpdateLED"
                BlueprintName = "UpdateLED"
+               ReferencedContainer = "container:GMTC-Swift-on-Pi.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "GMTC-Swift-on-Pi::LED"
+               BuildableName = "LED"
+               BlueprintName = "LED"
                ReferencedContainer = "container:GMTC-Swift-on-Pi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
