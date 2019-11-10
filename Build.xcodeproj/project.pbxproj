@@ -1,0 +1,340 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		266604092378021A00015AD4 /* Build Button on Pi */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2666040A2378021A00015AD4 /* Build configuration list for PBXAggregateTarget "Build Button on Pi" */;
+			buildPhases = (
+				266604362378025700015AD4 /* ShellScript */,
+			);
+			dependencies = (
+				266604602378031200015AD4 /* PBXTargetDependency */,
+			);
+			name = "Build Button on Pi";
+			productName = "Build Button on Pi";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXContainerItemProxy section */
+		26660449237802C200015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "GMTC-Swift-on-Pi::Button::Product";
+			remoteInfo = Button;
+		};
+		2666044B237802C200015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "swift-nio::CNIOAtomics::Product";
+			remoteInfo = CNIOAtomics;
+		};
+		2666044D237802C200015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "swift-nio::CNIODarwin::Product";
+			remoteInfo = CNIODarwin;
+		};
+		2666044F237802C200015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "swift-nio::CNIOLinux::Product";
+			remoteInfo = CNIOLinux;
+		};
+		26660451237802C200015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "swift-nio::CNIOSHA1::Product";
+			remoteInfo = CNIOSHA1;
+		};
+		26660453237802C200015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "GMTC-Swift-on-Pi::LED::Product";
+			remoteInfo = LED;
+		};
+		26660455237802C200015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "swift-nio::NIO::Product";
+			remoteInfo = NIO;
+		};
+		26660457237802C200015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "swift-nio::NIOConcurrencyHelpers::Product";
+			remoteInfo = NIOConcurrencyHelpers;
+		};
+		26660459237802C200015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "swift-nio::NIOFoundationCompat::Product";
+			remoteInfo = NIOFoundationCompat;
+		};
+		2666045B237802C200015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "GMTC-Swift-on-Pi::Server::Product";
+			remoteInfo = Server;
+		};
+		2666045D237802C200015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "SwiftyGPIO::SwiftyGPIO::Product";
+			remoteInfo = SwiftyGPIO;
+		};
+		2666045F2378031200015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = "GMTC-Swift-on-Pi::Button";
+			remoteInfo = Button;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "GMTC-Swift-on-Pi.xcodeproj"; path = "Server/GMTC-Swift-on-Pi.xcodeproj"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		266603FF237801E500015AD4 = {
+			isa = PBXGroup;
+			children = (
+				2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */,
+			);
+			sourceTree = "<group>";
+		};
+		26660439237802C200015AD4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2666044A237802C200015AD4 /* Button */,
+				2666044C237802C200015AD4 /* CNIOAtomics.framework */,
+				2666044E237802C200015AD4 /* CNIODarwin.framework */,
+				26660450237802C200015AD4 /* CNIOLinux.framework */,
+				26660452237802C200015AD4 /* CNIOSHA1.framework */,
+				26660454237802C200015AD4 /* LED */,
+				26660456237802C200015AD4 /* NIO.framework */,
+				26660458237802C200015AD4 /* NIOConcurrencyHelpers.framework */,
+				2666045A237802C200015AD4 /* NIOFoundationCompat.framework */,
+				2666045C237802C200015AD4 /* Server */,
+				2666045E237802C200015AD4 /* SwiftyGPIO.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		26660400237801E500015AD4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1120;
+				TargetAttributes = {
+					266604092378021A00015AD4 = {
+						CreatedOnToolsVersion = 11.2;
+					};
+				};
+			};
+			buildConfigurationList = 26660403237801E500015AD4 /* Build configuration list for PBXProject "Build" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 266603FF237801E500015AD4;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 26660439237802C200015AD4 /* Products */;
+					ProjectRef = 2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				266604092378021A00015AD4 /* Build Button on Pi */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		2666044A237802C200015AD4 /* Button */ = {
+			isa = PBXReferenceProxy;
+			fileType = text;
+			path = Button;
+			remoteRef = 26660449237802C200015AD4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2666044C237802C200015AD4 /* CNIOAtomics.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CNIOAtomics.framework;
+			remoteRef = 2666044B237802C200015AD4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2666044E237802C200015AD4 /* CNIODarwin.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CNIODarwin.framework;
+			remoteRef = 2666044D237802C200015AD4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		26660450237802C200015AD4 /* CNIOLinux.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CNIOLinux.framework;
+			remoteRef = 2666044F237802C200015AD4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		26660452237802C200015AD4 /* CNIOSHA1.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CNIOSHA1.framework;
+			remoteRef = 26660451237802C200015AD4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		26660454237802C200015AD4 /* LED */ = {
+			isa = PBXReferenceProxy;
+			fileType = text;
+			path = LED;
+			remoteRef = 26660453237802C200015AD4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		26660456237802C200015AD4 /* NIO.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NIO.framework;
+			remoteRef = 26660455237802C200015AD4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		26660458237802C200015AD4 /* NIOConcurrencyHelpers.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NIOConcurrencyHelpers.framework;
+			remoteRef = 26660457237802C200015AD4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2666045A237802C200015AD4 /* NIOFoundationCompat.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = NIOFoundationCompat.framework;
+			remoteRef = 26660459237802C200015AD4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2666045C237802C200015AD4 /* Server */ = {
+			isa = PBXReferenceProxy;
+			fileType = text;
+			path = Server;
+			remoteRef = 2666045B237802C200015AD4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2666045E237802C200015AD4 /* SwiftyGPIO.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyGPIO.framework;
+			remoteRef = 2666045D237802C200015AD4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		266604362378025700015AD4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "scp -r Server/Sources/Button pi@pi3.ssh.homekit.press:GMTC-Swift-on-Pi/Server/Sources\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		266604602378031200015AD4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Button;
+			targetProxy = 2666045F2378031200015AD4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		26660404237801E500015AD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		26660405237801E500015AD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		2666040B2378021A00015AD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HY634B3FW2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2666040C2378021A00015AD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HY634B3FW2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		26660403237801E500015AD4 /* Build configuration list for PBXProject "Build" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26660404237801E500015AD4 /* Debug */,
+				26660405237801E500015AD4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2666040A2378021A00015AD4 /* Build configuration list for PBXAggregateTarget "Build Button on Pi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2666040B2378021A00015AD4 /* Debug */,
+				2666040C2378021A00015AD4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 26660400237801E500015AD4 /* Project object */;
+}

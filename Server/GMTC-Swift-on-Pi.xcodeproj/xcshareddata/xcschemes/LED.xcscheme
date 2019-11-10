@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "GMTC-Swift-on-Pi::Switch"
-               BuildableName = "Switch"
-               BlueprintName = "Switch"
+               BlueprintIdentifier = "GMTC-Swift-on-Pi::LED"
+               BuildableName = "LED"
+               BlueprintName = "LED"
                ReferencedContainer = "container:GMTC-Swift-on-Pi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +44,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "GMTC-Swift-on-Pi::Switch"
-            BuildableName = "Switch"
-            BlueprintName = "Switch"
+            BlueprintIdentifier = "GMTC-Swift-on-Pi::LED"
+            BuildableName = "LED"
+            BlueprintName = "LED"
             ReferencedContainer = "container:GMTC-Swift-on-Pi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

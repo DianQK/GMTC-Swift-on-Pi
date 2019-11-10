@@ -14,7 +14,11 @@ let package = Package(
             name: "Server",
             dependencies: ["NIO", "NIOFoundationCompat", "SwiftyGPIO"]),
         .target(
-            name: "Switch",
+            name: "LED",
+            dependencies: ["SwiftyGPIO"]
+        ),
+        .target(
+            name: "Button",
             dependencies: ["SwiftyGPIO"]
         )
     ]
