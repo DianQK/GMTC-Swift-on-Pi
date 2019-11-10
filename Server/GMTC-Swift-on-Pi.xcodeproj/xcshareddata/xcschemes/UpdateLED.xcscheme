@@ -14,51 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "GMTC-Swift-on-Pi::LED"
-               BuildableName = "LED"
-               BlueprintName = "LED"
-               ReferencedContainer = "container:GMTC-Swift-on-Pi.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "GMTC-Swift-on-Pi::Server"
-               BuildableName = "Server"
-               BlueprintName = "Server"
-               ReferencedContainer = "container:GMTC-Swift-on-Pi.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "GMTC-Swift-on-Pi::UpdateLED"
                BuildableName = "UpdateLED"
                BlueprintName = "UpdateLED"
-               ReferencedContainer = "container:GMTC-Swift-on-Pi.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "GMTC-Swift-on-Pi::Button"
-               BuildableName = "Button"
-               BlueprintName = "Button"
                ReferencedContainer = "container:GMTC-Swift-on-Pi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -82,6 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "GMTC-Swift-on-Pi::UpdateLED"
+            BuildableName = "UpdateLED"
+            BlueprintName = "UpdateLED"
+            ReferencedContainer = "container:GMTC-Swift-on-Pi.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

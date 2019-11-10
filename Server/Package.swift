@@ -20,6 +20,10 @@ let package = Package(
         .target(
             name: "Button",
             dependencies: ["SwiftyGPIO"]
+        ),
+        .target(
+            name: "UpdateLED",
+            dependencies: ["SwiftyGPIO"]
         )
     ]
 )

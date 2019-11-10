@@ -19,6 +19,30 @@
 			name = "Build Button on Pi";
 			productName = "Build Button on Pi";
 		};
+		2666046123780B6300015AD4 /* Build LED on Pi */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2666046223780B6300015AD4 /* Build configuration list for PBXAggregateTarget "Build LED on Pi" */;
+			buildPhases = (
+				2666046723780B7100015AD4 /* ShellScript */,
+			);
+			dependencies = (
+				2666046623780B6A00015AD4 /* PBXTargetDependency */,
+			);
+			name = "Build LED on Pi";
+			productName = "Build LED on Pi";
+		};
+		2666048023780DB800015AD4 /* Build UpdateLED on Pi */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2666049223780DB800015AD4 /* Build configuration list for PBXAggregateTarget "Build UpdateLED on Pi" */;
+			buildPhases = (
+				2666049523780DBF00015AD4 /* ShellScript */,
+			);
+			dependencies = (
+				2666049423780DBD00015AD4 /* PBXTargetDependency */,
+			);
+			name = "Build UpdateLED on Pi";
+			productName = "Build UpdateLED on Pi";
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +130,27 @@
 			remoteGlobalIDString = "GMTC-Swift-on-Pi::Button";
 			remoteInfo = Button;
 		};
+		2666046523780B6A00015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = "GMTC-Swift-on-Pi::LED";
+			remoteInfo = LED;
+		};
+		2666049023780DB800015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "GMTC-Swift-on-Pi::UpdateLED::Product";
+			remoteInfo = UpdateLED;
+		};
+		2666049323780DBD00015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = "GMTC-Swift-on-Pi::UpdateLED";
+			remoteInfo = UpdateLED;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +179,7 @@
 				2666045A237802C200015AD4 /* NIOFoundationCompat.framework */,
 				2666045C237802C200015AD4 /* Server */,
 				2666045E237802C200015AD4 /* SwiftyGPIO.framework */,
+				2666049123780DB800015AD4 /* UpdateLED */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -147,6 +193,12 @@
 				LastUpgradeCheck = 1120;
 				TargetAttributes = {
 					266604092378021A00015AD4 = {
+						CreatedOnToolsVersion = 11.2;
+					};
+					2666046123780B6300015AD4 = {
+						CreatedOnToolsVersion = 11.2;
+					};
+					2666048023780DB800015AD4 = {
 						CreatedOnToolsVersion = 11.2;
 					};
 				};
@@ -170,6 +222,8 @@
 			projectRoot = "";
 			targets = (
 				266604092378021A00015AD4 /* Build Button on Pi */,
+				2666046123780B6300015AD4 /* Build LED on Pi */,
+				2666048023780DB800015AD4 /* Build UpdateLED on Pi */,
 			);
 		};
 /* End PBXProject section */
@@ -252,6 +306,13 @@
 			remoteRef = 2666045D237802C200015AD4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		2666049123780DB800015AD4 /* UpdateLED */ = {
+			isa = PBXReferenceProxy;
+			fileType = text;
+			path = UpdateLED;
+			remoteRef = 2666049023780DB800015AD4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -272,6 +333,40 @@
 			shellPath = /bin/sh;
 			shellScript = "scp -r Server/Sources/Button pi@pi3.ssh.homekit.press:GMTC-Swift-on-Pi/Server/Sources\n";
 		};
+		2666046723780B7100015AD4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "scp -r Server/Sources/LED pi@pi3.ssh.homekit.press:GMTC-Swift-on-Pi/Server/Sources\n";
+		};
+		2666049523780DBF00015AD4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "scp -r Server/Sources/UpdateLED pi@pi3.ssh.homekit.press:GMTC-Swift-on-Pi/Server/Sources\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -279,6 +374,16 @@
 			isa = PBXTargetDependency;
 			name = Button;
 			targetProxy = 2666045F2378031200015AD4 /* PBXContainerItemProxy */;
+		};
+		2666046623780B6A00015AD4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = LED;
+			targetProxy = 2666046523780B6A00015AD4 /* PBXContainerItemProxy */;
+		};
+		2666049423780DBD00015AD4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UpdateLED;
+			targetProxy = 2666049323780DBD00015AD4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -313,6 +418,42 @@
 			};
 			name = Release;
 		};
+		2666046323780B6300015AD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HY634B3FW2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2666046423780B6300015AD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HY634B3FW2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2666048123780DB800015AD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HY634B3FW2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2666048223780DB800015AD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HY634B3FW2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -330,6 +471,24 @@
 			buildConfigurations = (
 				2666040B2378021A00015AD4 /* Debug */,
 				2666040C2378021A00015AD4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2666046223780B6300015AD4 /* Build configuration list for PBXAggregateTarget "Build LED on Pi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2666046323780B6300015AD4 /* Debug */,
+				2666046423780B6300015AD4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2666049223780DB800015AD4 /* Build configuration list for PBXAggregateTarget "Build UpdateLED on Pi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2666048123780DB800015AD4 /* Debug */,
+				2666048223780DB800015AD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
