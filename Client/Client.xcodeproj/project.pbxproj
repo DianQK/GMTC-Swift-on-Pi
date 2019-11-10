@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0073AD0673E4F65E5531FA4A /* Pods_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF0286271405319AD35C896 /* Pods_Client.framework */; };
 		26543E3223782B7500E36F55 /* RGBLEDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26543E3123782B7500E36F55 /* RGBLEDModel.swift */; };
+		26543E342378311B00E36F55 /* LEDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26543E332378311B00E36F55 /* LEDButton.swift */; };
 		91F2E22023740EF5002E2F04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2E21F23740EF5002E2F04 /* AppDelegate.swift */; };
 		91F2E22223740EF5002E2F04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2E22123740EF5002E2F04 /* SceneDelegate.swift */; };
 		91F2E22423740EF5002E2F04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F2E22323740EF5002E2F04 /* ContentView.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		26543E3123782B7500E36F55 /* RGBLEDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBLEDModel.swift; sourceTree = "<group>"; };
+		26543E332378311B00E36F55 /* LEDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDButton.swift; sourceTree = "<group>"; };
 		5EF0286271405319AD35C896 /* Pods_Client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F2E21C23740EF5002E2F04 /* Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Client.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91F2E21F23740EF5002E2F04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				91F2E22D23740EF7002E2F04 /* Info.plist */,
 				91F2E22723740EF7002E2F04 /* Preview Content */,
 				26543E3123782B7500E36F55 /* RGBLEDModel.swift */,
+				26543E332378311B00E36F55 /* LEDButton.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91F2E22023740EF5002E2F04 /* AppDelegate.swift in Sources */,
+				26543E342378311B00E36F55 /* LEDButton.swift in Sources */,
 				91F2E22223740EF5002E2F04 /* SceneDelegate.swift in Sources */,
 				26543E3223782B7500E36F55 /* RGBLEDModel.swift in Sources */,
 				91F2E23423740FC1002E2F04 /* Client.swift in Sources */,

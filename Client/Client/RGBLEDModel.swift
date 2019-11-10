@@ -8,21 +8,36 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
-enum RGBLEDState: String {
+enum RGBLEDColor: String, Hashable {
+    
     case red
     case green
     case blue
     case none
+    
+    var color: Color {
+        switch self {
+        case .red:
+            return .red
+        case .green:
+            return .green
+        case .blue:
+            return .blue
+        case .none:
+            return .secondary
+        }
+    }
 }
 
 class RGBLEDModel: ObservableObject {
         
-    @Published var state: RGBLEDState = .none
+    @Published var state: RGBLEDColor = .none
     
     static var shared = RGBLEDModel()
     
-    func apply(state: RGBLEDState) {
+    func apply(state: RGBLEDColor) {
         clientHandler.send(string: state.rawValue)
     }
 

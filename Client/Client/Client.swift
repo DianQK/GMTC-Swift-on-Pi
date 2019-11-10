@@ -24,7 +24,7 @@ class ClientHandler: ChannelInboundHandler {
     public func channelRead(context: ChannelHandlerContext, data: NIOAny) {
         let byteBuffer = self.unwrapInboundIn(data)
         guard let colorName = byteBuffer.getString(at: byteBuffer.readerIndex, length: byteBuffer.readableBytes)
-            , let color = RGBLEDState(rawValue: colorName) else {
+            , let color = RGBLEDColor(rawValue: colorName) else {
                 return
         }
         DispatchQueue.main.async {

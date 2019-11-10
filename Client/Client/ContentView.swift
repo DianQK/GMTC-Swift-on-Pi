@@ -13,33 +13,20 @@ struct ContentView: View {
     
     @ObservedObject var model = RGBLEDModel.shared
     
+    let colors: [RGBLEDColor] = [.red, .green, .blue]
+    
     var body: some View {
-        VStack {
-            HStack {
-                Button(action: {
-                    self.model.apply(state: .red)
-                }) {
-                    Text("红").font(.title).foregroundColor(model.state == RGBLEDState.red ? Color.red : Color.gray)
-                }
-                Spacer()
-                Button(action: {
-                    self.model.apply(state: .green)
-                }) {
-                    Text("绿").font(.title).foregroundColor(model.state == RGBLEDState.green ? Color.green : Color.gray)
-                }
-                Spacer()
-                Button(action: {
-                    self.model.apply(state: .blue)
-                }) {
-                    Text("蓝").font(.title).foregroundColor(model.state == RGBLEDState.blue ? Color.blue : Color.gray)
-                }
-                Spacer()
-                Button(action: {
-                    self.model.apply(state: .none)
-                }) {
-                    Text("关").font(.title).foregroundColor(model.state == RGBLEDState.none ? Color.black : Color.gray)
+        VStack(spacing: 15) {
+            Spacer()
+            HStack(spacing: 15) {
+                ForEach(colors, id: \.rawValue) { (color) in
+                    LEDButton(color: color)
+                        .frame(width: 100, height: 100, alignment: .center)
                 }
             }
+            LEDButton(color: .none)
+                .frame(width: 330, height: 100, alignment: .center)
+            Spacer()
         }
         .padding(15)
     }
