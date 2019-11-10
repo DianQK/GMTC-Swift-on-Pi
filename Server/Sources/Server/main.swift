@@ -39,7 +39,7 @@ let gpios = SwiftyGPIO.GPIOs(for:.RaspberryPi3)
 //    }
 //}
 
-let rgbled = RGBLED(redGPIO: gpios[redPin]!, greenGPIO: gpios[greenPin]!, blueGPIO: gpios[bluePin]!)
+let rgbled = RGBLED(red: gpios[redPin]!, green: gpios[greenPin]!, blue: gpios[bluePin]!)
 
 // We need to share the same ChatHandler for all as it keeps track of all
 // connected clients. For this ChatHandler MUST be thread-safe!

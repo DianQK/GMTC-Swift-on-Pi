@@ -14,9 +14,9 @@ import Foundation
 import SwiftyGPIO
 
 class RGBLED {
-    let redGPIO: GPIO
-    let greenGPIO: GPIO
-    let blueGPIO: GPIO
+    let red: GPIO
+    let green: GPIO
+    let blue: GPIO
     
     enum State: String {
         case red = "red"
@@ -35,18 +35,18 @@ class RGBLED {
         }
     }
     
-    init(redGPIO: GPIO, greenGPIO: GPIO, blueGPIO: GPIO) {
-        self.redGPIO = redGPIO
-        self.greenGPIO = greenGPIO
-        self.blueGPIO = blueGPIO
+    init(red: GPIO, green: GPIO, blue: GPIO) {
+        self.red = red
+        self.green = green
+        self.blue = blue
         self.setupGPIO()
     }
     
     func setupGPIO() {
         #if os(Linux)
-        self.redGPIO.direction = .OUT
-        self.greenGPIO.direction = .OUT
-        self.blueGPIO.direction = .OUT
+        self.red.direction = .OUT
+        self.green.direction = .OUT
+        self.blue.direction = .OUT
         #endif
         self.changeState(self.state)
     }
@@ -55,21 +55,21 @@ class RGBLED {
     private func changeState (_ state: State) {
         switch state {
         case .red:
-            self.redGPIO.value = 1
-            self.greenGPIO.value = 0
-            self.blueGPIO.value = 0
+            self.red.value = 1
+            self.green.value = 0
+            self.blue.value = 0
         case .green:
-            self.redGPIO.value = 0
-            self.greenGPIO.value = 1
-            self.blueGPIO.value = 0
+            self.red.value = 0
+            self.green.value = 1
+            self.blue.value = 0
         case .blue:
-            self.redGPIO.value = 0
-            self.greenGPIO.value = 0
-            self.blueGPIO.value = 1
+            self.red.value = 0
+            self.green.value = 0
+            self.blue.value = 1
         case .none:
-            self.redGPIO.value = 0
-            self.greenGPIO.value = 0
-            self.blueGPIO.value = 0
+            self.red.value = 0
+            self.green.value = 0
+            self.blue.value = 0
         }
     }
     #else
