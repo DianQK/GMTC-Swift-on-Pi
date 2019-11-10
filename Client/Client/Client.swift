@@ -10,42 +10,26 @@ import Foundation
 import NIO
 import NIOFoundationCompat
 
-private let newLine = "\n".utf8.first!
-
-class ChatHandler: ChannelInboundHandler {
+class ClientHandler: ChannelInboundHandler {
     public typealias InboundIn = ByteBuffer
     public typealias OutboundOut = ByteBuffer
 
-    private func printByte(_ byte: UInt8) {
-        #if os(Android)
-        print(Character(UnicodeScalar(byte)),  terminator:"")
-        #else
-        fputc(Int32(byte), stdout)
-        #endif
-    }
-    
     var piChannel: Channel?
+    
+    func channelActive(context: ChannelHandlerContext) {
+        let channel = context.channel
+        self.piChannel = channel
+    }
 
     public func channelRead(context: ChannelHandlerContext, data: NIOAny) {
-        var byteBuffer = self.unwrapInboundIn(data)
-        let colorName = byteBuffer.getString(at: byteBuffer.readerIndex, length: byteBuffer.readableBytes)
-//        print(colorName ?? "")
-        while let byte: UInt8 = byteBuffer.readInteger() {
-            printByte(byte)
+        let byteBuffer = self.unwrapInboundIn(data)
+        guard let colorName = byteBuffer.getString(at: byteBuffer.readerIndex, length: byteBuffer.readableBytes)
+            , let color = RGBLEDState(rawValue: colorName) else {
+                return
         }
-        printByte(newLine)
-
-//        buffer.getData(at: 0, length: buffer.readerIndex)
-//        buffer.decod
-//        JSONDecoder().dec
-//        buffer.readJSONDecodable(<#T##type: Decodable.Protocol##Decodable.Protocol#>, decoder: <#T##JSONDecoder#>, length: <#T##Int#>)
-//        JSONDecoder().decode(<#T##type: Decodable.Protocol##Decodable.Protocol#>, from: <#T##ByteBuffer#>)
-        let channel = context.channel
-        var sendBuffer = channel.allocator.buffer(capacity: 64)
-        self.piChannel = channel
-//        channel.writeAndFlush(<#T##data: NIOAny##NIOAny#>)
-//        sendBuffer.writeString("(ChatClient) - Welcome to: \(context.localAddress!) \(count)\n")
-//        context.writeAndFlush(self.wrapOutboundOut(sendBuffer), promise: nil)
+        DispatchQueue.main.async {
+            RGBLEDModel.shared.state = color
+        }
     }
     
     func send(string: String) {
@@ -59,29 +43,22 @@ class ChatHandler: ChannelInboundHandler {
 
     public func errorCaught(context: ChannelHandlerContext, error: Error) {
         print("error: ", error)
-
-        // As we are not really interested getting notified on success or failure we just pass nil as promise to
-        // reduce allocations.
         context.close(promise: nil)
     }
 }
 
-let chatHandler = ChatHandler()
+let clientHandler = ClientHandler()
 
 func startClient() throws {
     let group = MultiThreadedEventLoopGroup(numberOfThreads: 1)
     let bootstrap = ClientBootstrap(group: group)
-        // Enable SO_REUSEADDR.
         .channelOption(ChannelOptions.socket(SocketOptionLevel(SOL_SOCKET), SO_REUSEADDR), value: 1)
         .channelInitializer { channel in
-            channel.pipeline.addHandler(chatHandler)
+            channel.pipeline.addHandler(clientHandler)
         }
-//    defer {
-//        try! group.syncShutdownGracefully()
-//    }
 
-    let defaultHost = "pi.ssh.homekit.press"
-    let defaultPort = 9999
+    let host = "pi.ssh.homekit.press"
+    let port = 9999
 
-    _ = bootstrap.connect(host: defaultHost, port: defaultPort)
+    _ = bootstrap.connect(host: host, port: port)
 }
