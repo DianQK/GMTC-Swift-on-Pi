@@ -19,10 +19,14 @@ class RGBLED {
     let blueGPIO: GPIO
     
     enum State: String {
-        case red
-        case green
-        case blue
-        case none
+        case red = "red"
+        case green = "green"
+        case blue = "blue"
+        case none = "none"
+        
+        var name: String {
+            return self.rawValue
+        }
     }
     
     var state: State = .none {
@@ -74,7 +78,7 @@ class RGBLED {
     }
     #endif
     
-    func switchToNextState() {
+    func switchToNextState() -> State {
         switch state {
         case .red:
             self.state = .green
@@ -85,6 +89,7 @@ class RGBLED {
         case .none:
             self.state = .red
         }
+        return self.state
     }
    
 }

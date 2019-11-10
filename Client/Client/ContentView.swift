@@ -18,19 +18,19 @@ struct ContentView: View {
                 Button(action: {
                     chatHandler.send(string: "red")
                 }) {
-                    Text("红").font(.title)
+                    Text("红").font(.title).foregroundColor(Color.red)
                 }
                 Spacer()
                 Button(action: {
                     chatHandler.send(string: "green")
                 }) {
-                    Text("绿").font(.title)
+                    Text("绿").font(.title).foregroundColor(Color.green)
                 }
                 Spacer()
                 Button(action: {
                     chatHandler.send(string: "blue")
                 }) {
-                    Text("蓝").font(.title)
+                    Text("蓝").font(.title).foregroundColor(Color.blue)
                 }
                 Spacer()
                 Button(action: {
@@ -38,16 +38,6 @@ struct ContentView: View {
                 }) {
                     Text("关").font(.title)
                 }
-            }
-            HStack {
-                Text("温度").font(.title)
-                Spacer()
-                Text("29").font(.title)
-            }
-            HStack {
-                Text("湿度").font(.title)
-                Spacer()
-                Text("29").font(.title)
             }
         }
         .padding(15)

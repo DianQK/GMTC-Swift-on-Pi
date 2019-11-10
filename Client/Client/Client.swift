@@ -10,6 +10,8 @@ import Foundation
 import NIO
 import NIOFoundationCompat
 
+private let newLine = "\n".utf8.first!
+
 class ChatHandler: ChannelInboundHandler {
     public typealias InboundIn = ByteBuffer
     public typealias OutboundOut = ByteBuffer
@@ -25,10 +27,14 @@ class ChatHandler: ChannelInboundHandler {
     var piChannel: Channel?
 
     public func channelRead(context: ChannelHandlerContext, data: NIOAny) {
-        var buffer = self.unwrapInboundIn(data)
-        while let byte: UInt8 = buffer.readInteger() {
+        var byteBuffer = self.unwrapInboundIn(data)
+        let colorName = byteBuffer.getString(at: byteBuffer.readerIndex, length: byteBuffer.readableBytes)
+//        print(colorName ?? "")
+        while let byte: UInt8 = byteBuffer.readInteger() {
             printByte(byte)
         }
+        printByte(newLine)
+
 //        buffer.getData(at: 0, length: buffer.readerIndex)
 //        buffer.decod
 //        JSONDecoder().dec

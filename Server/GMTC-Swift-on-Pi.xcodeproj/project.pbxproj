@@ -1,3151 +1,2422 @@
 // !$*UTF8*$!
 {
-   archiveVersion = "1";
-   objectVersion = "46";
-   objects = {
-      "GMTC-Swift-on-Pi::Server" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_294";
-         buildPhases = (
-            "OBJ_297",
-            "OBJ_300"
-         );
-         dependencies = (
-            "OBJ_308",
-            "OBJ_309",
-            "OBJ_310",
-            "OBJ_311",
-            "OBJ_312",
-            "OBJ_313",
-            "OBJ_314"
-         );
-         name = "Server";
-         productName = "Server";
-         productReference = "GMTC-Swift-on-Pi::Server::Product";
-         productType = "com.apple.product-type.tool";
-      };
-      "GMTC-Swift-on-Pi::Server::Product" = {
-         isa = "PBXFileReference";
-         path = "Server";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "GMTC-Swift-on-Pi::SwiftPMPackageDescription" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_183";
-         buildPhases = (
-            "OBJ_186"
-         );
-         dependencies = (
-         );
-         name = "GMTC-Swift-on-PiPackageDescription";
-         productName = "GMTC-Swift-on-PiPackageDescription";
-         productType = "com.apple.product-type.framework";
-      };
-      "GMTC-Swift-on-Pi::Switch" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_338";
-         buildPhases = (
-            "OBJ_341",
-            "OBJ_343"
-         );
-         dependencies = (
-            "OBJ_345"
-         );
-         name = "Switch";
-         productName = "Switch";
-         productReference = "GMTC-Swift-on-Pi::Switch::Product";
-         productType = "com.apple.product-type.tool";
-      };
-      "GMTC-Swift-on-Pi::Switch::Product" = {
-         isa = "PBXFileReference";
-         path = "Switch";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "OBJ_1" = {
-         isa = "PBXProject";
-         attributes = {
-            LastSwiftMigration = "9999";
-            LastUpgradeCheck = "9999";
-         };
-         buildConfigurationList = "OBJ_2";
-         compatibilityVersion = "Xcode 3.2";
-         developmentRegion = "en";
-         hasScannedForEncodings = "0";
-         knownRegions = (
-            "en"
-         );
-         mainGroup = "OBJ_5";
-         productRefGroup = "OBJ_132";
-         projectDirPath = ".";
-         targets = (
-            "swift-nio::CNIOAtomics",
-            "swift-nio::CNIODarwin",
-            "swift-nio::CNIOLinux",
-            "swift-nio::CNIOSHA1",
-            "GMTC-Swift-on-Pi::SwiftPMPackageDescription",
-            "swift-nio::NIO",
-            "swift-nio::NIOConcurrencyHelpers",
-            "swift-nio::NIOFoundationCompat",
-            "GMTC-Swift-on-Pi::Server",
-            "SwiftyGPIO::SwiftyGPIO",
-            "SwiftyGPIO::SwiftPMPackageDescription",
-            "GMTC-Swift-on-Pi::Switch",
-            "swift-nio::SwiftPMPackageDescription"
-         );
-      };
-      "OBJ_10" = {
-         isa = "PBXFileReference";
-         path = "main.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_100" = {
-         isa = "PBXFileReference";
-         path = "SocketAddresses.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_101" = {
-         isa = "PBXFileReference";
-         path = "SocketChannel.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_102" = {
-         isa = "PBXFileReference";
-         path = "SocketOptionProvider.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_103" = {
-         isa = "PBXFileReference";
-         path = "SocketProtocols.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_104" = {
-         isa = "PBXFileReference";
-         path = "System.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_105" = {
-         isa = "PBXFileReference";
-         path = "Thread.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_106" = {
-         isa = "PBXFileReference";
-         path = "TypeAssistedChannelHandler.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_107" = {
-         isa = "PBXFileReference";
-         path = "Utilities.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_108" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "NIOChatClient";
-         path = ".build/checkouts/swift-nio/Sources/NIOChatClient";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_109" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "NIOChatServer";
-         path = ".build/checkouts/swift-nio/Sources/NIOChatServer";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_11" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_12"
-         );
-         name = "Switch";
-         path = "Sources/Switch";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_110" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_111",
-            "OBJ_112"
-         );
-         name = "NIOConcurrencyHelpers";
-         path = ".build/checkouts/swift-nio/Sources/NIOConcurrencyHelpers";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_111" = {
-         isa = "PBXFileReference";
-         path = "atomics.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_112" = {
-         isa = "PBXFileReference";
-         path = "lock.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_113" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "NIOEchoClient";
-         path = ".build/checkouts/swift-nio/Sources/NIOEchoClient";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_114" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "NIOEchoServer";
-         path = ".build/checkouts/swift-nio/Sources/NIOEchoServer";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_115" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_116",
-            "OBJ_117"
-         );
-         name = "NIOFoundationCompat";
-         path = ".build/checkouts/swift-nio/Sources/NIOFoundationCompat";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_116" = {
-         isa = "PBXFileReference";
-         path = "ByteBuffer-foundation.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_117" = {
-         isa = "PBXFileReference";
-         path = "Codable+ByteBuffer.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_118" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "NIOHTTP1";
-         path = ".build/checkouts/swift-nio/Sources/NIOHTTP1";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_119" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "NIOHTTP1Client";
-         path = ".build/checkouts/swift-nio/Sources/NIOHTTP1Client";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_12" = {
-         isa = "PBXFileReference";
-         path = "main.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_120" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "NIOHTTP1Server";
-         path = ".build/checkouts/swift-nio/Sources/NIOHTTP1Server";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_121" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "NIOMulticastChat";
-         path = ".build/checkouts/swift-nio/Sources/NIOMulticastChat";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_122" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "NIOPerformanceTester";
-         path = ".build/checkouts/swift-nio/Sources/NIOPerformanceTester";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_123" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "NIOTLS";
-         path = ".build/checkouts/swift-nio/Sources/NIOTLS";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_124" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "NIOTestUtils";
-         path = ".build/checkouts/swift-nio/Sources/NIOTestUtils";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_125" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "NIOUDPEchoClient";
-         path = ".build/checkouts/swift-nio/Sources/NIOUDPEchoClient";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_126" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "NIOUDPEchoServer";
-         path = ".build/checkouts/swift-nio/Sources/NIOUDPEchoServer";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_127" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "NIOWebSocket";
-         path = ".build/checkouts/swift-nio/Sources/NIOWebSocket";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_128" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "NIOWebSocketClient";
-         path = ".build/checkouts/swift-nio/Sources/NIOWebSocketClient";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_129" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "NIOWebSocketServer";
-         path = ".build/checkouts/swift-nio/Sources/NIOWebSocketServer";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_13" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "Tests";
-         path = "";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_130" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "_NIO1APIShims";
-         path = ".build/checkouts/swift-nio/Sources/_NIO1APIShims";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_131" = {
-         isa = "PBXFileReference";
-         explicitFileType = "sourcecode.swift";
-         name = "Package.swift";
-         path = "/Users/qing/Documents/GitHub/GMTC-Swift-on-Pi/Server/.build/checkouts/swift-nio/Package.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_132" = {
-         isa = "PBXGroup";
-         children = (
-            "swift-nio::CNIOSHA1::Product",
-            "swift-nio::CNIOAtomics::Product",
-            "SwiftyGPIO::SwiftyGPIO::Product",
-            "swift-nio::CNIOLinux::Product",
-            "GMTC-Swift-on-Pi::Switch::Product",
-            "swift-nio::NIOFoundationCompat::Product",
-            "swift-nio::NIOConcurrencyHelpers::Product",
-            "swift-nio::CNIODarwin::Product",
-            "GMTC-Swift-on-Pi::Server::Product",
-            "swift-nio::NIO::Product"
-         );
-         name = "Products";
-         path = "";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "OBJ_14" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_15",
-            "OBJ_27"
-         );
-         name = "Dependencies";
-         path = "";
-         sourceTree = "<group>";
-      };
-      "OBJ_143" = {
-         isa = "PBXFileReference";
-         path = "README.md";
-         sourceTree = "<group>";
-      };
-      "OBJ_145" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_146",
-            "OBJ_147"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_146" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            DEFINES_MODULE = "YES";
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/CNIOAtomics_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "CNIOAtomics";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            TARGET_NAME = "CNIOAtomics";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_147" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            DEFINES_MODULE = "YES";
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/CNIOAtomics_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "CNIOAtomics";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            TARGET_NAME = "CNIOAtomics";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_148" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_149"
-         );
-      };
-      "OBJ_149" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_30";
-      };
-      "OBJ_15" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_16",
-            "OBJ_17",
-            "OBJ_18",
-            "OBJ_19",
-            "OBJ_20",
-            "OBJ_21",
-            "OBJ_22",
-            "OBJ_23",
-            "OBJ_24",
-            "OBJ_25",
-            "OBJ_26"
-         );
-         name = "SwiftyGPIO 1.1.14";
-         path = ".build/checkouts/SwiftyGPIO/Sources";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_150" = {
-         isa = "PBXHeadersBuildPhase";
-         files = (
-            "OBJ_151"
-         );
-      };
-      "OBJ_151" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_32";
-         settings = {
-            ATTRIBUTES = (
-               "Public"
-            );
-         };
-      };
-      "OBJ_152" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-         );
-      };
-      "OBJ_154" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_155",
-            "OBJ_156"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_155" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            DEFINES_MODULE = "YES";
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIODarwin/include"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/CNIODarwin_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "CNIODarwin";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            TARGET_NAME = "CNIODarwin";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_156" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            DEFINES_MODULE = "YES";
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIODarwin/include"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/CNIODarwin_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "CNIODarwin";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            TARGET_NAME = "CNIODarwin";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_157" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_158"
-         );
-      };
-      "OBJ_158" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_34";
-      };
-      "OBJ_159" = {
-         isa = "PBXHeadersBuildPhase";
-         files = (
-            "OBJ_160"
-         );
-      };
-      "OBJ_16" = {
-         isa = "PBXFileReference";
-         explicitFileType = "sourcecode.swift";
-         name = "Package.swift";
-         path = "/Users/qing/Documents/GitHub/GMTC-Swift-on-Pi/Server/.build/checkouts/SwiftyGPIO/Package.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_160" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_36";
-         settings = {
-            ATTRIBUTES = (
-               "Public"
-            );
-         };
-      };
-      "OBJ_161" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-         );
-      };
-      "OBJ_163" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_164",
-            "OBJ_165"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_164" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            DEFINES_MODULE = "YES";
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOLinux/include"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/CNIOLinux_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "CNIOLinux";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            TARGET_NAME = "CNIOLinux";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_165" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            DEFINES_MODULE = "YES";
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOLinux/include"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/CNIOLinux_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "CNIOLinux";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            TARGET_NAME = "CNIOLinux";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_166" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_167",
-            "OBJ_168"
-         );
-      };
-      "OBJ_167" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_39";
-      };
-      "OBJ_168" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_40";
-      };
-      "OBJ_169" = {
-         isa = "PBXHeadersBuildPhase";
-         files = (
-            "OBJ_170",
-            "OBJ_171"
-         );
-      };
-      "OBJ_17" = {
-         isa = "PBXFileReference";
-         path = "1Wire.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_170" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_42";
-         settings = {
-            ATTRIBUTES = (
-               "Public"
-            );
-         };
-      };
-      "OBJ_171" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_43";
-         settings = {
-            ATTRIBUTES = (
-               "Public"
-            );
-         };
-      };
-      "OBJ_172" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-         );
-      };
-      "OBJ_174" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_175",
-            "OBJ_176"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_175" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            DEFINES_MODULE = "YES";
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOSHA1/include"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/CNIOSHA1_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "CNIOSHA1";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            TARGET_NAME = "CNIOSHA1";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_176" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_MODULES = "YES";
-            DEFINES_MODULE = "YES";
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOSHA1/include"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/CNIOSHA1_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "CNIOSHA1";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            TARGET_NAME = "CNIOSHA1";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_177" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_178"
-         );
-      };
-      "OBJ_178" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_45";
-      };
-      "OBJ_179" = {
-         isa = "PBXHeadersBuildPhase";
-         files = (
-            "OBJ_180"
-         );
-      };
-      "OBJ_18" = {
-         isa = "PBXFileReference";
-         path = "ADC.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_180" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_47";
-         settings = {
-            ATTRIBUTES = (
-               "Public"
-            );
-         };
-      };
-      "OBJ_181" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-         );
-      };
-      "OBJ_183" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_184",
-            "OBJ_185"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_184" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
-               "-package-description-version",
-               "5.1"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_185" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
-               "-package-description-version",
-               "5.1"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Release";
-      };
-      "OBJ_186" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_187"
-         );
-      };
-      "OBJ_187" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_6";
-      };
-      "OBJ_189" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_190",
-            "OBJ_191"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_19" = {
-         isa = "PBXFileReference";
-         path = "I2C.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_190" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOSHA1/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIODarwin/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOLinux/include"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/NIO_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "NIO";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "NIO";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_191" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOSHA1/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIODarwin/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOLinux/include"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/NIO_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "NIO";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "NIO";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_192" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_193",
-            "OBJ_194",
-            "OBJ_195",
-            "OBJ_196",
-            "OBJ_197",
-            "OBJ_198",
-            "OBJ_199",
-            "OBJ_200",
-            "OBJ_201",
-            "OBJ_202",
-            "OBJ_203",
-            "OBJ_204",
-            "OBJ_205",
-            "OBJ_206",
-            "OBJ_207",
-            "OBJ_208",
-            "OBJ_209",
-            "OBJ_210",
-            "OBJ_211",
-            "OBJ_212",
-            "OBJ_213",
-            "OBJ_214",
-            "OBJ_215",
-            "OBJ_216",
-            "OBJ_217",
-            "OBJ_218",
-            "OBJ_219",
-            "OBJ_220",
-            "OBJ_221",
-            "OBJ_222",
-            "OBJ_223",
-            "OBJ_224",
-            "OBJ_225",
-            "OBJ_226",
-            "OBJ_227",
-            "OBJ_228",
-            "OBJ_229",
-            "OBJ_230",
-            "OBJ_231",
-            "OBJ_232",
-            "OBJ_233",
-            "OBJ_234",
-            "OBJ_235",
-            "OBJ_236",
-            "OBJ_237",
-            "OBJ_238",
-            "OBJ_239",
-            "OBJ_240",
-            "OBJ_241",
-            "OBJ_242",
-            "OBJ_243",
-            "OBJ_244",
-            "OBJ_245",
-            "OBJ_246",
-            "OBJ_247",
-            "OBJ_248",
-            "OBJ_249",
-            "OBJ_250",
-            "OBJ_251"
-         );
-      };
-      "OBJ_193" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_49";
-      };
-      "OBJ_194" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_50";
-      };
-      "OBJ_195" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_51";
-      };
-      "OBJ_196" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_52";
-      };
-      "OBJ_197" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_53";
-      };
-      "OBJ_198" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_54";
-      };
-      "OBJ_199" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_55";
-      };
-      "OBJ_2" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_3",
-            "OBJ_4"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_20" = {
-         isa = "PBXFileReference";
-         path = "Mailbox.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_200" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_56";
-      };
-      "OBJ_201" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_57";
-      };
-      "OBJ_202" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_58";
-      };
-      "OBJ_203" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_59";
-      };
-      "OBJ_204" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_60";
-      };
-      "OBJ_205" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_61";
-      };
-      "OBJ_206" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_62";
-      };
-      "OBJ_207" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_63";
-      };
-      "OBJ_208" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_64";
-      };
-      "OBJ_209" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_65";
-      };
-      "OBJ_21" = {
-         isa = "PBXFileReference";
-         path = "PWM.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_210" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_66";
-      };
-      "OBJ_211" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_67";
-      };
-      "OBJ_212" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_68";
-      };
-      "OBJ_213" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_69";
-      };
-      "OBJ_214" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_70";
-      };
-      "OBJ_215" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_71";
-      };
-      "OBJ_216" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_72";
-      };
-      "OBJ_217" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_73";
-      };
-      "OBJ_218" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_74";
-      };
-      "OBJ_219" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_75";
-      };
-      "OBJ_22" = {
-         isa = "PBXFileReference";
-         path = "Presets.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_220" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_76";
-      };
-      "OBJ_221" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_77";
-      };
-      "OBJ_222" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_78";
-      };
-      "OBJ_223" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_79";
-      };
-      "OBJ_224" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_80";
-      };
-      "OBJ_225" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_81";
-      };
-      "OBJ_226" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_82";
-      };
-      "OBJ_227" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_83";
-      };
-      "OBJ_228" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_84";
-      };
-      "OBJ_229" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_85";
-      };
-      "OBJ_23" = {
-         isa = "PBXFileReference";
-         path = "SPI.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_230" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_86";
-      };
-      "OBJ_231" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_87";
-      };
-      "OBJ_232" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_88";
-      };
-      "OBJ_233" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_89";
-      };
-      "OBJ_234" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_90";
-      };
-      "OBJ_235" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_91";
-      };
-      "OBJ_236" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_92";
-      };
-      "OBJ_237" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_93";
-      };
-      "OBJ_238" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_94";
-      };
-      "OBJ_239" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_95";
-      };
-      "OBJ_24" = {
-         isa = "PBXFileReference";
-         path = "SunXi.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_240" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_96";
-      };
-      "OBJ_241" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_97";
-      };
-      "OBJ_242" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_98";
-      };
-      "OBJ_243" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_99";
-      };
-      "OBJ_244" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_100";
-      };
-      "OBJ_245" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_101";
-      };
-      "OBJ_246" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_102";
-      };
-      "OBJ_247" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_103";
-      };
-      "OBJ_248" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_104";
-      };
-      "OBJ_249" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_105";
-      };
-      "OBJ_25" = {
-         isa = "PBXFileReference";
-         path = "SwiftyGPIO.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_250" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_106";
-      };
-      "OBJ_251" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_107";
-      };
-      "OBJ_252" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_253",
-            "OBJ_254",
-            "OBJ_255",
-            "OBJ_256",
-            "OBJ_257"
-         );
-      };
-      "OBJ_253" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::CNIOSHA1::Product";
-      };
-      "OBJ_254" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::NIOConcurrencyHelpers::Product";
-      };
-      "OBJ_255" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::CNIOAtomics::Product";
-      };
-      "OBJ_256" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::CNIODarwin::Product";
-      };
-      "OBJ_257" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::CNIOLinux::Product";
-      };
-      "OBJ_258" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::CNIOSHA1";
-      };
-      "OBJ_259" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::NIOConcurrencyHelpers";
-      };
-      "OBJ_26" = {
-         isa = "PBXFileReference";
-         path = "UART.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_261" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::CNIOAtomics";
-      };
-      "OBJ_262" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::CNIODarwin";
-      };
-      "OBJ_263" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::CNIOLinux";
-      };
-      "OBJ_264" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_265",
-            "OBJ_266"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_265" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/NIOConcurrencyHelpers_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "NIOConcurrencyHelpers";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "NIOConcurrencyHelpers";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_266" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/NIOConcurrencyHelpers_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "NIOConcurrencyHelpers";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "NIOConcurrencyHelpers";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_267" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_268",
-            "OBJ_269"
-         );
-      };
-      "OBJ_268" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_111";
-      };
-      "OBJ_269" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_112";
-      };
-      "OBJ_27" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_28",
-            "OBJ_33",
-            "OBJ_37",
-            "OBJ_38",
-            "OBJ_44",
-            "OBJ_48",
-            "OBJ_108",
-            "OBJ_109",
-            "OBJ_110",
-            "OBJ_113",
-            "OBJ_114",
-            "OBJ_115",
-            "OBJ_118",
-            "OBJ_119",
-            "OBJ_120",
-            "OBJ_121",
-            "OBJ_122",
-            "OBJ_123",
-            "OBJ_124",
-            "OBJ_125",
-            "OBJ_126",
-            "OBJ_127",
-            "OBJ_128",
-            "OBJ_129",
-            "OBJ_130",
-            "OBJ_131"
-         );
-         name = "swift-nio 2.10.0";
-         path = "";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_270" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_271"
-         );
-      };
-      "OBJ_271" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::CNIOAtomics::Product";
-      };
-      "OBJ_272" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::CNIOAtomics";
-      };
-      "OBJ_274" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_275",
-            "OBJ_276"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_275" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOSHA1/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIODarwin/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOLinux/include"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/NIOFoundationCompat_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "NIOFoundationCompat";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "NIOFoundationCompat";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_276" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOSHA1/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIODarwin/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOLinux/include"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/NIOFoundationCompat_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "NIOFoundationCompat";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "NIOFoundationCompat";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_277" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_278",
-            "OBJ_279"
-         );
-      };
-      "OBJ_278" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_116";
-      };
-      "OBJ_279" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_117";
-      };
-      "OBJ_28" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_29",
-            "OBJ_31"
-         );
-         name = "CNIOAtomics";
-         path = ".build/checkouts/swift-nio/Sources/CNIOAtomics";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_280" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_281",
-            "OBJ_282",
-            "OBJ_283",
-            "OBJ_284",
-            "OBJ_285",
-            "OBJ_286"
-         );
-      };
-      "OBJ_281" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::NIO::Product";
-      };
-      "OBJ_282" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::CNIOSHA1::Product";
-      };
-      "OBJ_283" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::NIOConcurrencyHelpers::Product";
-      };
-      "OBJ_284" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::CNIOAtomics::Product";
-      };
-      "OBJ_285" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::CNIODarwin::Product";
-      };
-      "OBJ_286" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::CNIOLinux::Product";
-      };
-      "OBJ_287" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::NIO";
-      };
-      "OBJ_288" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::CNIOSHA1";
-      };
-      "OBJ_289" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::NIOConcurrencyHelpers";
-      };
-      "OBJ_29" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_30"
-         );
-         name = "src";
-         path = "src";
-         sourceTree = "<group>";
-      };
-      "OBJ_290" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::CNIOAtomics";
-      };
-      "OBJ_291" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::CNIODarwin";
-      };
-      "OBJ_292" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::CNIOLinux";
-      };
-      "OBJ_294" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_295",
-            "OBJ_296"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_295" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOSHA1/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIODarwin/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOLinux/include"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/Server_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
-               "@executable_path"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_FORCE_DYNAMIC_LINK_STDLIB = "YES";
-            SWIFT_FORCE_STATIC_LINK_STDLIB = "NO";
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "Server";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_296" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOSHA1/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIODarwin/include",
-               "$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOLinux/include"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/Server_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
-               "@executable_path"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_FORCE_DYNAMIC_LINK_STDLIB = "YES";
-            SWIFT_FORCE_STATIC_LINK_STDLIB = "NO";
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "Server";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_297" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_298",
-            "OBJ_299"
-         );
-      };
-      "OBJ_298" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_9";
-      };
-      "OBJ_299" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_10";
-      };
-      "OBJ_3" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_OBJC_ARC = "YES";
-            COMBINE_HIDPI_IMAGES = "YES";
-            COPY_PHASE_STRIP = "NO";
-            DEBUG_INFORMATION_FORMAT = "dwarf";
-            DYLIB_INSTALL_NAME_BASE = "@rpath";
-            ENABLE_NS_ASSERTIONS = "YES";
-            GCC_OPTIMIZATION_LEVEL = "0";
-            GCC_PREPROCESSOR_DEFINITIONS = (
-               "$(inherited)",
-               "SWIFT_PACKAGE=1",
-               "DEBUG=1"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            ONLY_ACTIVE_ARCH = "YES";
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-DXcode"
-            );
-            PRODUCT_NAME = "$(TARGET_NAME)";
-            SDKROOT = "macosx";
-            SUPPORTED_PLATFORMS = (
-               "macosx",
-               "iphoneos",
-               "iphonesimulator",
-               "appletvos",
-               "appletvsimulator",
-               "watchos",
-               "watchsimulator"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)",
-               "SWIFT_PACKAGE",
-               "DEBUG"
-            );
-            SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-            USE_HEADERMAP = "NO";
-         };
-         name = "Debug";
-      };
-      "OBJ_30" = {
-         isa = "PBXFileReference";
-         path = "c-atomics.c";
-         sourceTree = "<group>";
-      };
-      "OBJ_300" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_301",
-            "OBJ_302",
-            "OBJ_303",
-            "OBJ_304",
-            "OBJ_305",
-            "OBJ_306",
-            "OBJ_307"
-         );
-      };
-      "OBJ_301" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::NIOFoundationCompat::Product";
-      };
-      "OBJ_302" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::NIO::Product";
-      };
-      "OBJ_303" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::CNIOSHA1::Product";
-      };
-      "OBJ_304" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::NIOConcurrencyHelpers::Product";
-      };
-      "OBJ_305" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::CNIOAtomics::Product";
-      };
-      "OBJ_306" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::CNIODarwin::Product";
-      };
-      "OBJ_307" = {
-         isa = "PBXBuildFile";
-         fileRef = "swift-nio::CNIOLinux::Product";
-      };
-      "OBJ_308" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::NIOFoundationCompat";
-      };
-      "OBJ_309" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::NIO";
-      };
-      "OBJ_31" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_32"
-         );
-         name = "include";
-         path = "include";
-         sourceTree = "<group>";
-      };
-      "OBJ_310" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::CNIOSHA1";
-      };
-      "OBJ_311" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::NIOConcurrencyHelpers";
-      };
-      "OBJ_312" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::CNIOAtomics";
-      };
-      "OBJ_313" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::CNIODarwin";
-      };
-      "OBJ_314" = {
-         isa = "PBXTargetDependency";
-         target = "swift-nio::CNIOLinux";
-      };
-      "OBJ_316" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_317",
-            "OBJ_318"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_317" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/SwiftyGPIO_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "SwiftyGPIO";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "4.0";
-            TARGET_NAME = "SwiftyGPIO";
-         };
-         name = "Debug";
-      };
-      "OBJ_318" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/SwiftyGPIO_Info.plist";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "SwiftyGPIO";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "4.0";
-            TARGET_NAME = "SwiftyGPIO";
-         };
-         name = "Release";
-      };
-      "OBJ_319" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_320",
-            "OBJ_321",
-            "OBJ_322",
-            "OBJ_323",
-            "OBJ_324",
-            "OBJ_325",
-            "OBJ_326",
-            "OBJ_327",
-            "OBJ_328",
-            "OBJ_329"
-         );
-      };
-      "OBJ_32" = {
-         isa = "PBXFileReference";
-         path = "CNIOAtomics.h";
-         sourceTree = "<group>";
-      };
-      "OBJ_320" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_17";
-      };
-      "OBJ_321" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_18";
-      };
-      "OBJ_322" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_19";
-      };
-      "OBJ_323" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_20";
-      };
-      "OBJ_324" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_21";
-      };
-      "OBJ_325" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_22";
-      };
-      "OBJ_326" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_23";
-      };
-      "OBJ_327" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_24";
-      };
-      "OBJ_328" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_25";
-      };
-      "OBJ_329" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_26";
-      };
-      "OBJ_33" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_34",
-            "OBJ_35"
-         );
-         name = "CNIODarwin";
-         path = ".build/checkouts/swift-nio/Sources/CNIODarwin";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_330" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-         );
-      };
-      "OBJ_332" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_333",
-            "OBJ_334"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_333" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
-               "-package-description-version",
-               "4"
-            );
-            SWIFT_VERSION = "4.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_334" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
-               "-package-description-version",
-               "4"
-            );
-            SWIFT_VERSION = "4.0";
-         };
-         name = "Release";
-      };
-      "OBJ_335" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_336"
-         );
-      };
-      "OBJ_336" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_16";
-      };
-      "OBJ_338" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_339",
-            "OBJ_340"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_339" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/Switch_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
-               "@executable_path"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_FORCE_DYNAMIC_LINK_STDLIB = "YES";
-            SWIFT_FORCE_STATIC_LINK_STDLIB = "NO";
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "Switch";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_34" = {
-         isa = "PBXFileReference";
-         path = "shim.c";
-         sourceTree = "<group>";
-      };
-      "OBJ_340" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/Switch_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "8.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx",
-               "@executable_path"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_FORCE_DYNAMIC_LINK_STDLIB = "YES";
-            SWIFT_FORCE_STATIC_LINK_STDLIB = "NO";
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "Switch";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Release";
-      };
-      "OBJ_341" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_342"
-         );
-      };
-      "OBJ_342" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_12";
-      };
-      "OBJ_343" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_344"
-         );
-      };
-      "OBJ_344" = {
-         isa = "PBXBuildFile";
-         fileRef = "SwiftyGPIO::SwiftyGPIO::Product";
-      };
-      "OBJ_345" = {
-         isa = "PBXTargetDependency";
-         target = "SwiftyGPIO::SwiftyGPIO";
-      };
-      "OBJ_347" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_348",
-            "OBJ_349"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_348" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
-               "-package-description-version",
-               "5"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Debug";
-      };
-      "OBJ_349" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
-               "-package-description-version",
-               "5"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Release";
-      };
-      "OBJ_35" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_36"
-         );
-         name = "include";
-         path = "include";
-         sourceTree = "<group>";
-      };
-      "OBJ_350" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_351"
-         );
-      };
-      "OBJ_351" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_131";
-      };
-      "OBJ_36" = {
-         isa = "PBXFileReference";
-         path = "CNIODarwin.h";
-         sourceTree = "<group>";
-      };
-      "OBJ_37" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "CNIOHTTPParser";
-         path = ".build/checkouts/swift-nio/Sources/CNIOHTTPParser";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_38" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_39",
-            "OBJ_40",
-            "OBJ_41"
-         );
-         name = "CNIOLinux";
-         path = ".build/checkouts/swift-nio/Sources/CNIOLinux";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_39" = {
-         isa = "PBXFileReference";
-         path = "ifaddrs-android.c";
-         sourceTree = "<group>";
-      };
-      "OBJ_4" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            CLANG_ENABLE_OBJC_ARC = "YES";
-            COMBINE_HIDPI_IMAGES = "YES";
-            COPY_PHASE_STRIP = "YES";
-            DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-            DYLIB_INSTALL_NAME_BASE = "@rpath";
-            GCC_OPTIMIZATION_LEVEL = "s";
-            GCC_PREPROCESSOR_DEFINITIONS = (
-               "$(inherited)",
-               "SWIFT_PACKAGE=1"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "10.10";
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)",
-               "-DXcode"
-            );
-            PRODUCT_NAME = "$(TARGET_NAME)";
-            SDKROOT = "macosx";
-            SUPPORTED_PLATFORMS = (
-               "macosx",
-               "iphoneos",
-               "iphonesimulator",
-               "appletvos",
-               "appletvsimulator",
-               "watchos",
-               "watchsimulator"
-            );
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)",
-               "SWIFT_PACKAGE"
-            );
-            SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-            USE_HEADERMAP = "NO";
-         };
-         name = "Release";
-      };
-      "OBJ_40" = {
-         isa = "PBXFileReference";
-         path = "shim.c";
-         sourceTree = "<group>";
-      };
-      "OBJ_41" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_42",
-            "OBJ_43"
-         );
-         name = "include";
-         path = "include";
-         sourceTree = "<group>";
-      };
-      "OBJ_42" = {
-         isa = "PBXFileReference";
-         path = "CNIOLinux.h";
-         sourceTree = "<group>";
-      };
-      "OBJ_43" = {
-         isa = "PBXFileReference";
-         path = "ifaddrs-android.h";
-         sourceTree = "<group>";
-      };
-      "OBJ_44" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_45",
-            "OBJ_46"
-         );
-         name = "CNIOSHA1";
-         path = ".build/checkouts/swift-nio/Sources/CNIOSHA1";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_45" = {
-         isa = "PBXFileReference";
-         path = "c_nio_sha1.c";
-         sourceTree = "<group>";
-      };
-      "OBJ_46" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_47"
-         );
-         name = "include";
-         path = "include";
-         sourceTree = "<group>";
-      };
-      "OBJ_47" = {
-         isa = "PBXFileReference";
-         path = "CNIOSHA1.h";
-         sourceTree = "<group>";
-      };
-      "OBJ_48" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_49",
-            "OBJ_50",
-            "OBJ_51",
-            "OBJ_52",
-            "OBJ_53",
-            "OBJ_54",
-            "OBJ_55",
-            "OBJ_56",
-            "OBJ_57",
-            "OBJ_58",
-            "OBJ_59",
-            "OBJ_60",
-            "OBJ_61",
-            "OBJ_62",
-            "OBJ_63",
-            "OBJ_64",
-            "OBJ_65",
-            "OBJ_66",
-            "OBJ_67",
-            "OBJ_68",
-            "OBJ_69",
-            "OBJ_70",
-            "OBJ_71",
-            "OBJ_72",
-            "OBJ_73",
-            "OBJ_74",
-            "OBJ_75",
-            "OBJ_76",
-            "OBJ_77",
-            "OBJ_78",
-            "OBJ_79",
-            "OBJ_80",
-            "OBJ_81",
-            "OBJ_82",
-            "OBJ_83",
-            "OBJ_84",
-            "OBJ_85",
-            "OBJ_86",
-            "OBJ_87",
-            "OBJ_88",
-            "OBJ_89",
-            "OBJ_90",
-            "OBJ_91",
-            "OBJ_92",
-            "OBJ_93",
-            "OBJ_94",
-            "OBJ_95",
-            "OBJ_96",
-            "OBJ_97",
-            "OBJ_98",
-            "OBJ_99",
-            "OBJ_100",
-            "OBJ_101",
-            "OBJ_102",
-            "OBJ_103",
-            "OBJ_104",
-            "OBJ_105",
-            "OBJ_106",
-            "OBJ_107"
-         );
-         name = "NIO";
-         path = ".build/checkouts/swift-nio/Sources/NIO";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_49" = {
-         isa = "PBXFileReference";
-         path = "AddressedEnvelope.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_5" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_6",
-            "OBJ_7",
-            "OBJ_13",
-            "OBJ_14",
-            "OBJ_132",
-            "OBJ_143"
-         );
-         path = "";
-         sourceTree = "<group>";
-      };
-      "OBJ_50" = {
-         isa = "PBXFileReference";
-         path = "BaseSocket.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_51" = {
-         isa = "PBXFileReference";
-         path = "BaseSocketChannel.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_52" = {
-         isa = "PBXFileReference";
-         path = "BaseStreamSocketChannel.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_53" = {
-         isa = "PBXFileReference";
-         path = "Bootstrap.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_54" = {
-         isa = "PBXFileReference";
-         path = "ByteBuffer-aux.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_55" = {
-         isa = "PBXFileReference";
-         path = "ByteBuffer-core.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_56" = {
-         isa = "PBXFileReference";
-         path = "ByteBuffer-int.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_57" = {
-         isa = "PBXFileReference";
-         path = "ByteBuffer-views.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_58" = {
-         isa = "PBXFileReference";
-         path = "Channel.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_59" = {
-         isa = "PBXFileReference";
-         path = "ChannelHandler.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_6" = {
-         isa = "PBXFileReference";
-         explicitFileType = "sourcecode.swift";
-         path = "Package.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_60" = {
-         isa = "PBXFileReference";
-         path = "ChannelHandlers.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_61" = {
-         isa = "PBXFileReference";
-         path = "ChannelInvoker.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_62" = {
-         isa = "PBXFileReference";
-         path = "ChannelOption.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_63" = {
-         isa = "PBXFileReference";
-         path = "ChannelPipeline.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_64" = {
-         isa = "PBXFileReference";
-         path = "CircularBuffer.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_65" = {
-         isa = "PBXFileReference";
-         path = "Codec.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_66" = {
-         isa = "PBXFileReference";
-         path = "DatagramVectorReadManager.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_67" = {
-         isa = "PBXFileReference";
-         path = "DeadChannel.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_68" = {
-         isa = "PBXFileReference";
-         path = "Embedded.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_69" = {
-         isa = "PBXFileReference";
-         path = "EventLoop.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_7" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_8",
-            "OBJ_11"
-         );
-         name = "Sources";
-         path = "";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_70" = {
-         isa = "PBXFileReference";
-         path = "EventLoopFuture.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_71" = {
-         isa = "PBXFileReference";
-         path = "FileDescriptor.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_72" = {
-         isa = "PBXFileReference";
-         path = "FileHandle.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_73" = {
-         isa = "PBXFileReference";
-         path = "FileRegion.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_74" = {
-         isa = "PBXFileReference";
-         path = "GetaddrinfoResolver.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_75" = {
-         isa = "PBXFileReference";
-         path = "HappyEyeballs.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_76" = {
-         isa = "PBXFileReference";
-         path = "Heap.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_77" = {
-         isa = "PBXFileReference";
-         path = "IO.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_78" = {
-         isa = "PBXFileReference";
-         path = "IOData.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_79" = {
-         isa = "PBXFileReference";
-         path = "IntegerTypes.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_8" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_9",
-            "OBJ_10"
-         );
-         name = "Server";
-         path = "Sources/Server";
-         sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_80" = {
-         isa = "PBXFileReference";
-         path = "Interfaces.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_81" = {
-         isa = "PBXFileReference";
-         path = "Linux.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_82" = {
-         isa = "PBXFileReference";
-         path = "LinuxCPUSet.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_83" = {
-         isa = "PBXFileReference";
-         path = "MarkedCircularBuffer.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_84" = {
-         isa = "PBXFileReference";
-         path = "MulticastChannel.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_85" = {
-         isa = "PBXFileReference";
-         path = "NIOAny.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_86" = {
-         isa = "PBXFileReference";
-         path = "NIOCloseOnErrorHandler.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_87" = {
-         isa = "PBXFileReference";
-         path = "NIOThreadPool.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_88" = {
-         isa = "PBXFileReference";
-         path = "NonBlockingFileIO.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_89" = {
-         isa = "PBXFileReference";
-         path = "PendingDatagramWritesManager.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_9" = {
-         isa = "PBXFileReference";
-         path = "RGBLED.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_90" = {
-         isa = "PBXFileReference";
-         path = "PendingWritesManager.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_91" = {
-         isa = "PBXFileReference";
-         path = "PipeChannel.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_92" = {
-         isa = "PBXFileReference";
-         path = "PipePair.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_93" = {
-         isa = "PBXFileReference";
-         path = "PriorityQueue.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_94" = {
-         isa = "PBXFileReference";
-         path = "RecvByteBufferAllocator.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_95" = {
-         isa = "PBXFileReference";
-         path = "Resolver.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_96" = {
-         isa = "PBXFileReference";
-         path = "Selectable.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_97" = {
-         isa = "PBXFileReference";
-         path = "Selector.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_98" = {
-         isa = "PBXFileReference";
-         path = "ServerSocket.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_99" = {
-         isa = "PBXFileReference";
-         path = "Socket.swift";
-         sourceTree = "<group>";
-      };
-      "SwiftyGPIO::SwiftPMPackageDescription" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_332";
-         buildPhases = (
-            "OBJ_335"
-         );
-         dependencies = (
-         );
-         name = "SwiftyGPIOPackageDescription";
-         productName = "SwiftyGPIOPackageDescription";
-         productType = "com.apple.product-type.framework";
-      };
-      "SwiftyGPIO::SwiftyGPIO" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_316";
-         buildPhases = (
-            "OBJ_319",
-            "OBJ_330"
-         );
-         dependencies = (
-         );
-         name = "SwiftyGPIO";
-         productName = "SwiftyGPIO";
-         productReference = "SwiftyGPIO::SwiftyGPIO::Product";
-         productType = "com.apple.product-type.framework";
-      };
-      "SwiftyGPIO::SwiftyGPIO::Product" = {
-         isa = "PBXFileReference";
-         path = "SwiftyGPIO.framework";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "swift-nio::CNIOAtomics" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_145";
-         buildPhases = (
-            "OBJ_148",
-            "OBJ_150",
-            "OBJ_152"
-         );
-         dependencies = (
-         );
-         name = "CNIOAtomics";
-         productName = "CNIOAtomics";
-         productReference = "swift-nio::CNIOAtomics::Product";
-         productType = "com.apple.product-type.framework";
-      };
-      "swift-nio::CNIOAtomics::Product" = {
-         isa = "PBXFileReference";
-         path = "CNIOAtomics.framework";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "swift-nio::CNIODarwin" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_154";
-         buildPhases = (
-            "OBJ_157",
-            "OBJ_159",
-            "OBJ_161"
-         );
-         dependencies = (
-         );
-         name = "CNIODarwin";
-         productName = "CNIODarwin";
-         productReference = "swift-nio::CNIODarwin::Product";
-         productType = "com.apple.product-type.framework";
-      };
-      "swift-nio::CNIODarwin::Product" = {
-         isa = "PBXFileReference";
-         path = "CNIODarwin.framework";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "swift-nio::CNIOLinux" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_163";
-         buildPhases = (
-            "OBJ_166",
-            "OBJ_169",
-            "OBJ_172"
-         );
-         dependencies = (
-         );
-         name = "CNIOLinux";
-         productName = "CNIOLinux";
-         productReference = "swift-nio::CNIOLinux::Product";
-         productType = "com.apple.product-type.framework";
-      };
-      "swift-nio::CNIOLinux::Product" = {
-         isa = "PBXFileReference";
-         path = "CNIOLinux.framework";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "swift-nio::CNIOSHA1" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_174";
-         buildPhases = (
-            "OBJ_177",
-            "OBJ_179",
-            "OBJ_181"
-         );
-         dependencies = (
-         );
-         name = "CNIOSHA1";
-         productName = "CNIOSHA1";
-         productReference = "swift-nio::CNIOSHA1::Product";
-         productType = "com.apple.product-type.framework";
-      };
-      "swift-nio::CNIOSHA1::Product" = {
-         isa = "PBXFileReference";
-         path = "CNIOSHA1.framework";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "swift-nio::NIO" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_189";
-         buildPhases = (
-            "OBJ_192",
-            "OBJ_252"
-         );
-         dependencies = (
-            "OBJ_258",
-            "OBJ_259",
-            "OBJ_261",
-            "OBJ_262",
-            "OBJ_263"
-         );
-         name = "NIO";
-         productName = "NIO";
-         productReference = "swift-nio::NIO::Product";
-         productType = "com.apple.product-type.framework";
-      };
-      "swift-nio::NIO::Product" = {
-         isa = "PBXFileReference";
-         path = "NIO.framework";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "swift-nio::NIOConcurrencyHelpers" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_264";
-         buildPhases = (
-            "OBJ_267",
-            "OBJ_270"
-         );
-         dependencies = (
-            "OBJ_272"
-         );
-         name = "NIOConcurrencyHelpers";
-         productName = "NIOConcurrencyHelpers";
-         productReference = "swift-nio::NIOConcurrencyHelpers::Product";
-         productType = "com.apple.product-type.framework";
-      };
-      "swift-nio::NIOConcurrencyHelpers::Product" = {
-         isa = "PBXFileReference";
-         path = "NIOConcurrencyHelpers.framework";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "swift-nio::NIOFoundationCompat" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_274";
-         buildPhases = (
-            "OBJ_277",
-            "OBJ_280"
-         );
-         dependencies = (
-            "OBJ_287",
-            "OBJ_288",
-            "OBJ_289",
-            "OBJ_290",
-            "OBJ_291",
-            "OBJ_292"
-         );
-         name = "NIOFoundationCompat";
-         productName = "NIOFoundationCompat";
-         productReference = "swift-nio::NIOFoundationCompat::Product";
-         productType = "com.apple.product-type.framework";
-      };
-      "swift-nio::NIOFoundationCompat::Product" = {
-         isa = "PBXFileReference";
-         path = "NIOFoundationCompat.framework";
-         sourceTree = "BUILT_PRODUCTS_DIR";
-      };
-      "swift-nio::SwiftPMPackageDescription" = {
-         isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_347";
-         buildPhases = (
-            "OBJ_350"
-         );
-         dependencies = (
-         );
-         name = "swift-nioPackageDescription";
-         productName = "swift-nioPackageDescription";
-         productType = "com.apple.product-type.framework";
-      };
-   };
-   rootObject = "OBJ_1";
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		266603832377A27A00015AD4 /* Build On Pi */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 266603862377A27A00015AD4 /* Build configuration list for PBXAggregateTarget "Build On Pi" */;
+			buildPhases = (
+				266603872377A29B00015AD4 /* ShellScript */,
+			);
+			dependencies = (
+				266603892377A70200015AD4 /* PBXTargetDependency */,
+			);
+			name = "Build On Pi";
+			productName = "Build On Pi";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		2666038B2377A82700015AD4 /* PiHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2666038A2377A82700015AD4 /* PiHandler.swift */; };
+		OBJ_149 /* c-atomics.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* c-atomics.c */; };
+		OBJ_151 /* CNIOAtomics.h in Headers */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* CNIOAtomics.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		OBJ_158 /* shim.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* shim.c */; };
+		OBJ_160 /* CNIODarwin.h in Headers */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* CNIODarwin.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		OBJ_167 /* ifaddrs-android.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* ifaddrs-android.c */; };
+		OBJ_168 /* shim.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* shim.c */; };
+		OBJ_170 /* CNIOLinux.h in Headers */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* CNIOLinux.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		OBJ_171 /* ifaddrs-android.h in Headers */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* ifaddrs-android.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		OBJ_178 /* c_nio_sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_45 /* c_nio_sha1.c */; };
+		OBJ_180 /* CNIOSHA1.h in Headers */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* CNIOSHA1.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		OBJ_187 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_193 /* AddressedEnvelope.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* AddressedEnvelope.swift */; };
+		OBJ_194 /* BaseSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_50 /* BaseSocket.swift */; };
+		OBJ_195 /* BaseSocketChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_51 /* BaseSocketChannel.swift */; };
+		OBJ_196 /* BaseStreamSocketChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* BaseStreamSocketChannel.swift */; };
+		OBJ_197 /* Bootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* Bootstrap.swift */; };
+		OBJ_198 /* ByteBuffer-aux.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_54 /* ByteBuffer-aux.swift */; };
+		OBJ_199 /* ByteBuffer-core.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* ByteBuffer-core.swift */; };
+		OBJ_200 /* ByteBuffer-int.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* ByteBuffer-int.swift */; };
+		OBJ_201 /* ByteBuffer-views.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* ByteBuffer-views.swift */; };
+		OBJ_202 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* Channel.swift */; };
+		OBJ_203 /* ChannelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* ChannelHandler.swift */; };
+		OBJ_204 /* ChannelHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* ChannelHandlers.swift */; };
+		OBJ_205 /* ChannelInvoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* ChannelInvoker.swift */; };
+		OBJ_206 /* ChannelOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_62 /* ChannelOption.swift */; };
+		OBJ_207 /* ChannelPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_63 /* ChannelPipeline.swift */; };
+		OBJ_208 /* CircularBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_64 /* CircularBuffer.swift */; };
+		OBJ_209 /* Codec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_65 /* Codec.swift */; };
+		OBJ_210 /* DatagramVectorReadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_66 /* DatagramVectorReadManager.swift */; };
+		OBJ_211 /* DeadChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_67 /* DeadChannel.swift */; };
+		OBJ_212 /* Embedded.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* Embedded.swift */; };
+		OBJ_213 /* EventLoop.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* EventLoop.swift */; };
+		OBJ_214 /* EventLoopFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* EventLoopFuture.swift */; };
+		OBJ_215 /* FileDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* FileDescriptor.swift */; };
+		OBJ_216 /* FileHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* FileHandle.swift */; };
+		OBJ_217 /* FileRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* FileRegion.swift */; };
+		OBJ_218 /* GetaddrinfoResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_74 /* GetaddrinfoResolver.swift */; };
+		OBJ_219 /* HappyEyeballs.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_75 /* HappyEyeballs.swift */; };
+		OBJ_220 /* Heap.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_76 /* Heap.swift */; };
+		OBJ_221 /* IO.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* IO.swift */; };
+		OBJ_222 /* IOData.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_78 /* IOData.swift */; };
+		OBJ_223 /* IntegerTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* IntegerTypes.swift */; };
+		OBJ_224 /* Interfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* Interfaces.swift */; };
+		OBJ_225 /* Linux.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* Linux.swift */; };
+		OBJ_226 /* LinuxCPUSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_82 /* LinuxCPUSet.swift */; };
+		OBJ_227 /* MarkedCircularBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* MarkedCircularBuffer.swift */; };
+		OBJ_228 /* MulticastChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* MulticastChannel.swift */; };
+		OBJ_229 /* NIOAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* NIOAny.swift */; };
+		OBJ_230 /* NIOCloseOnErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* NIOCloseOnErrorHandler.swift */; };
+		OBJ_231 /* NIOThreadPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_87 /* NIOThreadPool.swift */; };
+		OBJ_232 /* NonBlockingFileIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_88 /* NonBlockingFileIO.swift */; };
+		OBJ_233 /* PendingDatagramWritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_89 /* PendingDatagramWritesManager.swift */; };
+		OBJ_234 /* PendingWritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_90 /* PendingWritesManager.swift */; };
+		OBJ_235 /* PipeChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* PipeChannel.swift */; };
+		OBJ_236 /* PipePair.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* PipePair.swift */; };
+		OBJ_237 /* PriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_93 /* PriorityQueue.swift */; };
+		OBJ_238 /* RecvByteBufferAllocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_94 /* RecvByteBufferAllocator.swift */; };
+		OBJ_239 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_95 /* Resolver.swift */; };
+		OBJ_240 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_96 /* Selectable.swift */; };
+		OBJ_241 /* Selector.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_97 /* Selector.swift */; };
+		OBJ_242 /* ServerSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_98 /* ServerSocket.swift */; };
+		OBJ_243 /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_99 /* Socket.swift */; };
+		OBJ_244 /* SocketAddresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_100 /* SocketAddresses.swift */; };
+		OBJ_245 /* SocketChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_101 /* SocketChannel.swift */; };
+		OBJ_246 /* SocketOptionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_102 /* SocketOptionProvider.swift */; };
+		OBJ_247 /* SocketProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_103 /* SocketProtocols.swift */; };
+		OBJ_248 /* System.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_104 /* System.swift */; };
+		OBJ_249 /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_105 /* Thread.swift */; };
+		OBJ_250 /* TypeAssistedChannelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_106 /* TypeAssistedChannelHandler.swift */; };
+		OBJ_251 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_107 /* Utilities.swift */; };
+		OBJ_253 /* CNIOSHA1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::CNIOSHA1::Product" /* CNIOSHA1.framework */; };
+		OBJ_254 /* NIOConcurrencyHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::NIOConcurrencyHelpers::Product" /* NIOConcurrencyHelpers.framework */; };
+		OBJ_255 /* CNIOAtomics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::CNIOAtomics::Product" /* CNIOAtomics.framework */; };
+		OBJ_256 /* CNIODarwin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::CNIODarwin::Product" /* CNIODarwin.framework */; };
+		OBJ_257 /* CNIOLinux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::CNIOLinux::Product" /* CNIOLinux.framework */; };
+		OBJ_268 /* atomics.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_111 /* atomics.swift */; };
+		OBJ_269 /* lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_112 /* lock.swift */; };
+		OBJ_271 /* CNIOAtomics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::CNIOAtomics::Product" /* CNIOAtomics.framework */; };
+		OBJ_278 /* ByteBuffer-foundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_116 /* ByteBuffer-foundation.swift */; };
+		OBJ_279 /* Codable+ByteBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_117 /* Codable+ByteBuffer.swift */; };
+		OBJ_281 /* NIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::NIO::Product" /* NIO.framework */; };
+		OBJ_282 /* CNIOSHA1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::CNIOSHA1::Product" /* CNIOSHA1.framework */; };
+		OBJ_283 /* NIOConcurrencyHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::NIOConcurrencyHelpers::Product" /* NIOConcurrencyHelpers.framework */; };
+		OBJ_284 /* CNIOAtomics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::CNIOAtomics::Product" /* CNIOAtomics.framework */; };
+		OBJ_285 /* CNIODarwin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::CNIODarwin::Product" /* CNIODarwin.framework */; };
+		OBJ_286 /* CNIOLinux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::CNIOLinux::Product" /* CNIOLinux.framework */; };
+		OBJ_298 /* RGBLED.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* RGBLED.swift */; };
+		OBJ_299 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* main.swift */; };
+		OBJ_301 /* NIOFoundationCompat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::NIOFoundationCompat::Product" /* NIOFoundationCompat.framework */; };
+		OBJ_302 /* NIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::NIO::Product" /* NIO.framework */; };
+		OBJ_303 /* CNIOSHA1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::CNIOSHA1::Product" /* CNIOSHA1.framework */; };
+		OBJ_304 /* NIOConcurrencyHelpers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::NIOConcurrencyHelpers::Product" /* NIOConcurrencyHelpers.framework */; };
+		OBJ_305 /* CNIOAtomics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::CNIOAtomics::Product" /* CNIOAtomics.framework */; };
+		OBJ_306 /* CNIODarwin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::CNIODarwin::Product" /* CNIODarwin.framework */; };
+		OBJ_307 /* CNIOLinux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-nio::CNIOLinux::Product" /* CNIOLinux.framework */; };
+		OBJ_320 /* 1Wire.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* 1Wire.swift */; };
+		OBJ_321 /* ADC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* ADC.swift */; };
+		OBJ_322 /* I2C.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* I2C.swift */; };
+		OBJ_323 /* Mailbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* Mailbox.swift */; };
+		OBJ_324 /* PWM.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* PWM.swift */; };
+		OBJ_325 /* Presets.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Presets.swift */; };
+		OBJ_326 /* SPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* SPI.swift */; };
+		OBJ_327 /* SunXi.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_24 /* SunXi.swift */; };
+		OBJ_328 /* SwiftyGPIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* SwiftyGPIO.swift */; };
+		OBJ_329 /* UART.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* UART.swift */; };
+		OBJ_336 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* Package.swift */; };
+		OBJ_342 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* main.swift */; };
+		OBJ_344 /* SwiftyGPIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SwiftyGPIO::SwiftyGPIO::Product" /* SwiftyGPIO.framework */; };
+		OBJ_351 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_131 /* Package.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2666036F23779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::NIOFoundationCompat";
+			remoteInfo = NIOFoundationCompat;
+		};
+		2666037023779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::NIO";
+			remoteInfo = NIO;
+		};
+		2666037123779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::CNIOSHA1";
+			remoteInfo = CNIOSHA1;
+		};
+		2666037223779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::NIOConcurrencyHelpers";
+			remoteInfo = NIOConcurrencyHelpers;
+		};
+		2666037323779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::CNIOAtomics";
+			remoteInfo = CNIOAtomics;
+		};
+		2666037423779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::CNIOAtomics";
+			remoteInfo = CNIOAtomics;
+		};
+		2666037523779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::CNIODarwin";
+			remoteInfo = CNIODarwin;
+		};
+		2666037623779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::CNIOLinux";
+			remoteInfo = CNIOLinux;
+		};
+		2666037723779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::CNIOSHA1";
+			remoteInfo = CNIOSHA1;
+		};
+		2666037823779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::NIOConcurrencyHelpers";
+			remoteInfo = NIOConcurrencyHelpers;
+		};
+		2666037923779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::CNIOAtomics";
+			remoteInfo = CNIOAtomics;
+		};
+		2666037A23779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::CNIODarwin";
+			remoteInfo = CNIODarwin;
+		};
+		2666037B23779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::CNIOLinux";
+			remoteInfo = CNIOLinux;
+		};
+		2666037C23779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::NIO";
+			remoteInfo = NIO;
+		};
+		2666037D23779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::CNIOSHA1";
+			remoteInfo = CNIOSHA1;
+		};
+		2666037E23779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::NIOConcurrencyHelpers";
+			remoteInfo = NIOConcurrencyHelpers;
+		};
+		2666037F23779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::CNIOAtomics";
+			remoteInfo = CNIOAtomics;
+		};
+		2666038023779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::CNIODarwin";
+			remoteInfo = CNIODarwin;
+		};
+		2666038123779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-nio::CNIOLinux";
+			remoteInfo = CNIOLinux;
+		};
+		2666038223779ED300015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SwiftyGPIO::SwiftyGPIO";
+			remoteInfo = SwiftyGPIO;
+		};
+		266603882377A70200015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "GMTC-Swift-on-Pi::Server";
+			remoteInfo = Server;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2666038A2377A82700015AD4 /* PiHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiHandler.swift; sourceTree = "<group>"; };
+		"GMTC-Swift-on-Pi::Server::Product" /* Server */ = {isa = PBXFileReference; lastKnownFileType = text; path = Server; sourceTree = BUILT_PRODUCTS_DIR; };
+		"GMTC-Swift-on-Pi::Switch::Product" /* Switch */ = {isa = PBXFileReference; lastKnownFileType = text; path = Switch; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_10 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		OBJ_100 /* SocketAddresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketAddresses.swift; sourceTree = "<group>"; };
+		OBJ_101 /* SocketChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketChannel.swift; sourceTree = "<group>"; };
+		OBJ_102 /* SocketOptionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketOptionProvider.swift; sourceTree = "<group>"; };
+		OBJ_103 /* SocketProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketProtocols.swift; sourceTree = "<group>"; };
+		OBJ_104 /* System.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = System.swift; sourceTree = "<group>"; };
+		OBJ_105 /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
+		OBJ_106 /* TypeAssistedChannelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAssistedChannelHandler.swift; sourceTree = "<group>"; };
+		OBJ_107 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		OBJ_111 /* atomics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = atomics.swift; sourceTree = "<group>"; };
+		OBJ_112 /* lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lock.swift; sourceTree = "<group>"; };
+		OBJ_116 /* ByteBuffer-foundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ByteBuffer-foundation.swift"; sourceTree = "<group>"; };
+		OBJ_117 /* Codable+ByteBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+ByteBuffer.swift"; sourceTree = "<group>"; };
+		OBJ_12 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		OBJ_131 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/qing/Documents/GitHub/GMTC-Swift-on-Pi/Server/.build/checkouts/swift-nio/Package.swift"; sourceTree = "<group>"; };
+		OBJ_143 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_16 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/qing/Documents/GitHub/GMTC-Swift-on-Pi/Server/.build/checkouts/SwiftyGPIO/Package.swift"; sourceTree = "<group>"; };
+		OBJ_17 /* 1Wire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 1Wire.swift; sourceTree = "<group>"; };
+		OBJ_18 /* ADC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADC.swift; sourceTree = "<group>"; };
+		OBJ_19 /* I2C.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = I2C.swift; sourceTree = "<group>"; };
+		OBJ_20 /* Mailbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mailbox.swift; sourceTree = "<group>"; };
+		OBJ_21 /* PWM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PWM.swift; sourceTree = "<group>"; };
+		OBJ_22 /* Presets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presets.swift; sourceTree = "<group>"; };
+		OBJ_23 /* SPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPI.swift; sourceTree = "<group>"; };
+		OBJ_24 /* SunXi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunXi.swift; sourceTree = "<group>"; };
+		OBJ_25 /* SwiftyGPIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyGPIO.swift; sourceTree = "<group>"; };
+		OBJ_26 /* UART.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UART.swift; sourceTree = "<group>"; };
+		OBJ_30 /* c-atomics.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "c-atomics.c"; sourceTree = "<group>"; };
+		OBJ_32 /* CNIOAtomics.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CNIOAtomics.h; sourceTree = "<group>"; };
+		OBJ_34 /* shim.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = shim.c; sourceTree = "<group>"; };
+		OBJ_36 /* CNIODarwin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CNIODarwin.h; sourceTree = "<group>"; };
+		OBJ_39 /* ifaddrs-android.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "ifaddrs-android.c"; sourceTree = "<group>"; };
+		OBJ_40 /* shim.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = shim.c; sourceTree = "<group>"; };
+		OBJ_42 /* CNIOLinux.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CNIOLinux.h; sourceTree = "<group>"; };
+		OBJ_43 /* ifaddrs-android.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ifaddrs-android.h"; sourceTree = "<group>"; };
+		OBJ_45 /* c_nio_sha1.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = c_nio_sha1.c; sourceTree = "<group>"; };
+		OBJ_47 /* CNIOSHA1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CNIOSHA1.h; sourceTree = "<group>"; };
+		OBJ_49 /* AddressedEnvelope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressedEnvelope.swift; sourceTree = "<group>"; };
+		OBJ_50 /* BaseSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSocket.swift; sourceTree = "<group>"; };
+		OBJ_51 /* BaseSocketChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSocketChannel.swift; sourceTree = "<group>"; };
+		OBJ_52 /* BaseStreamSocketChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStreamSocketChannel.swift; sourceTree = "<group>"; };
+		OBJ_53 /* Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bootstrap.swift; sourceTree = "<group>"; };
+		OBJ_54 /* ByteBuffer-aux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ByteBuffer-aux.swift"; sourceTree = "<group>"; };
+		OBJ_55 /* ByteBuffer-core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ByteBuffer-core.swift"; sourceTree = "<group>"; };
+		OBJ_56 /* ByteBuffer-int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ByteBuffer-int.swift"; sourceTree = "<group>"; };
+		OBJ_57 /* ByteBuffer-views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ByteBuffer-views.swift"; sourceTree = "<group>"; };
+		OBJ_58 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		OBJ_59 /* ChannelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelHandler.swift; sourceTree = "<group>"; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_60 /* ChannelHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelHandlers.swift; sourceTree = "<group>"; };
+		OBJ_61 /* ChannelInvoker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelInvoker.swift; sourceTree = "<group>"; };
+		OBJ_62 /* ChannelOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelOption.swift; sourceTree = "<group>"; };
+		OBJ_63 /* ChannelPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelPipeline.swift; sourceTree = "<group>"; };
+		OBJ_64 /* CircularBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularBuffer.swift; sourceTree = "<group>"; };
+		OBJ_65 /* Codec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codec.swift; sourceTree = "<group>"; };
+		OBJ_66 /* DatagramVectorReadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatagramVectorReadManager.swift; sourceTree = "<group>"; };
+		OBJ_67 /* DeadChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadChannel.swift; sourceTree = "<group>"; };
+		OBJ_68 /* Embedded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Embedded.swift; sourceTree = "<group>"; };
+		OBJ_69 /* EventLoop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLoop.swift; sourceTree = "<group>"; };
+		OBJ_70 /* EventLoopFuture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLoopFuture.swift; sourceTree = "<group>"; };
+		OBJ_71 /* FileDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDescriptor.swift; sourceTree = "<group>"; };
+		OBJ_72 /* FileHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandle.swift; sourceTree = "<group>"; };
+		OBJ_73 /* FileRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileRegion.swift; sourceTree = "<group>"; };
+		OBJ_74 /* GetaddrinfoResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetaddrinfoResolver.swift; sourceTree = "<group>"; };
+		OBJ_75 /* HappyEyeballs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappyEyeballs.swift; sourceTree = "<group>"; };
+		OBJ_76 /* Heap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heap.swift; sourceTree = "<group>"; };
+		OBJ_77 /* IO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IO.swift; sourceTree = "<group>"; };
+		OBJ_78 /* IOData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOData.swift; sourceTree = "<group>"; };
+		OBJ_79 /* IntegerTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerTypes.swift; sourceTree = "<group>"; };
+		OBJ_80 /* Interfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interfaces.swift; sourceTree = "<group>"; };
+		OBJ_81 /* Linux.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Linux.swift; sourceTree = "<group>"; };
+		OBJ_82 /* LinuxCPUSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinuxCPUSet.swift; sourceTree = "<group>"; };
+		OBJ_83 /* MarkedCircularBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkedCircularBuffer.swift; sourceTree = "<group>"; };
+		OBJ_84 /* MulticastChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MulticastChannel.swift; sourceTree = "<group>"; };
+		OBJ_85 /* NIOAny.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NIOAny.swift; sourceTree = "<group>"; };
+		OBJ_86 /* NIOCloseOnErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NIOCloseOnErrorHandler.swift; sourceTree = "<group>"; };
+		OBJ_87 /* NIOThreadPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NIOThreadPool.swift; sourceTree = "<group>"; };
+		OBJ_88 /* NonBlockingFileIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonBlockingFileIO.swift; sourceTree = "<group>"; };
+		OBJ_89 /* PendingDatagramWritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingDatagramWritesManager.swift; sourceTree = "<group>"; };
+		OBJ_9 /* RGBLED.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBLED.swift; sourceTree = "<group>"; };
+		OBJ_90 /* PendingWritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingWritesManager.swift; sourceTree = "<group>"; };
+		OBJ_91 /* PipeChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipeChannel.swift; sourceTree = "<group>"; };
+		OBJ_92 /* PipePair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipePair.swift; sourceTree = "<group>"; };
+		OBJ_93 /* PriorityQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriorityQueue.swift; sourceTree = "<group>"; };
+		OBJ_94 /* RecvByteBufferAllocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecvByteBufferAllocator.swift; sourceTree = "<group>"; };
+		OBJ_95 /* Resolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resolver.swift; sourceTree = "<group>"; };
+		OBJ_96 /* Selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
+		OBJ_97 /* Selector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selector.swift; sourceTree = "<group>"; };
+		OBJ_98 /* ServerSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerSocket.swift; sourceTree = "<group>"; };
+		OBJ_99 /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
+		"SwiftyGPIO::SwiftyGPIO::Product" /* SwiftyGPIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyGPIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"swift-nio::CNIOAtomics::Product" /* CNIOAtomics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CNIOAtomics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"swift-nio::CNIODarwin::Product" /* CNIODarwin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CNIODarwin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"swift-nio::CNIOLinux::Product" /* CNIOLinux.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CNIOLinux.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"swift-nio::CNIOSHA1::Product" /* CNIOSHA1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CNIOSHA1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"swift-nio::NIO::Product" /* NIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NIO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"swift-nio::NIOConcurrencyHelpers::Product" /* NIOConcurrencyHelpers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NIOConcurrencyHelpers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"swift-nio::NIOFoundationCompat::Product" /* NIOFoundationCompat.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NIOFoundationCompat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		OBJ_152 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_161 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_172 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_181 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_252 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_253 /* CNIOSHA1.framework in Frameworks */,
+				OBJ_254 /* NIOConcurrencyHelpers.framework in Frameworks */,
+				OBJ_255 /* CNIOAtomics.framework in Frameworks */,
+				OBJ_256 /* CNIODarwin.framework in Frameworks */,
+				OBJ_257 /* CNIOLinux.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_270 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_271 /* CNIOAtomics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_280 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_281 /* NIO.framework in Frameworks */,
+				OBJ_282 /* CNIOSHA1.framework in Frameworks */,
+				OBJ_283 /* NIOConcurrencyHelpers.framework in Frameworks */,
+				OBJ_284 /* CNIOAtomics.framework in Frameworks */,
+				OBJ_285 /* CNIODarwin.framework in Frameworks */,
+				OBJ_286 /* CNIOLinux.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_300 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_301 /* NIOFoundationCompat.framework in Frameworks */,
+				OBJ_302 /* NIO.framework in Frameworks */,
+				OBJ_303 /* CNIOSHA1.framework in Frameworks */,
+				OBJ_304 /* NIOConcurrencyHelpers.framework in Frameworks */,
+				OBJ_305 /* CNIOAtomics.framework in Frameworks */,
+				OBJ_306 /* CNIODarwin.framework in Frameworks */,
+				OBJ_307 /* CNIOLinux.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_330 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_343 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_344 /* SwiftyGPIO.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		OBJ_108 /* NIOChatClient */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NIOChatClient;
+			path = ".build/checkouts/swift-nio/Sources/NIOChatClient";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_109 /* NIOChatServer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NIOChatServer;
+			path = ".build/checkouts/swift-nio/Sources/NIOChatServer";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_11 /* Switch */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_12 /* main.swift */,
+			);
+			name = Switch;
+			path = Sources/Switch;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_110 /* NIOConcurrencyHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_111 /* atomics.swift */,
+				OBJ_112 /* lock.swift */,
+			);
+			name = NIOConcurrencyHelpers;
+			path = ".build/checkouts/swift-nio/Sources/NIOConcurrencyHelpers";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_113 /* NIOEchoClient */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NIOEchoClient;
+			path = ".build/checkouts/swift-nio/Sources/NIOEchoClient";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_114 /* NIOEchoServer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NIOEchoServer;
+			path = ".build/checkouts/swift-nio/Sources/NIOEchoServer";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_115 /* NIOFoundationCompat */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_116 /* ByteBuffer-foundation.swift */,
+				OBJ_117 /* Codable+ByteBuffer.swift */,
+			);
+			name = NIOFoundationCompat;
+			path = ".build/checkouts/swift-nio/Sources/NIOFoundationCompat";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_118 /* NIOHTTP1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NIOHTTP1;
+			path = ".build/checkouts/swift-nio/Sources/NIOHTTP1";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_119 /* NIOHTTP1Client */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NIOHTTP1Client;
+			path = ".build/checkouts/swift-nio/Sources/NIOHTTP1Client";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_120 /* NIOHTTP1Server */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NIOHTTP1Server;
+			path = ".build/checkouts/swift-nio/Sources/NIOHTTP1Server";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_121 /* NIOMulticastChat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NIOMulticastChat;
+			path = ".build/checkouts/swift-nio/Sources/NIOMulticastChat";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_122 /* NIOPerformanceTester */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NIOPerformanceTester;
+			path = ".build/checkouts/swift-nio/Sources/NIOPerformanceTester";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_123 /* NIOTLS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NIOTLS;
+			path = ".build/checkouts/swift-nio/Sources/NIOTLS";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_124 /* NIOTestUtils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NIOTestUtils;
+			path = ".build/checkouts/swift-nio/Sources/NIOTestUtils";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_125 /* NIOUDPEchoClient */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NIOUDPEchoClient;
+			path = ".build/checkouts/swift-nio/Sources/NIOUDPEchoClient";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_126 /* NIOUDPEchoServer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NIOUDPEchoServer;
+			path = ".build/checkouts/swift-nio/Sources/NIOUDPEchoServer";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_127 /* NIOWebSocket */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NIOWebSocket;
+			path = ".build/checkouts/swift-nio/Sources/NIOWebSocket";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_128 /* NIOWebSocketClient */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NIOWebSocketClient;
+			path = ".build/checkouts/swift-nio/Sources/NIOWebSocketClient";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_129 /* NIOWebSocketServer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = NIOWebSocketServer;
+			path = ".build/checkouts/swift-nio/Sources/NIOWebSocketServer";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_13 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_130 /* _NIO1APIShims */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = _NIO1APIShims;
+			path = ".build/checkouts/swift-nio/Sources/_NIO1APIShims";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_132 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"swift-nio::CNIOSHA1::Product" /* CNIOSHA1.framework */,
+				"swift-nio::CNIOAtomics::Product" /* CNIOAtomics.framework */,
+				"SwiftyGPIO::SwiftyGPIO::Product" /* SwiftyGPIO.framework */,
+				"swift-nio::CNIOLinux::Product" /* CNIOLinux.framework */,
+				"GMTC-Swift-on-Pi::Switch::Product" /* Switch */,
+				"swift-nio::NIOFoundationCompat::Product" /* NIOFoundationCompat.framework */,
+				"swift-nio::NIOConcurrencyHelpers::Product" /* NIOConcurrencyHelpers.framework */,
+				"swift-nio::CNIODarwin::Product" /* CNIODarwin.framework */,
+				"GMTC-Swift-on-Pi::Server::Product" /* Server */,
+				"swift-nio::NIO::Product" /* NIO.framework */,
+			);
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		OBJ_14 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_15 /* SwiftyGPIO 1.1.14 */,
+				OBJ_27 /* swift-nio 2.10.0 */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		OBJ_15 /* SwiftyGPIO 1.1.14 */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_16 /* Package.swift */,
+				OBJ_17 /* 1Wire.swift */,
+				OBJ_18 /* ADC.swift */,
+				OBJ_19 /* I2C.swift */,
+				OBJ_20 /* Mailbox.swift */,
+				OBJ_21 /* PWM.swift */,
+				OBJ_22 /* Presets.swift */,
+				OBJ_23 /* SPI.swift */,
+				OBJ_24 /* SunXi.swift */,
+				OBJ_25 /* SwiftyGPIO.swift */,
+				OBJ_26 /* UART.swift */,
+			);
+			name = "SwiftyGPIO 1.1.14";
+			path = .build/checkouts/SwiftyGPIO/Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_27 /* swift-nio 2.10.0 */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_28 /* CNIOAtomics */,
+				OBJ_33 /* CNIODarwin */,
+				OBJ_37 /* CNIOHTTPParser */,
+				OBJ_38 /* CNIOLinux */,
+				OBJ_44 /* CNIOSHA1 */,
+				OBJ_48 /* NIO */,
+				OBJ_108 /* NIOChatClient */,
+				OBJ_109 /* NIOChatServer */,
+				OBJ_110 /* NIOConcurrencyHelpers */,
+				OBJ_113 /* NIOEchoClient */,
+				OBJ_114 /* NIOEchoServer */,
+				OBJ_115 /* NIOFoundationCompat */,
+				OBJ_118 /* NIOHTTP1 */,
+				OBJ_119 /* NIOHTTP1Client */,
+				OBJ_120 /* NIOHTTP1Server */,
+				OBJ_121 /* NIOMulticastChat */,
+				OBJ_122 /* NIOPerformanceTester */,
+				OBJ_123 /* NIOTLS */,
+				OBJ_124 /* NIOTestUtils */,
+				OBJ_125 /* NIOUDPEchoClient */,
+				OBJ_126 /* NIOUDPEchoServer */,
+				OBJ_127 /* NIOWebSocket */,
+				OBJ_128 /* NIOWebSocketClient */,
+				OBJ_129 /* NIOWebSocketServer */,
+				OBJ_130 /* _NIO1APIShims */,
+				OBJ_131 /* Package.swift */,
+			);
+			name = "swift-nio 2.10.0";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_28 /* CNIOAtomics */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_29 /* src */,
+				OBJ_31 /* include */,
+			);
+			name = CNIOAtomics;
+			path = ".build/checkouts/swift-nio/Sources/CNIOAtomics";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_29 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_30 /* c-atomics.c */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		OBJ_31 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_32 /* CNIOAtomics.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		OBJ_33 /* CNIODarwin */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_34 /* shim.c */,
+				OBJ_35 /* include */,
+			);
+			name = CNIODarwin;
+			path = ".build/checkouts/swift-nio/Sources/CNIODarwin";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_35 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_36 /* CNIODarwin.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		OBJ_37 /* CNIOHTTPParser */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CNIOHTTPParser;
+			path = ".build/checkouts/swift-nio/Sources/CNIOHTTPParser";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_38 /* CNIOLinux */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_39 /* ifaddrs-android.c */,
+				OBJ_40 /* shim.c */,
+				OBJ_41 /* include */,
+			);
+			name = CNIOLinux;
+			path = ".build/checkouts/swift-nio/Sources/CNIOLinux";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_41 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_42 /* CNIOLinux.h */,
+				OBJ_43 /* ifaddrs-android.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		OBJ_44 /* CNIOSHA1 */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_45 /* c_nio_sha1.c */,
+				OBJ_46 /* include */,
+			);
+			name = CNIOSHA1;
+			path = ".build/checkouts/swift-nio/Sources/CNIOSHA1";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_46 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_47 /* CNIOSHA1.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		OBJ_48 /* NIO */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_49 /* AddressedEnvelope.swift */,
+				OBJ_50 /* BaseSocket.swift */,
+				OBJ_51 /* BaseSocketChannel.swift */,
+				OBJ_52 /* BaseStreamSocketChannel.swift */,
+				OBJ_53 /* Bootstrap.swift */,
+				OBJ_54 /* ByteBuffer-aux.swift */,
+				OBJ_55 /* ByteBuffer-core.swift */,
+				OBJ_56 /* ByteBuffer-int.swift */,
+				OBJ_57 /* ByteBuffer-views.swift */,
+				OBJ_58 /* Channel.swift */,
+				OBJ_59 /* ChannelHandler.swift */,
+				OBJ_60 /* ChannelHandlers.swift */,
+				OBJ_61 /* ChannelInvoker.swift */,
+				OBJ_62 /* ChannelOption.swift */,
+				OBJ_63 /* ChannelPipeline.swift */,
+				OBJ_64 /* CircularBuffer.swift */,
+				OBJ_65 /* Codec.swift */,
+				OBJ_66 /* DatagramVectorReadManager.swift */,
+				OBJ_67 /* DeadChannel.swift */,
+				OBJ_68 /* Embedded.swift */,
+				OBJ_69 /* EventLoop.swift */,
+				OBJ_70 /* EventLoopFuture.swift */,
+				OBJ_71 /* FileDescriptor.swift */,
+				OBJ_72 /* FileHandle.swift */,
+				OBJ_73 /* FileRegion.swift */,
+				OBJ_74 /* GetaddrinfoResolver.swift */,
+				OBJ_75 /* HappyEyeballs.swift */,
+				OBJ_76 /* Heap.swift */,
+				OBJ_77 /* IO.swift */,
+				OBJ_78 /* IOData.swift */,
+				OBJ_79 /* IntegerTypes.swift */,
+				OBJ_80 /* Interfaces.swift */,
+				OBJ_81 /* Linux.swift */,
+				OBJ_82 /* LinuxCPUSet.swift */,
+				OBJ_83 /* MarkedCircularBuffer.swift */,
+				OBJ_84 /* MulticastChannel.swift */,
+				OBJ_85 /* NIOAny.swift */,
+				OBJ_86 /* NIOCloseOnErrorHandler.swift */,
+				OBJ_87 /* NIOThreadPool.swift */,
+				OBJ_88 /* NonBlockingFileIO.swift */,
+				OBJ_89 /* PendingDatagramWritesManager.swift */,
+				OBJ_90 /* PendingWritesManager.swift */,
+				OBJ_91 /* PipeChannel.swift */,
+				OBJ_92 /* PipePair.swift */,
+				OBJ_93 /* PriorityQueue.swift */,
+				OBJ_94 /* RecvByteBufferAllocator.swift */,
+				OBJ_95 /* Resolver.swift */,
+				OBJ_96 /* Selectable.swift */,
+				OBJ_97 /* Selector.swift */,
+				OBJ_98 /* ServerSocket.swift */,
+				OBJ_99 /* Socket.swift */,
+				OBJ_100 /* SocketAddresses.swift */,
+				OBJ_101 /* SocketChannel.swift */,
+				OBJ_102 /* SocketOptionProvider.swift */,
+				OBJ_103 /* SocketProtocols.swift */,
+				OBJ_104 /* System.swift */,
+				OBJ_105 /* Thread.swift */,
+				OBJ_106 /* TypeAssistedChannelHandler.swift */,
+				OBJ_107 /* Utilities.swift */,
+			);
+			name = NIO;
+			path = ".build/checkouts/swift-nio/Sources/NIO";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_5 /*  */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_13 /* Tests */,
+				OBJ_14 /* Dependencies */,
+				OBJ_132 /* Products */,
+				OBJ_143 /* README.md */,
+			);
+			name = "";
+			sourceTree = "<group>";
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_8 /* Server */,
+				OBJ_11 /* Switch */,
+			);
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_8 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_9 /* RGBLED.swift */,
+				OBJ_10 /* main.swift */,
+				2666038A2377A82700015AD4 /* PiHandler.swift */,
+			);
+			name = Server;
+			path = Sources/Server;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		OBJ_150 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_151 /* CNIOAtomics.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_159 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_160 /* CNIODarwin.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_169 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_170 /* CNIOLinux.h in Headers */,
+				OBJ_171 /* ifaddrs-android.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_179 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_180 /* CNIOSHA1.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		"GMTC-Swift-on-Pi::Server" /* Server */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_294 /* Build configuration list for PBXNativeTarget "Server" */;
+			buildPhases = (
+				OBJ_297 /* Sources */,
+				OBJ_300 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_308 /* PBXTargetDependency */,
+				OBJ_309 /* PBXTargetDependency */,
+				OBJ_310 /* PBXTargetDependency */,
+				OBJ_311 /* PBXTargetDependency */,
+				OBJ_312 /* PBXTargetDependency */,
+				OBJ_313 /* PBXTargetDependency */,
+				OBJ_314 /* PBXTargetDependency */,
+			);
+			name = Server;
+			productName = Server;
+			productReference = "GMTC-Swift-on-Pi::Server::Product" /* Server */;
+			productType = "com.apple.product-type.tool";
+		};
+		"GMTC-Swift-on-Pi::SwiftPMPackageDescription" /* GMTC-Swift-on-PiPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_183 /* Build configuration list for PBXNativeTarget "GMTC-Swift-on-PiPackageDescription" */;
+			buildPhases = (
+				OBJ_186 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GMTC-Swift-on-PiPackageDescription";
+			productName = "GMTC-Swift-on-PiPackageDescription";
+			productType = "com.apple.product-type.framework";
+		};
+		"GMTC-Swift-on-Pi::Switch" /* Switch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_338 /* Build configuration list for PBXNativeTarget "Switch" */;
+			buildPhases = (
+				OBJ_341 /* Sources */,
+				OBJ_343 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_345 /* PBXTargetDependency */,
+			);
+			name = Switch;
+			productName = Switch;
+			productReference = "GMTC-Swift-on-Pi::Switch::Product" /* Switch */;
+			productType = "com.apple.product-type.tool";
+		};
+		"SwiftyGPIO::SwiftPMPackageDescription" /* SwiftyGPIOPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_332 /* Build configuration list for PBXNativeTarget "SwiftyGPIOPackageDescription" */;
+			buildPhases = (
+				OBJ_335 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftyGPIOPackageDescription;
+			productName = SwiftyGPIOPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+		"SwiftyGPIO::SwiftyGPIO" /* SwiftyGPIO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_316 /* Build configuration list for PBXNativeTarget "SwiftyGPIO" */;
+			buildPhases = (
+				OBJ_319 /* Sources */,
+				OBJ_330 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftyGPIO;
+			productName = SwiftyGPIO;
+			productReference = "SwiftyGPIO::SwiftyGPIO::Product" /* SwiftyGPIO.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"swift-nio::CNIOAtomics" /* CNIOAtomics */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_145 /* Build configuration list for PBXNativeTarget "CNIOAtomics" */;
+			buildPhases = (
+				OBJ_148 /* Sources */,
+				OBJ_150 /* Headers */,
+				OBJ_152 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CNIOAtomics;
+			productName = CNIOAtomics;
+			productReference = "swift-nio::CNIOAtomics::Product" /* CNIOAtomics.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"swift-nio::CNIODarwin" /* CNIODarwin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_154 /* Build configuration list for PBXNativeTarget "CNIODarwin" */;
+			buildPhases = (
+				OBJ_157 /* Sources */,
+				OBJ_159 /* Headers */,
+				OBJ_161 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CNIODarwin;
+			productName = CNIODarwin;
+			productReference = "swift-nio::CNIODarwin::Product" /* CNIODarwin.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"swift-nio::CNIOLinux" /* CNIOLinux */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_163 /* Build configuration list for PBXNativeTarget "CNIOLinux" */;
+			buildPhases = (
+				OBJ_166 /* Sources */,
+				OBJ_169 /* Headers */,
+				OBJ_172 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CNIOLinux;
+			productName = CNIOLinux;
+			productReference = "swift-nio::CNIOLinux::Product" /* CNIOLinux.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"swift-nio::CNIOSHA1" /* CNIOSHA1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_174 /* Build configuration list for PBXNativeTarget "CNIOSHA1" */;
+			buildPhases = (
+				OBJ_177 /* Sources */,
+				OBJ_179 /* Headers */,
+				OBJ_181 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CNIOSHA1;
+			productName = CNIOSHA1;
+			productReference = "swift-nio::CNIOSHA1::Product" /* CNIOSHA1.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"swift-nio::NIO" /* NIO */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_189 /* Build configuration list for PBXNativeTarget "NIO" */;
+			buildPhases = (
+				OBJ_192 /* Sources */,
+				OBJ_252 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_258 /* PBXTargetDependency */,
+				OBJ_259 /* PBXTargetDependency */,
+				OBJ_261 /* PBXTargetDependency */,
+				OBJ_262 /* PBXTargetDependency */,
+				OBJ_263 /* PBXTargetDependency */,
+			);
+			name = NIO;
+			productName = NIO;
+			productReference = "swift-nio::NIO::Product" /* NIO.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"swift-nio::NIOConcurrencyHelpers" /* NIOConcurrencyHelpers */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_264 /* Build configuration list for PBXNativeTarget "NIOConcurrencyHelpers" */;
+			buildPhases = (
+				OBJ_267 /* Sources */,
+				OBJ_270 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_272 /* PBXTargetDependency */,
+			);
+			name = NIOConcurrencyHelpers;
+			productName = NIOConcurrencyHelpers;
+			productReference = "swift-nio::NIOConcurrencyHelpers::Product" /* NIOConcurrencyHelpers.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"swift-nio::NIOFoundationCompat" /* NIOFoundationCompat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_274 /* Build configuration list for PBXNativeTarget "NIOFoundationCompat" */;
+			buildPhases = (
+				OBJ_277 /* Sources */,
+				OBJ_280 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_287 /* PBXTargetDependency */,
+				OBJ_288 /* PBXTargetDependency */,
+				OBJ_289 /* PBXTargetDependency */,
+				OBJ_290 /* PBXTargetDependency */,
+				OBJ_291 /* PBXTargetDependency */,
+				OBJ_292 /* PBXTargetDependency */,
+			);
+			name = NIOFoundationCompat;
+			productName = NIOFoundationCompat;
+			productReference = "swift-nio::NIOFoundationCompat::Product" /* NIOFoundationCompat.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"swift-nio::SwiftPMPackageDescription" /* swift-nioPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_347 /* Build configuration list for PBXNativeTarget "swift-nioPackageDescription" */;
+			buildPhases = (
+				OBJ_350 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "swift-nioPackageDescription";
+			productName = "swift-nioPackageDescription";
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		OBJ_1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 9999;
+				LastUpgradeCheck = 9999;
+				TargetAttributes = {
+					266603832377A27A00015AD4 = {
+						CreatedOnToolsVersion = 11.2;
+						DevelopmentTeam = HY634B3FW2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "GMTC-Swift-on-Pi" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_132 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				"swift-nio::CNIOAtomics" /* CNIOAtomics */,
+				"swift-nio::CNIODarwin" /* CNIODarwin */,
+				"swift-nio::CNIOLinux" /* CNIOLinux */,
+				"swift-nio::CNIOSHA1" /* CNIOSHA1 */,
+				"GMTC-Swift-on-Pi::SwiftPMPackageDescription" /* GMTC-Swift-on-PiPackageDescription */,
+				"swift-nio::NIO" /* NIO */,
+				"swift-nio::NIOConcurrencyHelpers" /* NIOConcurrencyHelpers */,
+				"swift-nio::NIOFoundationCompat" /* NIOFoundationCompat */,
+				"GMTC-Swift-on-Pi::Server" /* Server */,
+				"SwiftyGPIO::SwiftyGPIO" /* SwiftyGPIO */,
+				"SwiftyGPIO::SwiftPMPackageDescription" /* SwiftyGPIOPackageDescription */,
+				"GMTC-Swift-on-Pi::Switch" /* Switch */,
+				"swift-nio::SwiftPMPackageDescription" /* swift-nioPackageDescription */,
+				266603832377A27A00015AD4 /* Build On Pi */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		266603872377A29B00015AD4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "scp -r Sources pi@pi.ssh.homekit.press:GMTC-Swift-on-Pi/Server\nscp -r Package.swift pi@pi.ssh.homekit.press:GMTC-Swift-on-Pi/Server\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		OBJ_148 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_149 /* c-atomics.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_157 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_158 /* shim.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_166 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_167 /* ifaddrs-android.c in Sources */,
+				OBJ_168 /* shim.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_177 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_178 /* c_nio_sha1.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_186 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_187 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_192 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_193 /* AddressedEnvelope.swift in Sources */,
+				OBJ_194 /* BaseSocket.swift in Sources */,
+				OBJ_195 /* BaseSocketChannel.swift in Sources */,
+				OBJ_196 /* BaseStreamSocketChannel.swift in Sources */,
+				OBJ_197 /* Bootstrap.swift in Sources */,
+				OBJ_198 /* ByteBuffer-aux.swift in Sources */,
+				OBJ_199 /* ByteBuffer-core.swift in Sources */,
+				OBJ_200 /* ByteBuffer-int.swift in Sources */,
+				OBJ_201 /* ByteBuffer-views.swift in Sources */,
+				OBJ_202 /* Channel.swift in Sources */,
+				OBJ_203 /* ChannelHandler.swift in Sources */,
+				OBJ_204 /* ChannelHandlers.swift in Sources */,
+				OBJ_205 /* ChannelInvoker.swift in Sources */,
+				OBJ_206 /* ChannelOption.swift in Sources */,
+				OBJ_207 /* ChannelPipeline.swift in Sources */,
+				OBJ_208 /* CircularBuffer.swift in Sources */,
+				OBJ_209 /* Codec.swift in Sources */,
+				OBJ_210 /* DatagramVectorReadManager.swift in Sources */,
+				OBJ_211 /* DeadChannel.swift in Sources */,
+				OBJ_212 /* Embedded.swift in Sources */,
+				OBJ_213 /* EventLoop.swift in Sources */,
+				OBJ_214 /* EventLoopFuture.swift in Sources */,
+				OBJ_215 /* FileDescriptor.swift in Sources */,
+				OBJ_216 /* FileHandle.swift in Sources */,
+				OBJ_217 /* FileRegion.swift in Sources */,
+				OBJ_218 /* GetaddrinfoResolver.swift in Sources */,
+				OBJ_219 /* HappyEyeballs.swift in Sources */,
+				OBJ_220 /* Heap.swift in Sources */,
+				OBJ_221 /* IO.swift in Sources */,
+				OBJ_222 /* IOData.swift in Sources */,
+				OBJ_223 /* IntegerTypes.swift in Sources */,
+				OBJ_224 /* Interfaces.swift in Sources */,
+				OBJ_225 /* Linux.swift in Sources */,
+				OBJ_226 /* LinuxCPUSet.swift in Sources */,
+				OBJ_227 /* MarkedCircularBuffer.swift in Sources */,
+				OBJ_228 /* MulticastChannel.swift in Sources */,
+				OBJ_229 /* NIOAny.swift in Sources */,
+				OBJ_230 /* NIOCloseOnErrorHandler.swift in Sources */,
+				OBJ_231 /* NIOThreadPool.swift in Sources */,
+				OBJ_232 /* NonBlockingFileIO.swift in Sources */,
+				OBJ_233 /* PendingDatagramWritesManager.swift in Sources */,
+				OBJ_234 /* PendingWritesManager.swift in Sources */,
+				OBJ_235 /* PipeChannel.swift in Sources */,
+				OBJ_236 /* PipePair.swift in Sources */,
+				OBJ_237 /* PriorityQueue.swift in Sources */,
+				OBJ_238 /* RecvByteBufferAllocator.swift in Sources */,
+				OBJ_239 /* Resolver.swift in Sources */,
+				OBJ_240 /* Selectable.swift in Sources */,
+				OBJ_241 /* Selector.swift in Sources */,
+				OBJ_242 /* ServerSocket.swift in Sources */,
+				OBJ_243 /* Socket.swift in Sources */,
+				OBJ_244 /* SocketAddresses.swift in Sources */,
+				OBJ_245 /* SocketChannel.swift in Sources */,
+				OBJ_246 /* SocketOptionProvider.swift in Sources */,
+				OBJ_247 /* SocketProtocols.swift in Sources */,
+				OBJ_248 /* System.swift in Sources */,
+				OBJ_249 /* Thread.swift in Sources */,
+				OBJ_250 /* TypeAssistedChannelHandler.swift in Sources */,
+				OBJ_251 /* Utilities.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_267 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_268 /* atomics.swift in Sources */,
+				OBJ_269 /* lock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_277 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_278 /* ByteBuffer-foundation.swift in Sources */,
+				OBJ_279 /* Codable+ByteBuffer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_297 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				2666038B2377A82700015AD4 /* PiHandler.swift in Sources */,
+				OBJ_298 /* RGBLED.swift in Sources */,
+				OBJ_299 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_319 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_320 /* 1Wire.swift in Sources */,
+				OBJ_321 /* ADC.swift in Sources */,
+				OBJ_322 /* I2C.swift in Sources */,
+				OBJ_323 /* Mailbox.swift in Sources */,
+				OBJ_324 /* PWM.swift in Sources */,
+				OBJ_325 /* Presets.swift in Sources */,
+				OBJ_326 /* SPI.swift in Sources */,
+				OBJ_327 /* SunXi.swift in Sources */,
+				OBJ_328 /* SwiftyGPIO.swift in Sources */,
+				OBJ_329 /* UART.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_335 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_336 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_341 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_342 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_350 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_351 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		266603892377A70200015AD4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "GMTC-Swift-on-Pi::Server" /* Server */;
+			targetProxy = 266603882377A70200015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_258 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::CNIOSHA1" /* CNIOSHA1 */;
+			targetProxy = 2666037123779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_259 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::NIOConcurrencyHelpers" /* NIOConcurrencyHelpers */;
+			targetProxy = 2666037223779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_261 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::CNIOAtomics" /* CNIOAtomics */;
+			targetProxy = 2666037423779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_262 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::CNIODarwin" /* CNIODarwin */;
+			targetProxy = 2666037523779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_263 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::CNIOLinux" /* CNIOLinux */;
+			targetProxy = 2666037623779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_272 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::CNIOAtomics" /* CNIOAtomics */;
+			targetProxy = 2666037323779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_287 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::NIO" /* NIO */;
+			targetProxy = 2666037023779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_288 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::CNIOSHA1" /* CNIOSHA1 */;
+			targetProxy = 2666037723779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_289 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::NIOConcurrencyHelpers" /* NIOConcurrencyHelpers */;
+			targetProxy = 2666037823779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_290 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::CNIOAtomics" /* CNIOAtomics */;
+			targetProxy = 2666037923779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_291 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::CNIODarwin" /* CNIODarwin */;
+			targetProxy = 2666037A23779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_292 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::CNIOLinux" /* CNIOLinux */;
+			targetProxy = 2666037B23779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_308 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::NIOFoundationCompat" /* NIOFoundationCompat */;
+			targetProxy = 2666036F23779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_309 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::NIO" /* NIO */;
+			targetProxy = 2666037C23779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_310 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::CNIOSHA1" /* CNIOSHA1 */;
+			targetProxy = 2666037D23779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_311 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::NIOConcurrencyHelpers" /* NIOConcurrencyHelpers */;
+			targetProxy = 2666037E23779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_312 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::CNIOAtomics" /* CNIOAtomics */;
+			targetProxy = 2666037F23779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_313 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::CNIODarwin" /* CNIODarwin */;
+			targetProxy = 2666038023779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_314 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-nio::CNIOLinux" /* CNIOLinux */;
+			targetProxy = 2666038123779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+		OBJ_345 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SwiftyGPIO::SwiftyGPIO" /* SwiftyGPIO */;
+			targetProxy = 2666038223779ED300015AD4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		266603842377A27A00015AD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HY634B3FW2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		266603852377A27A00015AD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HY634B3FW2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		OBJ_146 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include",
+				);
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/CNIOAtomics_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = CNIOAtomics;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				TARGET_NAME = CNIOAtomics;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_147 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include",
+				);
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/CNIOAtomics_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = CNIOAtomics;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				TARGET_NAME = CNIOAtomics;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_155 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIODarwin/include",
+				);
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/CNIODarwin_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = CNIODarwin;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				TARGET_NAME = CNIODarwin;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_156 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIODarwin/include",
+				);
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/CNIODarwin_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = CNIODarwin;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				TARGET_NAME = CNIODarwin;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_164 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOLinux/include",
+				);
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/CNIOLinux_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = CNIOLinux;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				TARGET_NAME = CNIOLinux;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_165 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOLinux/include",
+				);
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/CNIOLinux_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = CNIOLinux;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				TARGET_NAME = CNIOLinux;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_175 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOSHA1/include",
+				);
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/CNIOSHA1_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = CNIOSHA1;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				TARGET_NAME = CNIOSHA1;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_176 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOSHA1/include",
+				);
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/CNIOSHA1_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = CNIOSHA1;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				TARGET_NAME = CNIOSHA1;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_184 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		OBJ_185 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5.1";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		OBJ_190 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOSHA1/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIODarwin/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOLinux/include",
+				);
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/NIO_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = NIO;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = NIO;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_191 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOSHA1/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIODarwin/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOLinux/include",
+				);
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/NIO_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = NIO;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = NIO;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_265 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include",
+				);
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/NIOConcurrencyHelpers_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = NIOConcurrencyHelpers;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = NIOConcurrencyHelpers;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_266 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include",
+				);
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/NIOConcurrencyHelpers_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = NIOConcurrencyHelpers;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = NIOConcurrencyHelpers;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_275 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOSHA1/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIODarwin/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOLinux/include",
+				);
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/NIOFoundationCompat_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = NIOFoundationCompat;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = NIOFoundationCompat;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_276 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOSHA1/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIODarwin/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOLinux/include",
+				);
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/NIOFoundationCompat_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = NIOFoundationCompat;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = NIOFoundationCompat;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_295 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOSHA1/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIODarwin/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOLinux/include",
+				);
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/Server_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = Server;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_296 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOSHA1/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOAtomics/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIODarwin/include",
+					"$(SRCROOT)/.build/checkouts/swift-nio/Sources/CNIOLinux/include",
+				);
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/Server_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = Server;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+					"DEBUG=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		OBJ_317 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/SwiftyGPIO_Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SwiftyGPIO;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = SwiftyGPIO;
+			};
+			name = Debug;
+		};
+		OBJ_318 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/SwiftyGPIO_Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SwiftyGPIO;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = SwiftyGPIO;
+			};
+			name = Release;
+		};
+		OBJ_333 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 4";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		OBJ_334 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 4";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		OBJ_339 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/Switch_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = Switch;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_340 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "GMTC-Swift-on-Pi.xcodeproj/Switch_Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = Switch;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_348 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		OBJ_349 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk -package-description-version 5";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		266603862377A27A00015AD4 /* Build configuration list for PBXAggregateTarget "Build On Pi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				266603842377A27A00015AD4 /* Debug */,
+				266603852377A27A00015AD4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_145 /* Build configuration list for PBXNativeTarget "CNIOAtomics" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_146 /* Debug */,
+				OBJ_147 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_154 /* Build configuration list for PBXNativeTarget "CNIODarwin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_155 /* Debug */,
+				OBJ_156 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_163 /* Build configuration list for PBXNativeTarget "CNIOLinux" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_164 /* Debug */,
+				OBJ_165 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_174 /* Build configuration list for PBXNativeTarget "CNIOSHA1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_175 /* Debug */,
+				OBJ_176 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_183 /* Build configuration list for PBXNativeTarget "GMTC-Swift-on-PiPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_184 /* Debug */,
+				OBJ_185 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_189 /* Build configuration list for PBXNativeTarget "NIO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_190 /* Debug */,
+				OBJ_191 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_2 /* Build configuration list for PBXProject "GMTC-Swift-on-Pi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_264 /* Build configuration list for PBXNativeTarget "NIOConcurrencyHelpers" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_265 /* Debug */,
+				OBJ_266 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_274 /* Build configuration list for PBXNativeTarget "NIOFoundationCompat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_275 /* Debug */,
+				OBJ_276 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_294 /* Build configuration list for PBXNativeTarget "Server" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_295 /* Debug */,
+				OBJ_296 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_316 /* Build configuration list for PBXNativeTarget "SwiftyGPIO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_317 /* Debug */,
+				OBJ_318 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_332 /* Build configuration list for PBXNativeTarget "SwiftyGPIOPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_333 /* Debug */,
+				OBJ_334 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_338 /* Build configuration list for PBXNativeTarget "Switch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_339 /* Debug */,
+				OBJ_340 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_347 /* Build configuration list for PBXNativeTarget "swift-nioPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_348 /* Debug */,
+				OBJ_349 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = OBJ_1 /* Project object */;
 }
