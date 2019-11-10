@@ -151,6 +151,13 @@
 			remoteGlobalIDString = "GMTC-Swift-on-Pi::UpdateLED";
 			remoteInfo = UpdateLED;
 		};
+		266604BD23781E9000015AD4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2666040D2378024A00015AD4 /* GMTC-Swift-on-Pi.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = "GMTC-Swift-on-Pi::RGBLED::Product";
+			remoteInfo = RGBLED;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -177,6 +184,7 @@
 				26660456237802C200015AD4 /* NIO.framework */,
 				26660458237802C200015AD4 /* NIOConcurrencyHelpers.framework */,
 				2666045A237802C200015AD4 /* NIOFoundationCompat.framework */,
+				266604BE23781E9000015AD4 /* RGBLED.framework */,
 				2666045C237802C200015AD4 /* Server */,
 				2666045E237802C200015AD4 /* SwiftyGPIO.framework */,
 				2666049123780DB800015AD4 /* UpdateLED */,
@@ -313,6 +321,13 @@
 			remoteRef = 2666049023780DB800015AD4 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		266604BE23781E9000015AD4 /* RGBLED.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RGBLED.framework;
+			remoteRef = 266604BD23781E9000015AD4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -331,7 +346,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "scp -r Server/Sources/Button pi@pi3.ssh.homekit.press:GMTC-Swift-on-Pi/Server/Sources\n";
+			shellScript = "scp -r Server/Sources/Button pi@pi.ssh.homekit.press:GMTC-Swift-on-Pi/Server/Sources\n";
 		};
 		2666046723780B7100015AD4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -348,7 +363,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "scp -r Server/Sources/LED pi@pi3.ssh.homekit.press:GMTC-Swift-on-Pi/Server/Sources\n";
+			shellScript = "scp -r Server/Sources/LED pi@pi.ssh.homekit.press:GMTC-Swift-on-Pi/Server/Sources\n";
 		};
 		2666049523780DBF00015AD4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -365,7 +380,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "scp -r Server/Sources/UpdateLED pi@pi3.ssh.homekit.press:GMTC-Swift-on-Pi/Server/Sources\n";
+			shellScript = "scp -r Server/Sources/UpdateLED pi@pi.ssh.homekit.press:GMTC-Swift-on-Pi/Server/Sources\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -10,6 +10,3 @@ let gpios = SwiftyGPIO.GPIOs(for:.RaspberryPi3)
 let led = gpios[.P12]!
 led.direction = .OUT
 led.value = 1
-
-
-
