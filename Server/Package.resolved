@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "swift-nio",
+        "repositoryURL": "https://github.com/apple/swift-nio.git",
+        "state": {
+          "branch": null,
+          "revision": "bc661cbb771328e09faa65432628e9ff6fd333d5",
+          "version": "2.10.0"
+        }
+      },
+      {
+        "package": "SwiftyGPIO",
+        "repositoryURL": "https://github.com/uraimo/SwiftyGPIO.git",
+        "state": {
+          "branch": null,
+          "revision": "4127ff9dd5c6aa8acb6be34b7ce2af2f6e0b942d",
+          "version": "1.1.14"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
